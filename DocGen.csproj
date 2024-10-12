@@ -11,10 +11,16 @@
   <ItemGroup>
     <Compile Remove="DataJuggler.DocGen\**" />
     <Compile Remove="Data\**" />
+    <Compile Remove="Win\DataJuggler.DocGen\**" />
+    <Compile Remove="Win\Data\**" />
     <EmbeddedResource Remove="DataJuggler.DocGen\**" />
     <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="Win\DataJuggler.DocGen\**" />
+    <EmbeddedResource Remove="Win\Data\**" />
     <None Remove="DataJuggler.DocGen\**" />
     <None Remove="Data\**" />
+    <None Remove="Win\DataJuggler.DocGen\**" />
+    <None Remove="Win\Data\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +31,10 @@
     <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.12.0-2.final" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\DataJuggler.DocGen\DataJuggler.DocGen.csproj" />
-    <ProjectReference Include="..\Data\DataAccessComponent\DataAccessComponent.csproj" />
-    <ProjectReference Include="..\Data\ObjectLibrary\ObjectLibrary.csproj" />
+  <ItemGroup>    
+    <ProjectReference Include="DataJuggler.DocGen\DataJuggler.DocGen.csproj" />
+    <ProjectReference Include="Data\DataAccessComponent\DataAccessComponent.csproj" />
+    <ProjectReference Include="Data\ObjectLibrary\ObjectLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
