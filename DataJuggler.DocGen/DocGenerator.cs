@@ -3,7 +3,6 @@
 #region using statements
 
 using DataJuggler.UltimateHelper;
-using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.FindSymbols;
@@ -11,7 +10,6 @@ using Microsoft.CodeAnalysis.MSBuild;
 using ObjectLibrary.BusinessObjects;
 using ObjectLibrary.Enumerations;
 using CodeConstructor = ObjectLibrary.BusinessObjects.CodeConstructor;
-using MSProject = Microsoft.Build.Evaluation.Project;
 using Project = Microsoft.CodeAnalysis.Project;
 
 #endregion
@@ -134,7 +132,7 @@ namespace DataJuggler.DocGen
                 // initial value
                 List<CodeFile> codeFiles = new List<CodeFile>();
 
-                // Get the ecompilation
+                // Get the compilation
                 var compilation = await project.GetCompilationAsync();
 
                 // iterate the documents
@@ -535,11 +533,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateProjects()
+            #region CreateProjects(MSBuildWorkspace workspace)
             /// <summary>
             /// returns a list of Projects
             /// </summary>
-            public async static Task<List<VSProject>> CreateProjects(List<Project> projects, Solution solution)
+            public async static Task<List<VSProject>> CreateProjects(MSBuildWorkspace workspace, List<Project> projects, Solution solution)
             {
                 // initial value
                 List<VSProject> vsProjects = new List<VSProject>();
@@ -555,9 +553,7 @@ namespace DataJuggler.DocGen
                         vsProject.Name = project.Name;
                         vsProject.FullPath = project.FilePath;
 
-                        // Get the Description
-                        var msBuildProject = new MSProject(vsProject.FullPath);
-                        vsProject.Description = msBuildProject.GetPropertyValue("Description");
+                        
 
                         // Create the CodeFiles
                         vsProject.CodeFiles = await CreateCodeFiles(project, solution);
@@ -899,10 +895,6 @@ namespace DataJuggler.DocGen
                     // Create workspace
                     using var workspace = MSBuildWorkspace.Create();
 
-                    // RegisterMSBuild - C# wasn't working due to Roslyn
-                    // MSBuildLocator.RegisterMSBuildPath(@"C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin");
-                    MSBuildLocator.RegisterDefaults();
-
                     // This line appears to not do anything, but it is required to force Rosyln to support C#.
                     // Take this out and you get an error 'C# Is Not Supported'. 
                     var temp = typeof(Microsoft.CodeAnalysis.CSharp.Formatting.CSharpFormattingOptions);
@@ -919,8 +911,11 @@ namespace DataJuggler.DocGen
                     vsSolution.FullPath = solutionPath;
                     vsSolution.Name = solutionName;
 
+                    // Close the solution
+                    workspace.CloseSolution();
+
                     // Create the Projects (and all child objects)
-                    vsSolution.Projects = await CreateProjects(projects, solution);
+                    vsSolution.Projects = await CreateProjects(workspace, projects, solution);
                 }
                 
                 // return value

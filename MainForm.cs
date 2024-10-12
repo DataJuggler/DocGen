@@ -8,7 +8,6 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.MSBuild;
 using System.Linq;
-using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis.FindSymbols;
 using ObjectLibrary.BusinessObjects;
 using DataAccessComponent.DataGateway;
@@ -62,8 +61,18 @@ namespace DocGen
                 // Retrieve the Solution
                 Solution = await DocGenerator.AnalyzeSolution(SolutionSelector.Text);
 
-                // Show Success
-                DescriptionControl.Text = "Success!";
+                if (Solution.Errors.Count > 0)
+                {
+                    // Show Success
+                    DescriptionControl.Text = "Errors!";
+                }
+                else
+                {
+                    // Show Success
+                    DescriptionControl.Text = "Success!";
+                }
+
+                
 
                 // Set the properties
                 Solution.Description = DescriptionControl.Text;
