@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>DataJuggler</Authors>
     <Description>DocGen uses Microsoft.CodeAnalysis to analyze a Visual Studio C# Solution and helps to automate generating documentation.
 A Blazor website is coming soon that will allow admin owners of a solution to edit and approve or hide generated descriptions.</Description>
