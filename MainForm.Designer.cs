@@ -333,7 +333,7 @@ namespace DocGen
             ResultsLabel.ForeColor = Color.LemonChiffon;
             ResultsLabel.Location = new Point(22, 8);
             ResultsLabel.Name = "ResultsLabel";
-            ResultsLabel.Size = new Size(154, 20);
+            ResultsLabel.Size = new Size(199, 20);
             ResultsLabel.TabIndex = 31;
             ResultsLabel.Text = "Saved Results:";
             // 

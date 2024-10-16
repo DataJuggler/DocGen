@@ -186,12 +186,13 @@ namespace DocGen
             ///  This method performs initializations for this object.
             /// </summary>
             public void Init()
-            {
-                // For Testing Only
-                // SolutionSelector.Text = "C:\\Projects\\GitHub\\DataJuggler.Blazor.Components\\DataJuggler.Blazor.Components.sln";
-
+            {  
                 // Create a new instance of a 'Gateway' object.
                 Gateway = new Gateway(Connection.Name);
+
+                // Dislay the version
+                string temp = Application.ProductVersion;
+                this.Text = "DocGen " + temp;
             }
             #endregion
            

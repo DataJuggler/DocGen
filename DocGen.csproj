@@ -6,6 +6,8 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Version>1.0.1</Version>	
+	<IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +19,7 @@
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="Win\DataJuggler.DocGen\**" />
     <EmbeddedResource Remove="Win\Data\**" />
-    <None Remove="DataJuggler.DocGen\**" />
+	  <None Remove="DataJuggler.DocGen\**" />
     <None Remove="Data\**" />
     <None Remove="Win\DataJuggler.DocGen\**" />
     <None Remove="Win\Data\**" />

@@ -62,6 +62,8 @@ namespace DataJuggler.DocGen
 
                     // Link the PartialClasses
                     LinkPartialClasses(vsSolution);
+
+                    // Get a distinct list of ReferencedBy objects
                 }
                 catch (Exception error)
                 {
@@ -74,11 +76,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateClasses(SyntaxNode root, SemanticModel semanticModel, Solution solution, CodeFile codeFile)
+            #region CreateClasses(SyntaxNode root, SemanticModel semanticModel, Solution solution, CodeFile codeFile, bool distinctReferenecedByList)
             /// <summary>
             /// returns a list of Classes
             /// </summary>
-            public async static Task<List<CodeClass>> CreateClasses(SyntaxNode root, SemanticModel semanticModel, Solution solution, CodeFile codeFile)
+            public async static Task<List<CodeClass>> CreateClasses(SyntaxNode root, SemanticModel semanticModel, Solution solution, CodeFile codeFile, bool distinctReferenecedByList)
             {
                 // initial value
                 List<CodeClass> codeClasses = new List<CodeClass>();
@@ -110,13 +112,13 @@ namespace DataJuggler.DocGen
                         codeClass.Description = DescriptionHelper.FormatDescription(GetSummaryText(docCommentTrivia));
 
                         // Create the Constructors
-                        codeClass.Constructors = await CreateConstructors(classDeclaration, semanticModel, solution);
+                        codeClass.Constructors = await CreateConstructors(classDeclaration, semanticModel, solution, distinctReferenecedByList);
                         
                         // Create the Properties
-                        codeClass.Properties = await CreateProperties(classDeclaration, semanticModel, solution);
+                        codeClass.Properties = await CreateProperties(classDeclaration, semanticModel, solution, distinctReferenecedByList);
 
                         // Create the Methods
-                        codeClass.Methods = await CreateMethods(classDeclaration, semanticModel, solution);
+                        codeClass.Methods = await CreateMethods(classDeclaration, semanticModel, solution, distinctReferenecedByList);
 
                         // is this a partial class
                         codeClass.IsPartial = IsPartialClass(classDeclaration);
@@ -126,6 +128,15 @@ namespace DataJuggler.DocGen
 
                         // Set the References
                         codeClass.References = references;
+
+                        // if the list needs to be distinct
+                        if (distinctReferenecedByList)
+                        {
+                            // Get a distinct list
+                            codeClass.References = codeClass.References.GroupBy(rb => rb.FilePath).Select(g => g.First()).ToList();
+                        }
+
+                        // Setup the References
                         codeClass.SetupReferences();
 
                         // Add this item
@@ -138,11 +149,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateCodeFiles(Project project, Solution solution, UICallback uICallback)
+            #region CreateCodeFiles(Project project, Solution solution, UICallback uICallback, bool distinctReferenecedByList)
             /// <summary>
             /// returns a list of Code Files
             /// </summary>
-            public async static Task<List<CodeFile>> CreateCodeFiles(Project project, Solution solution, UICallback uICallback)
+            public async static Task<List<CodeFile>> CreateCodeFiles(Project project, Solution solution, UICallback uICallback, bool distinctReferenecedByList)
             {
                 // initial value
                 List<CodeFile> codeFiles = new List<CodeFile>();
@@ -191,7 +202,7 @@ namespace DataJuggler.DocGen
                         var semanticModel = compilation.GetSemanticModel(root.SyntaxTree);
 
                         // Get the Classes for this CodeFile
-                        codeFile.Classes = await CreateClasses(root, semanticModel, solution, codeFile);
+                        codeFile.Classes = await CreateClasses(root, semanticModel, solution, codeFile, distinctReferenecedByList);
                         
                         // Add this codeFile
                         codeFiles.Add(codeFile);
@@ -214,11 +225,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateConstructors(CreateConstructors classDeclaration, SemanticModel semanticModel, Solution solution)
+            #region CreateConstructors(CreateConstructors classDeclaration, SemanticModel semanticModel, Solution solution, bool distinctReferenecedByList)
             /// <summary>
             /// returns a list of Methods
             /// </summary>
-            public async static Task<List<CodeConstructor>> CreateConstructors(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution)
+            public async static Task<List<CodeConstructor>> CreateConstructors(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution, bool distinctReferenecedByList)
             {
                 // initial value
                 List<CodeConstructor> codeConstructors = new List<CodeConstructor>();
@@ -253,6 +264,13 @@ namespace DataJuggler.DocGen
 
                         // Get the ReferencedBy for this method
                         List<ReferencedBy> references = await CreateReferences(constructor, semanticModel, solution, ReferenceTypeEnum.Constructor);
+
+                        // if the list needs to be distinct
+                        if (distinctReferenecedByList)
+                        {
+                            // Get a distinct list
+                            references = references.GroupBy(rb => rb.FilePath).Select(g => g.First()).ToList();
+                        }
                         
                         // Create a new instance of a 'CodeMethod' object.
                         CodeConstructor codeConstructor = new CodeConstructor();
@@ -278,11 +296,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
 
-            #region CreateMethods(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution)
+            #region CreateMethods(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution, bool distinctReferenecedByList)
             /// <summary>
             /// returns a list of Methods
             /// </summary>
-            public async static Task<List<CodeMethod>> CreateMethods(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution)
+            public async static Task<List<CodeMethod>> CreateMethods(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution, bool distinctReferenecedByList)
             {
                 // initial value
                 List<CodeMethod> codeMethods = new List<CodeMethod>();
@@ -316,6 +334,13 @@ namespace DataJuggler.DocGen
 
                         // Get the ReferencedBy for this method
                         List<ReferencedBy> references = await CreateReferences(method, semanticModel, solution, ReferenceTypeEnum.Method);
+
+                        // if the list needs to be distinct
+                        if (distinctReferenecedByList)
+                        {
+                            // Get a distinct list
+                            references = references.GroupBy(rb => rb.FilePath).Select(g => g.First()).ToList();
+                        }
                         
                         // Create a new instance of a 'CodeMethod' object.
                         CodeMethod codeMethod = new CodeMethod();
@@ -329,6 +354,13 @@ namespace DataJuggler.DocGen
                         
                         // Set teh References
                         codeMethod.References = references;
+
+                        // if the list needs to be distinct
+                        if (distinctReferenecedByList)
+                        {
+                            // Get a distinct list
+                            codeMethod.References = codeMethod.References.GroupBy(rb => rb.FilePath).Select(g => g.First()).ToList();
+                        }
                         
                         // Set the Source object to this method
                         codeMethod.SetupReferences();
@@ -518,11 +550,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateProjects(List<Project> projects, Solution solution, UICallback uICallback)
+            #region CreateProjects(List<Project> projects, Solution solution, UICallback uICallback, bool distinctReferenecedByList)
             /// <summary>
             /// returns a list of Projects
             /// </summary>
-            public async static Task<List<VSProject>> CreateProjects(List<Project> projects, Solution solution, UICallback uICallback)
+            public async static Task<List<VSProject>> CreateProjects(List<Project> projects, Solution solution, UICallback uICallback, bool distinctReferenecedByList)
             {
                 // initial value
                 List<VSProject> vsProjects = new List<VSProject>();
@@ -544,7 +576,7 @@ namespace DataJuggler.DocGen
                             projectsCount++;
 
                             // Notify the caller
-                            string statusMessage = "Analyzing Projects " + projectsCount + " of " + totalProjects + ".";
+                            string statusMessage = "Analyzing Project " + projectsCount + " of " + totalProjects + ".";
                             uICallback.OverallProgress(projects.Count, projectsCount, statusMessage);
                         }
 
@@ -567,12 +599,10 @@ namespace DataJuggler.DocGen
                         vsProject.TargetFramework = words[0].Text;
                         
                         // Create the CodeFiles
-                        vsProject.CodeFiles = await CreateCodeFiles(project, solution, uICallback);
+                        vsProject.CodeFiles = await CreateCodeFiles(project, solution, uICallback, distinctReferenecedByList);
 
                         // Add this project
                         vsProjects.Add(vsProject);
-
-                        
                     }
                 }
                 
@@ -581,11 +611,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateProperties(ClassDeclarationSyntax classDeclaration, SemanticModel semantic, Solution solution)
+            #region CreateProperties(ClassDeclarationSyntax classDeclaration, SemanticModel semantic, Solution solution, bool distinctReferenecedByList))
             /// <summary>
             /// returns a list of Properties
             /// </summary>
-            public async static Task<List<CodeProperty>> CreateProperties(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution)
+            public async static Task<List<CodeProperty>> CreateProperties(ClassDeclarationSyntax classDeclaration, SemanticModel semanticModel, Solution solution, bool distinctReferenecedByList)
             {
                 // initial value
                 List<CodeProperty> codeProperties = new List<CodeProperty>();
@@ -632,6 +662,13 @@ namespace DataJuggler.DocGen
 
                         // Create the References
                         List<ReferencedBy> references = await CreateReferences(property, semanticModel, solution, ReferenceTypeEnum.Property);
+
+                        // if the list needs to be distinct
+                        if (distinctReferenecedByList)
+                        {
+                            // Get a distinct list
+                            references = references.GroupBy(rb => rb.FilePath).Select(g => g.First()).ToList();
+                        }
 
                         // Store the References
                         codeProperty.References = references;
@@ -695,11 +732,11 @@ namespace DataJuggler.DocGen
             }
             #endregion
             
-            #region CreateSolution(string path, UICallback uICallback)
+            #region CreateSolution(string path, UICallback uICallback, bool distinctReferenecedByList = true)
             /// <summary>
             /// returns the Solution
             /// </summary>
-            public async static Task<VSSolution> CreateSolution(string path, UICallback uICallback)
+            public async static Task<VSSolution> CreateSolution(string path, UICallback uICallback, bool distinctReferenecedByList = true)
             {
                 // initial value
                 VSSolution vsSolution = null;
@@ -733,7 +770,7 @@ namespace DataJuggler.DocGen
                     workspace.CloseSolution();
 
                     // Create the Projects (and all child objects)
-                    vsSolution.Projects = await CreateProjects(projects, solution, uICallback);
+                    vsSolution.Projects = await CreateProjects(projects, solution, uICallback, distinctReferenecedByList);                    
                 }
                 
                 // return value
