@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(CodeFile codeFile)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[8];
+                SqlParameter[] parameters = new SqlParameter[10];
                 SqlParameter param = null;
 
                 // verify codeFileexists
@@ -153,23 +153,35 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create [ProjectId] parameter
-                    param = new SqlParameter("@ProjectId", codeFile.ProjectId);
+                    // Create [ParentId] parameter
+                    param = new SqlParameter("@ParentId", codeFile.ParentId);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create [PropertiesCount] parameter
-                    param = new SqlParameter("@PropertiesCount", codeFile.PropertiesCount);
+                    // Create [ProjectId] parameter
+                    param = new SqlParameter("@ProjectId", codeFile.ProjectId);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create [Status] parameter
-                    param = new SqlParameter("@Status", codeFile.Status);
+                    // Create [PropertiesCount] parameter
+                    param = new SqlParameter("@PropertiesCount", codeFile.PropertiesCount);
 
                     // set parameters[7]
                     parameters[7] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", codeFile.Status);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", codeFile.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
                 }
 
                 // return value
@@ -216,7 +228,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(CodeFile codeFile)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[9];
+                SqlParameter[] parameters = new SqlParameter[11];
                 SqlParameter param = null;
 
                 // verify codeFileexists
@@ -252,27 +264,39 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create parameter for [ProjectId]
-                    param = new SqlParameter("@ProjectId", codeFile.ProjectId);
+                    // Create parameter for [ParentId]
+                    param = new SqlParameter("@ParentId", codeFile.ParentId);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create parameter for [PropertiesCount]
-                    param = new SqlParameter("@PropertiesCount", codeFile.PropertiesCount);
+                    // Create parameter for [ProjectId]
+                    param = new SqlParameter("@ProjectId", codeFile.ProjectId);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create parameter for [Status]
-                    param = new SqlParameter("@Status", codeFile.Status);
+                    // Create parameter for [PropertiesCount]
+                    param = new SqlParameter("@PropertiesCount", codeFile.PropertiesCount);
 
                     // set parameters[7]
                     parameters[7] = param;
 
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", codeFile.Status);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", codeFile.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", codeFile.Id);
-                    parameters[8] = param;
+                    parameters[10] = param;
                 }
 
                 // return value

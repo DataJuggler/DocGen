@@ -41,6 +41,8 @@ namespace DataAccessComponent.Data.Readers
                 int fullPathfield = 2;
                 int idfield = 3;
                 int namefield = 4;
+                int statusfield = 5;
+                int visiblefield = 6;
 
                 try
                 {
@@ -50,6 +52,8 @@ namespace DataAccessComponent.Data.Readers
                     vSSolution.FullPath = DataHelper.ParseString(dataRow.ItemArray[fullPathfield]);
                     vSSolution.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
                     vSSolution.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
+                    vSSolution.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    vSSolution.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

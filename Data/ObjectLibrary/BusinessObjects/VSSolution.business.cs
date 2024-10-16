@@ -5,6 +5,7 @@
 using ObjectLibrary.Enumerations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 #endregion
 
@@ -86,6 +87,33 @@ namespace ObjectLibrary.BusinessObjects
             {
                 get { return projects; }
                 set { projects = value; }
+            }
+            #endregion
+            
+            #region TotalReferencesCount
+            /// <summary>
+            /// This read only property returns the value of TotalReferencesCount from the object Projects.
+            /// </summary>
+            public int TotalReferencesCount
+            {
+                
+                get
+                {
+                    // initial value
+                    int totalReferencesCount = 0;
+                    
+                    // Get the projectReferences Count
+                    int projectReferences = Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.References).Count();
+                    int constructorReferences = Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Constructors)    .SelectMany(c => c.References).Count();
+                    int methodReferences = Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Methods).SelectMany(m => m.References).Count();
+                    int propertyReferences = Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Properties).SelectMany(p => p.References).Count();
+
+                    // set the total
+                    totalReferencesCount = projectReferences + constructorReferences + methodReferences + projectReferences;
+                    
+                    // return value
+                    return totalReferencesCount;
+                }
             }
             #endregion
             

@@ -122,43 +122,6 @@ namespace DataAccessComponent.DataGateway
             }
             #endregion
         
-            #region DeleteCodeEvent(int id, CodeEvent tempCodeEvent = null)
-            /// <summary>
-            /// This method is used to delete CodeEvent objects.
-            /// </summary>
-            /// <param name="id">Delete the CodeEvent with this id</param>
-            /// <param name="tempCodeEvent">Pass in a tempCodeEvent to perform a custom delete.</param>
-            public bool DeleteCodeEvent(int id, CodeEvent tempCodeEvent = null)
-            {
-                // initial value
-                bool deleted = false;
-        
-                // if the AppController exists
-                if (this.HasAppController)
-                {
-                    // if the tempCodeEvent does not exist
-                    if (tempCodeEvent == null)
-                    {
-                        // create a temp CodeEvent
-                        tempCodeEvent = new CodeEvent();
-                    }
-        
-                    // if the id is set
-                    if (id > 0)
-                    {
-                        // set the primary key
-                        tempCodeEvent.UpdateIdentity(id);
-                    }
-        
-                    // perform the delete
-                    deleted = this.AppController.ControllerManager.CodeEventController.Delete(tempCodeEvent);
-                }
-        
-                // return value
-                return deleted;
-            }
-            #endregion
-        
             #region DeleteCodeFile(int id, CodeFile tempCodeFile = null)
             /// <summary>
             /// This method is used to delete CodeFile objects.
@@ -300,6 +263,43 @@ namespace DataAccessComponent.DataGateway
         
                     // perform the delete
                     deleted = this.AppController.ControllerManager.CodePropertyController.Delete(tempCodeProperty);
+                }
+        
+                // return value
+                return deleted;
+            }
+            #endregion
+        
+            #region DeleteCodeSample(int id, CodeSample tempCodeSample = null)
+            /// <summary>
+            /// This method is used to delete CodeSample objects.
+            /// </summary>
+            /// <param name="id">Delete the CodeSample with this id</param>
+            /// <param name="tempCodeSample">Pass in a tempCodeSample to perform a custom delete.</param>
+            public bool DeleteCodeSample(int id, CodeSample tempCodeSample = null)
+            {
+                // initial value
+                bool deleted = false;
+        
+                // if the AppController exists
+                if (this.HasAppController)
+                {
+                    // if the tempCodeSample does not exist
+                    if (tempCodeSample == null)
+                    {
+                        // create a temp CodeSample
+                        tempCodeSample = new CodeSample();
+                    }
+        
+                    // if the id is set
+                    if (id > 0)
+                    {
+                        // set the primary key
+                        tempCodeSample.UpdateIdentity(id);
+                    }
+        
+                    // perform the delete
+                    deleted = this.AppController.ControllerManager.CodeSampleController.Delete(tempCodeSample);
                 }
         
                 // return value
@@ -538,43 +538,6 @@ namespace DataAccessComponent.DataGateway
             }
             #endregion
 
-            #region FindCodeEvent(int id, CodeEvent tempCodeEvent = null)
-            /// <summary>
-            /// This method is used to find 'CodeEvent' objects.
-            /// </summary>
-            /// <param name="id">Find the CodeEvent with this id</param>
-            /// <param name="tempCodeEvent">Pass in a tempCodeEvent to perform a custom find.</param>
-            public CodeEvent FindCodeEvent(int id, CodeEvent tempCodeEvent = null)
-            {
-                // initial value
-                CodeEvent codeEvent = null;
-
-                // if the AppController exists
-                if (this.HasAppController)
-                {
-                    // if the tempCodeEvent does not exist
-                    if (tempCodeEvent == null)
-                    {
-                        // create a temp CodeEvent
-                        tempCodeEvent = new CodeEvent();
-                    }
-
-                    // if the id is set
-                    if (id > 0)
-                    {
-                        // set the primary key
-                        tempCodeEvent.UpdateIdentity(id);
-                    }
-
-                    // perform the find
-                    codeEvent = this.AppController.ControllerManager.CodeEventController.Find(tempCodeEvent);
-                }
-
-                // return value
-                return codeEvent;
-            }
-            #endregion
-
             #region FindCodeFile(int id, CodeFile tempCodeFile = null)
             /// <summary>
             /// This method is used to find 'CodeFile' objects.
@@ -720,6 +683,43 @@ namespace DataAccessComponent.DataGateway
 
                 // return value
                 return codeProperty;
+            }
+            #endregion
+
+            #region FindCodeSample(int id, CodeSample tempCodeSample = null)
+            /// <summary>
+            /// This method is used to find 'CodeSample' objects.
+            /// </summary>
+            /// <param name="id">Find the CodeSample with this id</param>
+            /// <param name="tempCodeSample">Pass in a tempCodeSample to perform a custom find.</param>
+            public CodeSample FindCodeSample(int id, CodeSample tempCodeSample = null)
+            {
+                // initial value
+                CodeSample codeSample = null;
+
+                // if the AppController exists
+                if (this.HasAppController)
+                {
+                    // if the tempCodeSample does not exist
+                    if (tempCodeSample == null)
+                    {
+                        // create a temp CodeSample
+                        tempCodeSample = new CodeSample();
+                    }
+
+                    // if the id is set
+                    if (id > 0)
+                    {
+                        // set the primary key
+                        tempCodeSample.UpdateIdentity(id);
+                    }
+
+                    // perform the find
+                    codeSample = this.AppController.ControllerManager.CodeSampleController.Find(tempCodeSample);
+                }
+
+                // return value
+                return codeSample;
             }
             #endregion
 
@@ -936,27 +936,6 @@ namespace DataAccessComponent.DataGateway
             }
             #endregion
 
-            #region LoadCodeEvents(CodeEvent tempCodeEvent = null)
-            /// <summary>
-            /// This method loads a collection of 'CodeEvent' objects.
-            /// </summary>
-            public List<CodeEvent> LoadCodeEvents(CodeEvent tempCodeEvent = null)
-            {
-                // initial value
-                List<CodeEvent> codeEvents = null;
-
-                // if the AppController exists
-                if (this.HasAppController)
-                {
-                    // perform the load
-                    codeEvents = this.AppController.ControllerManager.CodeEventController.FetchAll(tempCodeEvent);
-                }
-
-                // return value
-                return codeEvents;
-            }
-            #endregion
-
             #region LoadCodeFiles(CodeFile tempCodeFile = null)
             /// <summary>
             /// This method loads a collection of 'CodeFile' objects.
@@ -1038,6 +1017,27 @@ namespace DataAccessComponent.DataGateway
 
                 // return value
                 return codePropertys;
+            }
+            #endregion
+
+            #region LoadCodeSamples(CodeSample tempCodeSample = null)
+            /// <summary>
+            /// This method loads a collection of 'CodeSample' objects.
+            /// </summary>
+            public List<CodeSample> LoadCodeSamples(CodeSample tempCodeSample = null)
+            {
+                // initial value
+                List<CodeSample> codeSamples = null;
+
+                // if the AppController exists
+                if (this.HasAppController)
+                {
+                    // perform the load
+                    codeSamples = this.AppController.ControllerManager.CodeSampleController.FetchAll(tempCodeSample);
+                }
+
+                // return value
+                return codeSamples;
             }
             #endregion
 
@@ -1148,28 +1148,6 @@ namespace DataAccessComponent.DataGateway
             }
             #endregion
 
-            #region SaveCodeEvent(ref CodeEvent codeEvent)
-            /// <summary>
-            /// This method is used to save 'CodeEvent' objects.
-            /// </summary>
-            /// <param name="codeEvent">The CodeEvent to save.</param>
-            public bool SaveCodeEvent(ref CodeEvent codeEvent)
-            {
-                // initial value
-                bool saved = false;
-
-                // if the AppController exists
-                if (this.HasAppController)
-                {
-                    // perform the save
-                    saved = this.AppController.ControllerManager.CodeEventController.Save(ref codeEvent);
-                }
-
-                // return value
-                return saved;
-            }
-            #endregion
-
             #region SaveCodeFile(ref CodeFile codeFile)
             /// <summary>
             /// This method is used to save 'CodeFile' objects.
@@ -1251,6 +1229,28 @@ namespace DataAccessComponent.DataGateway
                 {
                     // perform the save
                     saved = this.AppController.ControllerManager.CodePropertyController.Save(ref codeProperty);
+                }
+
+                // return value
+                return saved;
+            }
+            #endregion
+
+            #region SaveCodeSample(ref CodeSample codeSample)
+            /// <summary>
+            /// This method is used to save 'CodeSample' objects.
+            /// </summary>
+            /// <param name="codeSample">The CodeSample to save.</param>
+            public bool SaveCodeSample(ref CodeSample codeSample)
+            {
+                // initial value
+                bool saved = false;
+
+                // if the AppController exists
+                if (this.HasAppController)
+                {
+                    // perform the save
+                    saved = this.AppController.ControllerManager.CodeSampleController.Save(ref codeSample);
                 }
 
                 // return value

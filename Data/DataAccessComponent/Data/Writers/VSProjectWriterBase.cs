@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(VSProject vSProject)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[4];
+                SqlParameter[] parameters = new SqlParameter[10];
                 SqlParameter param = null;
 
                 // verify vSProjectexists
@@ -135,17 +135,53 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create [Name] parameter
-                    param = new SqlParameter("@Name", vSProject.Name);
+                    // Create [IsPreview] parameter
+                    param = new SqlParameter("@IsPreview", vSProject.IsPreview);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create [SolutionId] parameter
-                    param = new SqlParameter("@SolutionId", vSProject.SolutionId);
+                    // Create [Name] parameter
+                    param = new SqlParameter("@Name", vSProject.Name);
 
                     // set parameters[3]
                     parameters[3] = param;
+
+                    // Create [PreviewDescription] parameter
+                    param = new SqlParameter("@PreviewDescription", vSProject.PreviewDescription);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create [ProjectType] parameter
+                    param = new SqlParameter("@ProjectType", vSProject.ProjectType);
+
+                    // set parameters[5]
+                    parameters[5] = param;
+
+                    // Create [SolutionId] parameter
+                    param = new SqlParameter("@SolutionId", vSProject.SolutionId);
+
+                    // set parameters[6]
+                    parameters[6] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", vSProject.Status);
+
+                    // set parameters[7]
+                    parameters[7] = param;
+
+                    // Create [TargetFramework] parameter
+                    param = new SqlParameter("@TargetFramework", vSProject.TargetFramework);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", vSProject.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
                 }
 
                 // return value
@@ -192,7 +228,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(VSProject vSProject)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[5];
+                SqlParameter[] parameters = new SqlParameter[11];
                 SqlParameter param = null;
 
                 // verify vSProjectexists
@@ -210,21 +246,57 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create parameter for [Name]
-                    param = new SqlParameter("@Name", vSProject.Name);
+                    // Create parameter for [IsPreview]
+                    param = new SqlParameter("@IsPreview", vSProject.IsPreview);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create parameter for [SolutionId]
-                    param = new SqlParameter("@SolutionId", vSProject.SolutionId);
+                    // Create parameter for [Name]
+                    param = new SqlParameter("@Name", vSProject.Name);
 
                     // set parameters[3]
                     parameters[3] = param;
 
+                    // Create parameter for [PreviewDescription]
+                    param = new SqlParameter("@PreviewDescription", vSProject.PreviewDescription);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create parameter for [ProjectType]
+                    param = new SqlParameter("@ProjectType", vSProject.ProjectType);
+
+                    // set parameters[5]
+                    parameters[5] = param;
+
+                    // Create parameter for [SolutionId]
+                    param = new SqlParameter("@SolutionId", vSProject.SolutionId);
+
+                    // set parameters[6]
+                    parameters[6] = param;
+
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", vSProject.Status);
+
+                    // set parameters[7]
+                    parameters[7] = param;
+
+                    // Create parameter for [TargetFramework]
+                    param = new SqlParameter("@TargetFramework", vSProject.TargetFramework);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", vSProject.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", vSProject.Id);
-                    parameters[4] = param;
+                    parameters[10] = param;
                 }
 
                 // return value

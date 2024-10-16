@@ -12,10 +12,10 @@ namespace DataAccessComponent.Connection
 
         #region Private Variables & Constants
         /// <summary>
-        /// Create a connection string and then create a system enivornment variable.
-        /// Set the value of the System Environement Variable to the connectionstring.
+        /// Create a connection string and then create a system Environment variable.
+        /// Set the value of the System Environment Variable to the connectionstring.
         /// </summary>
-        public const string Name = "DocGenConnString";
+        public const string Name = "DocGenConn";
         #endregion
 
         #region Properties

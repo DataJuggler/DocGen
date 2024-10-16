@@ -11,18 +11,18 @@ using System;
 namespace ObjectLibrary.BusinessObjects
 {
 
-    #region class CodeEvent
-    public partial class CodeEvent
+    #region class CodeSample
+    public partial class CodeSample
     {
 
         #region Private Variables
-        private int codeFileId;
-        private string description;
-        private int endLineNumber;
+        private int codeType;
         private int id;
-        private string name;
-        private int startLineNumber;
+        private int parentId;
+        private ObjectTypeEnum parentType;
         private int status;
+        private string text;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -43,44 +43,16 @@ namespace ObjectLibrary.BusinessObjects
 
         #region Properties
 
-            #region int CodeFileId
-            public int CodeFileId
+            #region int CodeType
+            public int CodeType
             {
                 get
                 {
-                    return codeFileId;
+                    return codeType;
                 }
                 set
                 {
-                    codeFileId = value;
-                }
-            }
-            #endregion
-
-            #region string Description
-            public string Description
-            {
-                get
-                {
-                    return description;
-                }
-                set
-                {
-                    description = value;
-                }
-            }
-            #endregion
-
-            #region int EndLineNumber
-            public int EndLineNumber
-            {
-                get
-                {
-                    return endLineNumber;
-                }
-                set
-                {
-                    endLineNumber = value;
+                    codeType = value;
                 }
             }
             #endregion
@@ -95,30 +67,30 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
-            #region string Name
-            public string Name
+            #region int ParentId
+            public int ParentId
             {
                 get
                 {
-                    return name;
+                    return parentId;
                 }
                 set
                 {
-                    name = value;
+                    parentId = value;
                 }
             }
             #endregion
 
-            #region int StartLineNumber
-            public int StartLineNumber
+            #region ObjectTypeEnum ParentType
+            public ObjectTypeEnum ParentType
             {
                 get
                 {
-                    return startLineNumber;
+                    return parentType;
                 }
                 set
                 {
-                    startLineNumber = value;
+                    parentType = value;
                 }
             }
             #endregion
@@ -133,6 +105,34 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region string Text
+            public string Text
+            {
+                get
+                {
+                    return text;
+                }
+                set
+                {
+                    text = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

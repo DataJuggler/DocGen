@@ -4,7 +4,26 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <Authors>DataJuggler</Authors>
+    <Description>DocGen uses Microsoft.CodeAnalysis to analyze a Visual Studio C# Solution and helps to automate generating documentation.
+A Blazor website is coming soon that will allow admin owners of a solution to edit and approve or hide generated descriptions.</Description>
+    <Copyright>DataJuggler 2024</Copyright>
+    <PackageIcon>DocGenIcon.png</PackageIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DocGen.Delegates.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\Images\DocGenIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="Delegates\DocGen.Delegates.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0-2.final" />
@@ -13,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data\DataAccessComponent\DataAccessComponent.csproj" />
     <ProjectReference Include="..\Data\ObjectLibrary\ObjectLibrary.csproj" />
   </ItemGroup>
 

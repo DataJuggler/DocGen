@@ -123,38 +123,38 @@ namespace DataAccessComponent.Data.Writers
                 // verify codeParameterexists
                 if(codeParameter != null)
                 {
-                    // Create [CodeEventId] parameter
-                    param = new SqlParameter("@CodeEventId", codeParameter.CodeEventId);
+                    // Create [Description] parameter
+                    param = new SqlParameter("@Description", codeParameter.Description);
 
                     // set parameters[0]
                     parameters[0] = param;
 
-                    // Create [CodeMethodId] parameter
-                    param = new SqlParameter("@CodeMethodId", codeParameter.CodeMethodId);
+                    // Create [IsOptional] parameter
+                    param = new SqlParameter("@IsOptional", codeParameter.IsOptional);
 
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create [Description] parameter
-                    param = new SqlParameter("@Description", codeParameter.Description);
+                    // Create [Name] parameter
+                    param = new SqlParameter("@Name", codeParameter.Name);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create [IsOptional] parameter
-                    param = new SqlParameter("@IsOptional", codeParameter.IsOptional);
+                    // Create [ParameterType] parameter
+                    param = new SqlParameter("@ParameterType", codeParameter.ParameterType);
 
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create [Name] parameter
-                    param = new SqlParameter("@Name", codeParameter.Name);
+                    // Create [ParentId] parameter
+                    param = new SqlParameter("@ParentId", codeParameter.ParentId);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create [ParameterType] parameter
-                    param = new SqlParameter("@ParameterType", codeParameter.ParameterType);
+                    // Create [ParentType] parameter
+                    param = new SqlParameter("@ParentType", codeParameter.ParentType);
 
                     // set parameters[5]
                     parameters[5] = param;
@@ -210,38 +210,38 @@ namespace DataAccessComponent.Data.Writers
                 // verify codeParameterexists
                 if(codeParameter != null)
                 {
-                    // Create parameter for [CodeEventId]
-                    param = new SqlParameter("@CodeEventId", codeParameter.CodeEventId);
+                    // Create parameter for [Description]
+                    param = new SqlParameter("@Description", codeParameter.Description);
 
                     // set parameters[0]
                     parameters[0] = param;
 
-                    // Create parameter for [CodeMethodId]
-                    param = new SqlParameter("@CodeMethodId", codeParameter.CodeMethodId);
+                    // Create parameter for [IsOptional]
+                    param = new SqlParameter("@IsOptional", codeParameter.IsOptional);
 
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create parameter for [Description]
-                    param = new SqlParameter("@Description", codeParameter.Description);
+                    // Create parameter for [Name]
+                    param = new SqlParameter("@Name", codeParameter.Name);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create parameter for [IsOptional]
-                    param = new SqlParameter("@IsOptional", codeParameter.IsOptional);
+                    // Create parameter for [ParameterType]
+                    param = new SqlParameter("@ParameterType", codeParameter.ParameterType);
 
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create parameter for [Name]
-                    param = new SqlParameter("@Name", codeParameter.Name);
+                    // Create parameter for [ParentId]
+                    param = new SqlParameter("@ParentId", codeParameter.ParentId);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create parameter for [ParameterType]
-                    param = new SqlParameter("@ParameterType", codeParameter.ParameterType);
+                    // Create parameter for [ParentType]
+                    param = new SqlParameter("@ParentType", codeParameter.ParentType);
 
                     // set parameters[5]
                     parameters[5] = param;

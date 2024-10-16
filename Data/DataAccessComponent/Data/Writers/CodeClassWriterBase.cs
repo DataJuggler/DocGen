@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(CodeClass codeClass)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[4];
+                SqlParameter[] parameters = new SqlParameter[7];
                 SqlParameter param = null;
 
                 // verify codeClassexists
@@ -135,17 +135,35 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create [Name] parameter
-                    param = new SqlParameter("@Name", codeClass.Name);
+                    // Create [IsPartial] parameter
+                    param = new SqlParameter("@IsPartial", codeClass.IsPartial);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create [Status] parameter
-                    param = new SqlParameter("@Status", codeClass.Status);
+                    // Create [Name] parameter
+                    param = new SqlParameter("@Name", codeClass.Name);
 
                     // set parameters[3]
                     parameters[3] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", codeClass.Status);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create [Tags] parameter
+                    param = new SqlParameter("@Tags", codeClass.Tags);
+
+                    // set parameters[5]
+                    parameters[5] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", codeClass.Visible);
+
+                    // set parameters[6]
+                    parameters[6] = param;
                 }
 
                 // return value
@@ -192,7 +210,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(CodeClass codeClass)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[5];
+                SqlParameter[] parameters = new SqlParameter[8];
                 SqlParameter param = null;
 
                 // verify codeClassexists
@@ -210,21 +228,39 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create parameter for [Name]
-                    param = new SqlParameter("@Name", codeClass.Name);
+                    // Create parameter for [IsPartial]
+                    param = new SqlParameter("@IsPartial", codeClass.IsPartial);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create parameter for [Status]
-                    param = new SqlParameter("@Status", codeClass.Status);
+                    // Create parameter for [Name]
+                    param = new SqlParameter("@Name", codeClass.Name);
 
                     // set parameters[3]
                     parameters[3] = param;
 
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", codeClass.Status);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create parameter for [Tags]
+                    param = new SqlParameter("@Tags", codeClass.Tags);
+
+                    // set parameters[5]
+                    parameters[5] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", codeClass.Visible);
+
+                    // set parameters[6]
+                    parameters[6] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", codeClass.Id);
-                    parameters[4] = param;
+                    parameters[7] = param;
                 }
 
                 // return value

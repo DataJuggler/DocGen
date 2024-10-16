@@ -42,10 +42,10 @@ namespace DataAccessComponent.Data.Readers
                 int endLineNumberfield = 3;
                 int idfield = 4;
                 int namefield = 5;
-                int referencedByPathfield = 6;
-                int returnTypefield = 7;
-                int startLineNumberfield = 8;
-                int statusfield = 9;
+                int returnTypefield = 6;
+                int startLineNumberfield = 7;
+                int statusfield = 8;
+                int visiblefield = 9;
 
                 try
                 {
@@ -56,10 +56,10 @@ namespace DataAccessComponent.Data.Readers
                     codeConstructor.EndLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[endLineNumberfield], 0);
                     codeConstructor.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
                     codeConstructor.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
-                    codeConstructor.ReferencedByPath = DataHelper.ParseString(dataRow.ItemArray[referencedByPathfield]);
                     codeConstructor.ReturnType = DataHelper.ParseString(dataRow.ItemArray[returnTypefield]);
                     codeConstructor.StartLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[startLineNumberfield], 0);
                     codeConstructor.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    codeConstructor.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

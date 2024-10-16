@@ -27,11 +27,11 @@ namespace DataAccessComponent.Controllers
         private ApplicationController appController;
         private CodeClassController codeclassController;
         private CodeConstructorController codeconstructorController;
-        private CodeEventController codeeventController;
         private CodeFileController codefileController;
         private CodeMethodController codemethodController;
         private CodeParameterController codeparameterController;
         private CodePropertyController codepropertyController;
+        private CodeSampleController codesampleController;
         private ReferencedByController referencedbyController;
         private VSProjectController vsprojectController;
         private VSSolutionController vssolutionController;
@@ -63,11 +63,11 @@ namespace DataAccessComponent.Controllers
                 // Create Child Controllers
                 this.CodeClassController = new CodeClassController(this.ErrorProcessor, this.AppController);
                 this.CodeConstructorController = new CodeConstructorController(this.ErrorProcessor, this.AppController);
-                this.CodeEventController = new CodeEventController(this.ErrorProcessor, this.AppController);
                 this.CodeFileController = new CodeFileController(this.ErrorProcessor, this.AppController);
                 this.CodeMethodController = new CodeMethodController(this.ErrorProcessor, this.AppController);
                 this.CodeParameterController = new CodeParameterController(this.ErrorProcessor, this.AppController);
                 this.CodePropertyController = new CodePropertyController(this.ErrorProcessor, this.AppController);
+                this.CodeSampleController = new CodeSampleController(this.ErrorProcessor, this.AppController);
                 this.ReferencedByController = new ReferencedByController(this.ErrorProcessor, this.AppController);
                 this.VSProjectController = new VSProjectController(this.ErrorProcessor, this.AppController);
                 this.VSSolutionController = new VSSolutionController(this.ErrorProcessor, this.AppController);
@@ -110,14 +110,6 @@ namespace DataAccessComponent.Controllers
             }
             #endregion
 
-            #region CodeEventController
-            public CodeEventController CodeEventController
-            {
-                get { return codeeventController; }
-                set { codeeventController = value; }
-            }
-            #endregion
-
             #region CodeFileController
             public CodeFileController CodeFileController
             {
@@ -147,6 +139,14 @@ namespace DataAccessComponent.Controllers
             {
                 get { return codepropertyController; }
                 set { codepropertyController = value; }
+            }
+            #endregion
+
+            #region CodeSampleController
+            public CodeSampleController CodeSampleController
+            {
+                get { return codesampleController; }
+                set { codesampleController = value; }
             }
             #endregion
 

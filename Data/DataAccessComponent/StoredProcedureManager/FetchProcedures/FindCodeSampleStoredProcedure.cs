@@ -3,11 +3,11 @@
 namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
 {
 
-    #region class FindCodeEventStoredProcedure
+    #region class FindCodeSampleStoredProcedure
     /// <summary>
-    /// This class is used to Find a 'CodeEvent' object.
+    /// This class is used to Find a 'CodeSample' object.
     /// </summary>
-    public class FindCodeEventStoredProcedure : StoredProcedure
+    public class FindCodeSampleStoredProcedure : StoredProcedure
     {
 
         #region Private Variables
@@ -15,9 +15,9 @@ namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
 
         #region Constructor
         /// <summary>
-        /// Create a new instance of a 'FindCodeEventStoredProcedure' object.
+        /// Create a new instance of a 'FindCodeSampleStoredProcedure' object.
         /// </summary>
-        public FindCodeEventStoredProcedure()
+        public FindCodeSampleStoredProcedure()
         {
             // Perform Initialization
             Init();
@@ -35,10 +35,10 @@ namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
                 // Set Properties For This Proc
 
                 // Set ProcedureName
-                this.ProcedureName = "CodeEvent_Find";
+                this.ProcedureName = "CodeSample_Find";
 
                 // Set tableName
-                this.TableName = "CodeEvent";
+                this.TableName = "CodeSample";
             }
             #endregion
 

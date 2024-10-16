@@ -30,11 +30,11 @@ namespace DataAccessComponent.Data
         private string connectionName;
         private CodeClassManager codeclassManager;
         private CodeConstructorManager codeconstructorManager;
-        private CodeEventManager codeeventManager;
         private CodeFileManager codefileManager;
         private CodeMethodManager codemethodManager;
         private CodeParameterManager codeparameterManager;
         private CodePropertyManager codepropertyManager;
+        private CodeSampleManager codesampleManager;
         private ReferencedByManager referencedbyManager;
         private VSProjectManager vsprojectManager;
         private VSSolutionManager vssolutionManager;
@@ -69,11 +69,11 @@ namespace DataAccessComponent.Data
                 // Create Child Object Managers
                 this.CodeClassManager = new CodeClassManager(this);
                 this.CodeConstructorManager = new CodeConstructorManager(this);
-                this.CodeEventManager = new CodeEventManager(this);
                 this.CodeFileManager = new CodeFileManager(this);
                 this.CodeMethodManager = new CodeMethodManager(this);
                 this.CodeParameterManager = new CodeParameterManager(this);
                 this.CodePropertyManager = new CodePropertyManager(this);
+                this.CodeSampleManager = new CodeSampleManager(this);
                 this.ReferencedByManager = new ReferencedByManager(this);
                 this.VSProjectManager = new VSProjectManager(this);
                 this.VSSolutionManager = new VSSolutionManager(this);
@@ -116,14 +116,6 @@ namespace DataAccessComponent.Data
             }
             #endregion
 
-            #region CodeEventManager
-            public CodeEventManager CodeEventManager
-            {
-                get { return codeeventManager; }
-                set { codeeventManager = value; }
-            }
-            #endregion
-
             #region CodeFileManager
             public CodeFileManager CodeFileManager
             {
@@ -153,6 +145,14 @@ namespace DataAccessComponent.Data
             {
                 get { return codepropertyManager; }
                 set { codepropertyManager = value; }
+            }
+            #endregion
+
+            #region CodeSampleManager
+            public CodeSampleManager CodeSampleManager
+            {
+                get { return codesampleManager; }
+                set { codesampleManager = value; }
             }
             #endregion
 

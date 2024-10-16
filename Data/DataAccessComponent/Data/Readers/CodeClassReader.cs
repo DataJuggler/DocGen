@@ -39,8 +39,11 @@ namespace DataAccessComponent.Data.Readers
                 int codeFileIdfield = 0;
                 int descriptionfield = 1;
                 int idfield = 2;
-                int namefield = 3;
-                int statusfield = 4;
+                int isPartialfield = 3;
+                int namefield = 4;
+                int statusfield = 5;
+                int tagsfield = 6;
+                int visiblefield = 7;
 
                 try
                 {
@@ -48,8 +51,11 @@ namespace DataAccessComponent.Data.Readers
                     codeClass.CodeFileId = DataHelper.ParseInteger(dataRow.ItemArray[codeFileIdfield], 0);
                     codeClass.Description = DataHelper.ParseString(dataRow.ItemArray[descriptionfield]);
                     codeClass.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
+                    codeClass.IsPartial = DataHelper.ParseBoolean(dataRow.ItemArray[isPartialfield], false);
                     codeClass.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
                     codeClass.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    codeClass.Tags = DataHelper.ParseString(dataRow.ItemArray[tagsfield]);
+                    codeClass.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

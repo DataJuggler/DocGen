@@ -19,6 +19,8 @@ namespace ObjectLibrary.BusinessObjects
 
         #region Private Variables
         private List<CodeClass> classes;
+        private Guid internalId;
+        private CodeFile parentCodeFile;
         #endregion
 
         #region Constructor
@@ -50,6 +52,9 @@ namespace ObjectLibrary.BusinessObjects
             {
                 // Create child lists
                 Classes = new List<CodeClass>();
+
+                // Create a Guid
+                InternalId = Guid.NewGuid();
             }
             #endregion
             
@@ -65,6 +70,45 @@ namespace ObjectLibrary.BusinessObjects
             {
                 get { return classes; }
                 set { classes = value; }
+            }
+            #endregion
+            
+            #region HasParentCodeFile
+            /// <summary>
+            /// This property returns true if this object has a 'ParentCodeFile'.
+            /// </summary>
+            public bool HasParentCodeFile
+            {
+                get
+                {
+                    // initial value
+                    bool hasParentCodeFile = (this.ParentCodeFile != null);
+                    
+                    // return value
+                    return hasParentCodeFile;
+                }
+            }
+            #endregion
+            
+            #region InternalId
+            /// <summary>
+            /// This property gets or sets the value for 'InternalId'.
+            /// </summary>
+            public Guid InternalId
+            {
+                get { return internalId; }
+                set { internalId = value; }
+            }
+            #endregion
+            
+            #region ParentCodeFile
+            /// <summary>
+            /// This property gets or sets the value for 'ParentCodeFile'.
+            /// </summary>
+            public CodeFile ParentCodeFile
+            {
+                get { return parentCodeFile; }
+                set { parentCodeFile = value; }
             }
             #endregion
             

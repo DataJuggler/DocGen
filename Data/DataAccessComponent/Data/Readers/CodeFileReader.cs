@@ -42,9 +42,11 @@ namespace DataAccessComponent.Data.Readers
                 int idfield = 3;
                 int methodsCountfield = 4;
                 int namefield = 5;
-                int projectIdfield = 6;
-                int propertiesCountfield = 7;
-                int statusfield = 8;
+                int parentIdfield = 6;
+                int projectIdfield = 7;
+                int propertiesCountfield = 8;
+                int statusfield = 9;
+                int visiblefield = 10;
 
                 try
                 {
@@ -55,9 +57,11 @@ namespace DataAccessComponent.Data.Readers
                     codeFile.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
                     codeFile.MethodsCount = DataHelper.ParseInteger(dataRow.ItemArray[methodsCountfield], 0);
                     codeFile.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
+                    codeFile.ParentId = DataHelper.ParseInteger(dataRow.ItemArray[parentIdfield], 0);
                     codeFile.ProjectId = DataHelper.ParseInteger(dataRow.ItemArray[projectIdfield], 0);
                     codeFile.PropertiesCount = DataHelper.ParseInteger(dataRow.ItemArray[propertiesCountfield], 0);
                     codeFile.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    codeFile.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

@@ -1,13 +1,13 @@
 
 
-namespace DataAccessComponent.StoredProcedureManager.DeleteProcedures
+namespace DataAccessComponent.StoredProcedureManager.UpdateProcedures
 {
 
-    #region class DeleteCodeEventStoredProcedure
+    #region class UpdateCodeSampleStoredProcedure
     /// <summary>
-    /// This class is used to Delete a 'CodeEvent' object.
+    /// This class is used to Update a 'CodeSample' object.
     /// </summary>
-    public class DeleteCodeEventStoredProcedure : StoredProcedure
+    public class UpdateCodeSampleStoredProcedure : StoredProcedure
     {
 
         #region Private Variables
@@ -15,9 +15,9 @@ namespace DataAccessComponent.StoredProcedureManager.DeleteProcedures
 
         #region Constructor
         /// <summary>
-        /// Create a new instance of a 'DeleteCodeEventStoredProcedure' object.
+        /// Create a new instance of a 'UpdateCodeSampleStoredProcedure' object.
         /// </summary>
-        public DeleteCodeEventStoredProcedure()
+        public UpdateCodeSampleStoredProcedure()
         {
             // Perform Initialization
             Init();
@@ -35,10 +35,10 @@ namespace DataAccessComponent.StoredProcedureManager.DeleteProcedures
                 // Set Properties For This Proc
 
                 // Set ProcedureName
-                this.ProcedureName = "CodeEvent_Delete";
+                this.ProcedureName = "CodeSample_Update";
 
                 // Set tableName
-                this.TableName = "CodeEvent";
+                this.TableName = "CodeSample";
             }
             #endregion
 

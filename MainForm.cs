@@ -16,6 +16,8 @@ using Microsoft.Build.Evaluation;
 using Project = Microsoft.CodeAnalysis.Project;
 using MSProject = Microsoft.Build.Evaluation.Project;
 using DataJuggler.DocGen;
+using Microsoft.CodeAnalysis.Options;
+using DataJuggler.DocGen.Delegates;
 
 #endregion
 
@@ -58,37 +60,27 @@ namespace DocGen
         {
             try
             {
+                // Show the controls
+                ShowProgressControls(true);
+
+                // Create a new instance of an 'UICallback' object.
+                UICallback uICallback = new UICallback(UpdateBatchProgress, UpdateOverallProgress);
+
                 // Retrieve the Solution
-                Solution = await DocGenerator.AnalyzeSolution(SolutionSelector.Text);
+                Solution = await DocGenerator.AnalyzeSolution(SolutionSelector.Text, uICallback);
 
-                if (Solution.Errors.Count > 0)
-                {
-                    // Show Success
-                    DescriptionControl.Text = "Errors!";
-                }
-                else
-                {
-                    // Show Success
-                    DescriptionControl.Text = "Success!";
-                }
+                // Enable the SaveButton
+                SaveButton.Enabled = Solution.HasProjects;  
 
-                
+                // Display the Results
+                ResultsLabel.Text = "Analysis Results";
+                ResultsPanel.Visible = true;
 
-                // Set the properties
-                Solution.Description = DescriptionControl.Text;
-                Solution.CreatedDate = DateTime.Now;
+                // Hide the controls
+                ShowProgressControls(false);
 
-                // if the project exists
-                if (ListHelper.HasOneOrMoreItems(Solution.Projects))
-                {
-                    // iterate the projects                    
-                    foreach (VSProject vsProject in solution.Projects)
-                    {
-                        
-
-                        
-                    }
-                }
+                // Display what was found
+                DisplaySolutionResults();
             }
             catch (Exception error)
             {
@@ -116,7 +108,47 @@ namespace DocGen
         /// </summary>
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            
+            // Show the controls
+            ShowProgressControls(true);
+
+            // if the value for HasSolution is true
+            if (HasSolution)
+            {
+                // Set the properties
+                Solution.Description = DescriptionControl.Text;
+                Solution.Name = SolutionNameControl.Text;
+                Solution.CreatedDate = DateTime.Now;
+
+                // Create a new instance of an 'UICallback' object.
+                UICallback uICallback = new UICallback(UpdateBatchProgress, UpdateOverallProgress);
+
+                // if the project exists
+                if (ListHelper.HasOneOrMoreItems(Solution.Projects))
+                {
+                    // Perform the Save
+                    SaveResults savedResults = DocGenerator.Save(solution, uICallback);
+
+                    // DisplayResults
+                    SolutionsSavedLabel.Text = savedResults.VsSolutionsSaved.ToString();
+                    ProjectsSavedLabel.Text = savedResults.VsProjectsSaved.ToString();
+                    CodeFilesSavedLabel.Text = savedResults.CodeFilesSaved.ToString("#,##0");
+                    ClassesSavedLabel.Text = savedResults.CodeClassesSaved.ToString("#,##0");
+                    ParametersSavedLabel.Text = savedResults.CodeParametersSaved.ToString("#,##0");
+                    MethodsSavedLabel.Text = savedResults.CodeMethodsSaved.ToString("#,##0");
+                    EventHandlersSavedLabel.Text = savedResults.EventHandlersSaved.ToString("#,##0");
+                    PropertiesSavedLabel.Text = savedResults.CodePropertiesSaved.ToString("#,##0");
+                    ConstructorsSavedLabel.Text = savedResults.CodeConstructorsSaved.ToString("#,##0");
+                    ExceptionsStatusLabel.Text = savedResults.Exceptions.Count.ToString("#,##0");
+                    ReferencedBySavedLabel.Text = savedResults.ReferencedBysSaved.ToString("#,##0");
+                    
+                    // Hide the controls
+                    ShowProgressControls(false);
+
+                    // Show                    
+                    ResultsLabel.Text = "Save Results";
+                    ResultsPanel.Visible = true;
+                }
+            }
         }
         #endregion
             
@@ -124,6 +156,31 @@ namespace DocGen
 
         #region Methods
 
+            #region DisplaySolutionResults()
+            /// <summary>
+            /// Display Solution Results
+            /// </summary>
+            public void DisplaySolutionResults()
+            {
+                // if the value for HasSolution is true
+                if (HasSolution)
+                {
+                    // DisplayResults
+                    SolutionsSavedLabel.Text = "1";
+                    ProjectsSavedLabel.Text = Solution.Projects.Count.ToString("#,##0");
+                    CodeFilesSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).Count().ToString("#,##0");
+                    ClassesSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).Count().ToString("#,##0");  
+                    ParametersSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Methods).SelectMany(cm => cm.Parameters).Count().ToString("#,##0");
+                    MethodsSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Methods).Count(m => !m.IsEventHandler).ToString("#,##0");
+                    EventHandlersSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Methods).Count(m => m.IsEventHandler).ToString("#,##0");
+                    PropertiesSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Properties).Count().ToString("#,##0");
+                    ConstructorsSavedLabel.Text = Solution.Projects.SelectMany(p => p.CodeFiles).SelectMany(cf => cf.Classes).SelectMany(cl => cl.Constructors).Count().ToString("#,##0");
+                    ExceptionsStatusLabel.Text = "0";
+                    ReferencedBySavedLabel.Text = Solution.TotalReferencesCount.ToString("#,##0");
+                }
+            }
+            #endregion
+            
             #region Init()
             /// <summary>
             ///  This method performs initializations for this object.
@@ -145,11 +202,11 @@ namespace DocGen
             public void SetupCurrentProjectGraph(string statusText, int max, int value)
             {
                 // Display
-                CurrentStatusLabel.Text = statusText;
+                BatchStatusLabel.Text = statusText;
 
                 // Setup Graph
-                CurrentGraph.Maximum = max;
-                CurrentGraph.Value = value;
+                BatchGraph.Maximum = max;
+                BatchGraph.Value = value;
             }
             #endregion
             
@@ -160,11 +217,63 @@ namespace DocGen
             public void SetupGraph(string statusText, int max, int value)
             {
                 // Display
-                StatusLabel.Text = statusText;
+                OverallStatusLabel.Text = statusText;
 
                 // Setup Graph
-                Graph.Maximum = max;
-                Graph.Value = value;
+                OverallGraph.Maximum = max;
+                OverallGraph.Value = value;
+            }
+            #endregion
+            
+            #region ShowProgressControls(bool visible)
+            /// <summary>
+            /// Show Progress Controls
+            /// </summary>
+            public void ShowProgressControls(bool visible)
+            {
+                // Show the labels and progress bars
+                BatchStatusLabel.Visible = visible;
+                OverallStatusLabel.Visible = visible;
+                BatchGraph.Visible = visible;
+                OverallGraph.Visible = visible;
+            }
+            #endregion
+            
+            #region UpdateBatchProgress(int max, int currentValue, string status)
+            /// <summary>
+            /// Update Batch Progress
+            /// </summary>
+            public void UpdateBatchProgress(int max, int currentValue, string status)
+            {
+                // Set the Text
+                BatchStatusLabel.Text = status;
+
+                // Setup the Progressbar
+                BatchGraph.Maximum = max;
+                BatchGraph.Value = currentValue;
+
+                // Force an update
+                Refresh();
+                Application.DoEvents();
+            }
+            #endregion
+            
+            #region UpdateOverallProgress(int max, int currentValue, string status)
+            /// <summary>
+            /// Update Overall Progress
+            /// </summary>
+            public void UpdateOverallProgress(int max, int currentValue, string status)
+            {
+                // Set the Text
+                OverallStatusLabel.Text = status;
+
+                // Setup the Progressbar
+                OverallGraph.Maximum = max;
+                OverallGraph.Value = currentValue;
+
+                // Force an update
+                Refresh();
+                Application.DoEvents();
             }
             #endregion
             

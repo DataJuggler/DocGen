@@ -36,24 +36,24 @@ namespace DataAccessComponent.Data.Readers
                 CodeParameter codeParameter = new CodeParameter();
 
                 // Create field Integers
-                int codeEventIdfield = 0;
-                int codeMethodIdfield = 1;
-                int descriptionfield = 2;
-                int idfield = 3;
-                int isOptionalfield = 4;
-                int namefield = 5;
-                int parameterTypefield = 6;
+                int descriptionfield = 0;
+                int idfield = 1;
+                int isOptionalfield = 2;
+                int namefield = 3;
+                int parameterTypefield = 4;
+                int parentIdfield = 5;
+                int parentTypefield = 6;
 
                 try
                 {
                     // Load Each field
-                    codeParameter.CodeEventId = DataHelper.ParseInteger(dataRow.ItemArray[codeEventIdfield], 0);
-                    codeParameter.CodeMethodId = DataHelper.ParseInteger(dataRow.ItemArray[codeMethodIdfield], 0);
                     codeParameter.Description = DataHelper.ParseString(dataRow.ItemArray[descriptionfield]);
                     codeParameter.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
                     codeParameter.IsOptional = DataHelper.ParseBoolean(dataRow.ItemArray[isOptionalfield], false);
                     codeParameter.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
                     codeParameter.ParameterType = DataHelper.ParseString(dataRow.ItemArray[parameterTypefield]);
+                    codeParameter.ParentId = DataHelper.ParseInteger(dataRow.ItemArray[parentIdfield], 0);
+                    codeParameter.ParentType = (ObjectTypeEnum) DataHelper.ParseInteger(dataRow.ItemArray[parentTypefield], 0);
                 }
                 catch
                 {

@@ -23,8 +23,10 @@ namespace ObjectLibrary.BusinessObjects
         private int projectId;
         private int sourceId;
         private ReferenceTypeEnum sourceType;
+        private int status;
         private int targetId;
         private ReferenceTypeEnum targetType;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -139,6 +141,20 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region int Status
+            public int Status
+            {
+                get
+                {
+                    return status;
+                }
+                set
+                {
+                    status = value;
+                }
+            }
+            #endregion
+
             #region int TargetId
             public int TargetId
             {
@@ -163,6 +179,20 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     targetType = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

@@ -7,6 +7,18 @@
 namespace ObjectLibrary.Enumerations
 {
 
+    #region ObjectTypeEnum : int
+    /// <summary>
+    /// This enum is used by Parameters 
+    /// </summary>
+    public enum ObjectTypeEnum : int
+    {
+        Unknown = 0,
+        Constructor = 1,
+        Method = 2
+    }
+    #endregion
+
     #region ReferenceTypeEnum : int
     /// <summary>
     /// This enum is used by the ReferencedBy to indicate which type of a Reference it is.
@@ -14,7 +26,7 @@ namespace ObjectLibrary.Enumerations
     public enum ReferenceTypeEnum : int
     {
         Class = 1,
-        Event = 2,
+        Constructor = 2,
         Method = 3,
         Property = 4
     }

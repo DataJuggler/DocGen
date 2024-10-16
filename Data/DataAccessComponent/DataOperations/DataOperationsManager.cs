@@ -31,11 +31,11 @@ namespace DataAccessComponent.DataOperations
         private SystemMethods systemMethods;
         private CodeClassMethods codeclassMethods;
         private CodeConstructorMethods codeconstructorMethods;
-        private CodeEventMethods codeeventMethods;
         private CodeFileMethods codefileMethods;
         private CodeMethodMethods codemethodMethods;
         private CodeParameterMethods codeparameterMethods;
         private CodePropertyMethods codepropertyMethods;
+        private CodeSampleMethods codesampleMethods;
         private ReferencedByMethods referencedbyMethods;
         private VSProjectMethods vsprojectMethods;
         private VSSolutionMethods vssolutionMethods;
@@ -67,11 +67,11 @@ namespace DataAccessComponent.DataOperations
                 this.SystemMethods = new SystemMethods();
                 this.CodeClassMethods = new CodeClassMethods(this.DataManager);
                 this.CodeConstructorMethods = new CodeConstructorMethods(this.DataManager);
-                this.CodeEventMethods = new CodeEventMethods(this.DataManager);
                 this.CodeFileMethods = new CodeFileMethods(this.DataManager);
                 this.CodeMethodMethods = new CodeMethodMethods(this.DataManager);
                 this.CodeParameterMethods = new CodeParameterMethods(this.DataManager);
                 this.CodePropertyMethods = new CodePropertyMethods(this.DataManager);
+                this.CodeSampleMethods = new CodeSampleMethods(this.DataManager);
                 this.ReferencedByMethods = new ReferencedByMethods(this.DataManager);
                 this.VSProjectMethods = new VSProjectMethods(this.DataManager);
                 this.VSSolutionMethods = new VSSolutionMethods(this.DataManager);
@@ -114,14 +114,6 @@ namespace DataAccessComponent.DataOperations
             }
             #endregion
 
-            #region CodeEventMethods
-            public CodeEventMethods CodeEventMethods
-            {
-                get { return codeeventMethods; }
-                set { codeeventMethods = value; }
-            }
-            #endregion
-
             #region CodeFileMethods
             public CodeFileMethods CodeFileMethods
             {
@@ -151,6 +143,14 @@ namespace DataAccessComponent.DataOperations
             {
                 get { return codepropertyMethods; }
                 set { codepropertyMethods = value; }
+            }
+            #endregion
+
+            #region CodeSampleMethods
+            public CodeSampleMethods CodeSampleMethods
+            {
+                get { return codesampleMethods; }
+                set { codesampleMethods = value; }
             }
             #endregion
 

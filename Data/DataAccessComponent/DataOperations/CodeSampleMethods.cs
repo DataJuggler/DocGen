@@ -19,11 +19,11 @@ using System.Collections.Generic;
 namespace DataAccessComponent.DataOperations
 {
 
-    #region class CodeEventMethods
+    #region class CodeSampleMethods
     /// <summary>
-    /// This class contains methods for modifying a 'CodeEvent' object.
+    /// This class contains methods for modifying a 'CodeSample' object.
     /// </summary>
-    public class CodeEventMethods
+    public class CodeSampleMethods
     {
 
         #region Private Variables
@@ -32,9 +32,9 @@ namespace DataAccessComponent.DataOperations
 
         #region Constructor
         /// <summary>
-        /// Creates a new Creates a new 'CodeEventMethods' object.
+        /// Creates a new Creates a new 'CodeSampleMethods' object.
         /// </summary>
-        public CodeEventMethods(DataManager dataManagerArg)
+        public CodeSampleMethods(DataManager dataManagerArg)
         {
             // Save Argument
             this.DataManager = dataManagerArg;
@@ -43,13 +43,13 @@ namespace DataAccessComponent.DataOperations
 
         #region Methods
 
-            #region DeleteCodeEvent(CodeEvent)
+            #region DeleteCodeSample(CodeSample)
             /// <summary>
-            /// This method deletes a 'CodeEvent' object.
+            /// This method deletes a 'CodeSample' object.
             /// </summary>
-            /// <param name='List<PolymorphicObject>'>The 'CodeEvent' to delete.
+            /// <param name='List<PolymorphicObject>'>The 'CodeSample' to delete.
             /// <returns>A PolymorphicObject object with a Boolean value.
-            internal PolymorphicObject DeleteCodeEvent(List<PolymorphicObject> parameters, DataConnector dataConnector)
+            internal PolymorphicObject DeleteCodeSample(List<PolymorphicObject> parameters, DataConnector dataConnector)
             {
                 // Initial Value
                 PolymorphicObject returnObject = new PolymorphicObject();
@@ -58,29 +58,29 @@ namespace DataAccessComponent.DataOperations
                 if ((dataConnector != null) && (dataConnector.Connected == true))
                 {
                     // Create Delete StoredProcedure
-                    DeleteCodeEventStoredProcedure deleteCodeEventProc = null;
+                    DeleteCodeSampleStoredProcedure deleteCodeSampleProc = null;
 
-                    // verify the first parameters is a(n) 'CodeEvent'.
-                    if (parameters[0].ObjectValue as CodeEvent != null)
+                    // verify the first parameters is a(n) 'CodeSample'.
+                    if (parameters[0].ObjectValue as CodeSample != null)
                     {
-                        // Create CodeEvent
-                        CodeEvent codeEvent = (CodeEvent) parameters[0].ObjectValue;
+                        // Create CodeSample
+                        CodeSample codeSample = (CodeSample) parameters[0].ObjectValue;
 
-                        // verify codeEvent exists
-                        if(codeEvent != null)
+                        // verify codeSample exists
+                        if(codeSample != null)
                         {
-                            // Now create deleteCodeEventProc from CodeEventWriter
-                            // The DataWriter converts the 'CodeEvent'
-                            // to the SqlParameter[] array needed to delete a 'CodeEvent'.
-                            deleteCodeEventProc = CodeEventWriter.CreateDeleteCodeEventStoredProcedure(codeEvent);
+                            // Now create deleteCodeSampleProc from CodeSampleWriter
+                            // The DataWriter converts the 'CodeSample'
+                            // to the SqlParameter[] array needed to delete a 'CodeSample'.
+                            deleteCodeSampleProc = CodeSampleWriter.CreateDeleteCodeSampleStoredProcedure(codeSample);
                         }
                     }
 
-                    // Verify deleteCodeEventProc exists
-                    if(deleteCodeEventProc != null)
+                    // Verify deleteCodeSampleProc exists
+                    if(deleteCodeSampleProc != null)
                     {
                         // Execute Delete Stored Procedure
-                        bool deleted = this.DataManager.CodeEventManager.DeleteCodeEvent(deleteCodeEventProc, dataConnector);
+                        bool deleted = this.DataManager.CodeSampleManager.DeleteCodeSample(deleteCodeSampleProc, dataConnector);
 
                         // Create returnObject.Boolean
                         returnObject.Boolean = new NullableBoolean();
@@ -111,50 +111,50 @@ namespace DataAccessComponent.DataOperations
 
             #region FetchAll()
             /// <summary>
-            /// This method fetches all 'CodeEvent' objects.
+            /// This method fetches all 'CodeSample' objects.
             /// </summary>
-            /// <param name='List<PolymorphicObject>'>The 'CodeEvent' to delete.
-            /// <returns>A PolymorphicObject object with all  'CodeEvents' objects.
+            /// <param name='List<PolymorphicObject>'>The 'CodeSample' to delete.
+            /// <returns>A PolymorphicObject object with all  'CodeSamples' objects.
             internal PolymorphicObject FetchAll(List<PolymorphicObject> parameters, DataConnector dataConnector)
             {
                 // Initial Value
                 PolymorphicObject returnObject = new PolymorphicObject();
 
                 // locals
-                List<CodeEvent> codeEventListCollection =  null;
+                List<CodeSample> codeSampleListCollection =  null;
 
                 // Create FetchAll StoredProcedure
-                FetchAllCodeEventsStoredProcedure fetchAllProc = null;
+                FetchAllCodeSamplesStoredProcedure fetchAllProc = null;
 
                 // If the data connection is connected
                 if ((dataConnector != null) && (dataConnector.Connected == true))
                 {
-                    // Get CodeEventParameter
+                    // Get CodeSampleParameter
                     // Declare Parameter
-                    CodeEvent paramCodeEvent = null;
+                    CodeSample paramCodeSample = null;
 
-                    // verify the first parameters is a(n) 'CodeEvent'.
-                    if (parameters[0].ObjectValue as CodeEvent != null)
+                    // verify the first parameters is a(n) 'CodeSample'.
+                    if (parameters[0].ObjectValue as CodeSample != null)
                     {
-                        // Get CodeEventParameter
-                        paramCodeEvent = (CodeEvent) parameters[0].ObjectValue;
+                        // Get CodeSampleParameter
+                        paramCodeSample = (CodeSample) parameters[0].ObjectValue;
                     }
 
-                    // Now create FetchAllCodeEventsProc from CodeEventWriter
-                    fetchAllProc = CodeEventWriter.CreateFetchAllCodeEventsStoredProcedure(paramCodeEvent);
+                    // Now create FetchAllCodeSamplesProc from CodeSampleWriter
+                    fetchAllProc = CodeSampleWriter.CreateFetchAllCodeSamplesStoredProcedure(paramCodeSample);
                 }
 
                 // Verify fetchAllProc exists
                 if(fetchAllProc!= null)
                 {
                     // Execute FetchAll Stored Procedure
-                    codeEventListCollection = this.DataManager.CodeEventManager.FetchAllCodeEvents(fetchAllProc, dataConnector);
+                    codeSampleListCollection = this.DataManager.CodeSampleManager.FetchAllCodeSamples(fetchAllProc, dataConnector);
 
                     // if dataObjectCollection exists
-                    if(codeEventListCollection != null)
+                    if(codeSampleListCollection != null)
                     {
                         // set returnObject.ObjectValue
-                        returnObject.ObjectValue = codeEventListCollection;
+                        returnObject.ObjectValue = codeSampleListCollection;
                     }
                 }
                 else
@@ -168,52 +168,52 @@ namespace DataAccessComponent.DataOperations
             }
             #endregion
 
-            #region FindCodeEvent(CodeEvent)
+            #region FindCodeSample(CodeSample)
             /// <summary>
-            /// This method finds a 'CodeEvent' object.
+            /// This method finds a 'CodeSample' object.
             /// </summary>
-            /// <param name='List<PolymorphicObject>'>The 'CodeEvent' to delete.
+            /// <param name='List<PolymorphicObject>'>The 'CodeSample' to delete.
             /// <returns>A PolymorphicObject object with a Boolean value.
-            internal PolymorphicObject FindCodeEvent(List<PolymorphicObject> parameters, DataConnector dataConnector)
+            internal PolymorphicObject FindCodeSample(List<PolymorphicObject> parameters, DataConnector dataConnector)
             {
                 // Initial Value
                 PolymorphicObject returnObject = new PolymorphicObject();
 
                 // locals
-                CodeEvent codeEvent = null;
+                CodeSample codeSample = null;
 
                 // If the data connection is connected
                 if ((dataConnector != null) && (dataConnector.Connected == true))
                 {
                     // Create Find StoredProcedure
-                    FindCodeEventStoredProcedure findCodeEventProc = null;
+                    FindCodeSampleStoredProcedure findCodeSampleProc = null;
 
-                    // verify the first parameters is a 'CodeEvent'.
-                    if (parameters[0].ObjectValue as CodeEvent != null)
+                    // verify the first parameters is a 'CodeSample'.
+                    if (parameters[0].ObjectValue as CodeSample != null)
                     {
-                        // Get CodeEventParameter
-                        CodeEvent paramCodeEvent = (CodeEvent) parameters[0].ObjectValue;
+                        // Get CodeSampleParameter
+                        CodeSample paramCodeSample = (CodeSample) parameters[0].ObjectValue;
 
-                        // verify paramCodeEvent exists
-                        if(paramCodeEvent != null)
+                        // verify paramCodeSample exists
+                        if(paramCodeSample != null)
                         {
-                            // Now create findCodeEventProc from CodeEventWriter
-                            // The DataWriter converts the 'CodeEvent'
-                            // to the SqlParameter[] array needed to find a 'CodeEvent'.
-                            findCodeEventProc = CodeEventWriter.CreateFindCodeEventStoredProcedure(paramCodeEvent);
+                            // Now create findCodeSampleProc from CodeSampleWriter
+                            // The DataWriter converts the 'CodeSample'
+                            // to the SqlParameter[] array needed to find a 'CodeSample'.
+                            findCodeSampleProc = CodeSampleWriter.CreateFindCodeSampleStoredProcedure(paramCodeSample);
                         }
 
-                        // Verify findCodeEventProc exists
-                        if(findCodeEventProc != null)
+                        // Verify findCodeSampleProc exists
+                        if(findCodeSampleProc != null)
                         {
                             // Execute Find Stored Procedure
-                            codeEvent = this.DataManager.CodeEventManager.FindCodeEvent(findCodeEventProc, dataConnector);
+                            codeSample = this.DataManager.CodeSampleManager.FindCodeSample(findCodeSampleProc, dataConnector);
 
                             // if dataObject exists
-                            if(codeEvent != null)
+                            if(codeSample != null)
                             {
                                 // set returnObject.ObjectValue
-                                returnObject.ObjectValue = codeEvent;
+                                returnObject.ObjectValue = codeSample;
                             }
                         }
                     }
@@ -229,46 +229,46 @@ namespace DataAccessComponent.DataOperations
             }
             #endregion
 
-            #region InsertCodeEvent (CodeEvent)
+            #region InsertCodeSample (CodeSample)
             /// <summary>
-            /// This method inserts a 'CodeEvent' object.
+            /// This method inserts a 'CodeSample' object.
             /// </summary>
-            /// <param name='List<PolymorphicObject>'>The 'CodeEvent' to insert.
+            /// <param name='List<PolymorphicObject>'>The 'CodeSample' to insert.
             /// <returns>A PolymorphicObject object with a Boolean value.
-            internal PolymorphicObject InsertCodeEvent(List<PolymorphicObject> parameters, DataConnector dataConnector)
+            internal PolymorphicObject InsertCodeSample(List<PolymorphicObject> parameters, DataConnector dataConnector)
             {
                 // Initial Value
                 PolymorphicObject returnObject = new PolymorphicObject();
 
                 // locals
-                CodeEvent codeEvent = null;
+                CodeSample codeSample = null;
 
                 // If the data connection is connected
                 if ((dataConnector != null) && (dataConnector.Connected == true))
                 {
                     // Create Insert StoredProcedure
-                    InsertCodeEventStoredProcedure insertCodeEventProc = null;
+                    InsertCodeSampleStoredProcedure insertCodeSampleProc = null;
 
-                    // verify the first parameters is a(n) 'CodeEvent'.
-                    if (parameters[0].ObjectValue as CodeEvent != null)
+                    // verify the first parameters is a(n) 'CodeSample'.
+                    if (parameters[0].ObjectValue as CodeSample != null)
                     {
-                        // Create CodeEvent Parameter
-                        codeEvent = (CodeEvent) parameters[0].ObjectValue;
+                        // Create CodeSample Parameter
+                        codeSample = (CodeSample) parameters[0].ObjectValue;
 
-                        // verify codeEvent exists
-                        if(codeEvent != null)
+                        // verify codeSample exists
+                        if(codeSample != null)
                         {
-                            // Now create insertCodeEventProc from CodeEventWriter
-                            // The DataWriter converts the 'CodeEvent'
-                            // to the SqlParameter[] array needed to insert a 'CodeEvent'.
-                            insertCodeEventProc = CodeEventWriter.CreateInsertCodeEventStoredProcedure(codeEvent);
+                            // Now create insertCodeSampleProc from CodeSampleWriter
+                            // The DataWriter converts the 'CodeSample'
+                            // to the SqlParameter[] array needed to insert a 'CodeSample'.
+                            insertCodeSampleProc = CodeSampleWriter.CreateInsertCodeSampleStoredProcedure(codeSample);
                         }
 
-                        // Verify insertCodeEventProc exists
-                        if(insertCodeEventProc != null)
+                        // Verify insertCodeSampleProc exists
+                        if(insertCodeSampleProc != null)
                         {
                             // Execute Insert Stored Procedure
-                            returnObject.IntegerValue = this.DataManager.CodeEventManager.InsertCodeEvent(insertCodeEventProc, dataConnector);
+                            returnObject.IntegerValue = this.DataManager.CodeSampleManager.InsertCodeSample(insertCodeSampleProc, dataConnector);
                         }
 
                     }
@@ -284,46 +284,46 @@ namespace DataAccessComponent.DataOperations
             }
             #endregion
 
-            #region UpdateCodeEvent (CodeEvent)
+            #region UpdateCodeSample (CodeSample)
             /// <summary>
-            /// This method updates a 'CodeEvent' object.
+            /// This method updates a 'CodeSample' object.
             /// </summary>
-            /// <param name='List<PolymorphicObject>'>The 'CodeEvent' to update.
+            /// <param name='List<PolymorphicObject>'>The 'CodeSample' to update.
             /// <returns>A PolymorphicObject object with a value.
-            internal PolymorphicObject UpdateCodeEvent(List<PolymorphicObject> parameters, DataConnector dataConnector)
+            internal PolymorphicObject UpdateCodeSample(List<PolymorphicObject> parameters, DataConnector dataConnector)
             {
                 // Initial Value
                 PolymorphicObject returnObject = new PolymorphicObject();
 
                 // locals
-                CodeEvent codeEvent = null;
+                CodeSample codeSample = null;
 
                 // If the data connection is connected
                 if ((dataConnector != null) && (dataConnector.Connected == true))
                 {
                     // Create Update StoredProcedure
-                    UpdateCodeEventStoredProcedure updateCodeEventProc = null;
+                    UpdateCodeSampleStoredProcedure updateCodeSampleProc = null;
 
-                    // verify the first parameters is a(n) 'CodeEvent'.
-                    if (parameters[0].ObjectValue as CodeEvent != null)
+                    // verify the first parameters is a(n) 'CodeSample'.
+                    if (parameters[0].ObjectValue as CodeSample != null)
                     {
-                        // Create CodeEvent Parameter
-                        codeEvent = (CodeEvent) parameters[0].ObjectValue;
+                        // Create CodeSample Parameter
+                        codeSample = (CodeSample) parameters[0].ObjectValue;
 
-                        // verify codeEvent exists
-                        if(codeEvent != null)
+                        // verify codeSample exists
+                        if(codeSample != null)
                         {
-                            // Now create updateCodeEventProc from CodeEventWriter
-                            // The DataWriter converts the 'CodeEvent'
-                            // to the SqlParameter[] array needed to update a 'CodeEvent'.
-                            updateCodeEventProc = CodeEventWriter.CreateUpdateCodeEventStoredProcedure(codeEvent);
+                            // Now create updateCodeSampleProc from CodeSampleWriter
+                            // The DataWriter converts the 'CodeSample'
+                            // to the SqlParameter[] array needed to update a 'CodeSample'.
+                            updateCodeSampleProc = CodeSampleWriter.CreateUpdateCodeSampleStoredProcedure(codeSample);
                         }
 
-                        // Verify updateCodeEventProc exists
-                        if(updateCodeEventProc != null)
+                        // Verify updateCodeSampleProc exists
+                        if(updateCodeSampleProc != null)
                         {
                             // Execute Update Stored Procedure
-                            bool saved = this.DataManager.CodeEventManager.UpdateCodeEvent(updateCodeEventProc, dataConnector);
+                            bool saved = this.DataManager.CodeSampleManager.UpdateCodeSample(updateCodeSampleProc, dataConnector);
 
                             // Create returnObject.Boolean
                             returnObject.Boolean = new NullableBoolean();

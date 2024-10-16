@@ -17,12 +17,12 @@ using System.Data;
 namespace DataAccessComponent.Data.Writers
 {
 
-    #region class CodeEventWriter
+    #region class CodeSampleWriter
     /// <summary>
-    /// This class is used for converting a 'CodeEvent' object to
+    /// This class is used for converting a 'CodeSample' object to
     /// the SqlParameter[] to perform the CRUD methods.
     /// </summary>
-    public class CodeEventWriter : CodeEventWriterBase
+    public class CodeSampleWriter : CodeSampleWriterBase
     {
 
         #region Static Methods

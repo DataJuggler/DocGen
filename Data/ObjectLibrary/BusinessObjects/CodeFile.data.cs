@@ -22,9 +22,11 @@ namespace ObjectLibrary.BusinessObjects
         private int id;
         private int methodsCount;
         private string name;
+        private int parentId;
         private int projectId;
         private int propertiesCount;
         private int status;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -125,6 +127,20 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region int ParentId
+            public int ParentId
+            {
+                get
+                {
+                    return parentId;
+                }
+                set
+                {
+                    parentId = value;
+                }
+            }
+            #endregion
+
             #region int ProjectId
             public int ProjectId
             {
@@ -163,6 +179,20 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

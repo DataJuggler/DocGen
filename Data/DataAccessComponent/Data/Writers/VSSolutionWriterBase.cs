@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(VSSolution vSSolution)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[4];
+                SqlParameter[] parameters = new SqlParameter[6];
                 SqlParameter param = null;
 
                 // verify vSSolutionexists
@@ -157,6 +157,18 @@ namespace DataAccessComponent.Data.Writers
 
                     // set parameters[3]
                     parameters[3] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", vSSolution.Status);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", vSSolution.Visible);
+
+                    // set parameters[5]
+                    parameters[5] = param;
                 }
 
                 // return value
@@ -203,7 +215,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(VSSolution vSSolution)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[5];
+                SqlParameter[] parameters = new SqlParameter[7];
                 SqlParameter param = null;
 
                 // verify vSSolutionexists
@@ -246,9 +258,21 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[3]
                     parameters[3] = param;
 
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", vSSolution.Status);
+
+                    // set parameters[4]
+                    parameters[4] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", vSSolution.Visible);
+
+                    // set parameters[5]
+                    parameters[5] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", vSSolution.Id);
-                    parameters[4] = param;
+                    parameters[6] = param;
                 }
 
                 // return value

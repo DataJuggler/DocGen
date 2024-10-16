@@ -3,11 +3,11 @@
 namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
 {
 
-    #region class FetchAllCodeEventsStoredProcedure
+    #region class FetchAllCodeSamplesStoredProcedure
     /// <summary>
-    /// This class is used to FetchAll 'CodeEvent' objects.
+    /// This class is used to FetchAll 'CodeSample' objects.
     /// </summary>
-    public class FetchAllCodeEventsStoredProcedure : StoredProcedure
+    public class FetchAllCodeSamplesStoredProcedure : StoredProcedure
     {
 
         #region Private Variables
@@ -15,9 +15,9 @@ namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
 
         #region Constructor
         /// <summary>
-        /// Create a new instance of a 'FetchAllCodeEventsStoredProcedure' object.
+        /// Create a new instance of a 'FetchAllCodeSamplesStoredProcedure' object.
         /// </summary>
-        public FetchAllCodeEventsStoredProcedure()
+        public FetchAllCodeSamplesStoredProcedure()
         {
             // Perform Initialization
             Init();
@@ -35,10 +35,10 @@ namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
                 // Set Properties For This Proc
 
                 // Set ProcedureName
-                this.ProcedureName = "CodeEvent_FetchAll";
+                this.ProcedureName = "CodeSample_FetchAll";
 
                 // Set tableName
-                this.TableName = "CodeEvent";
+                this.TableName = "CodeSample";
             }
             #endregion
 

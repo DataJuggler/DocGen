@@ -43,8 +43,10 @@ namespace DataAccessComponent.Data.Readers
                 int projectIdfield = 4;
                 int sourceIdfield = 5;
                 int sourceTypefield = 6;
-                int targetIdfield = 7;
-                int targetTypefield = 8;
+                int statusfield = 7;
+                int targetIdfield = 8;
+                int targetTypefield = 9;
+                int visiblefield = 10;
 
                 try
                 {
@@ -56,8 +58,10 @@ namespace DataAccessComponent.Data.Readers
                     referencedBy.ProjectId = DataHelper.ParseInteger(dataRow.ItemArray[projectIdfield], 0);
                     referencedBy.SourceId = DataHelper.ParseInteger(dataRow.ItemArray[sourceIdfield], 0);
                     referencedBy.SourceType = (ReferenceTypeEnum) DataHelper.ParseInteger(dataRow.ItemArray[sourceTypefield], 0);
+                    referencedBy.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
                     referencedBy.TargetId = DataHelper.ParseInteger(dataRow.ItemArray[targetIdfield], 0);
                     referencedBy.TargetType = (ReferenceTypeEnum) DataHelper.ParseInteger(dataRow.ItemArray[targetTypefield], 0);
+                    referencedBy.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

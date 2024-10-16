@@ -6,7 +6,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeClass
 -- =========================================================
 
@@ -39,8 +39,11 @@ Create PROCEDURE CodeClass_Insert
     -- Add the parameters for the stored procedure here
     @CodeFileId int,
     @Description nvarchar(255),
+    @IsPartial bit,
     @Name nvarchar(50),
-    @Status int
+    @Status int,
+    @Tags nvarchar(255),
+    @Visible bit
 
 AS
 BEGIN
@@ -51,10 +54,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeClass]
-    ([CodeFileId],[Description],[Name],[Status])
+    ([CodeFileId],[Description],[IsPartial],[Name],[Status],[Tags],[Visible])
 
     -- Begin Values List
-    Values(@CodeFileId, @Description, @Name, @Status)
+    Values(@CodeFileId, @Description, @IsPartial, @Name, @Status, @Tags, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -67,7 +70,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeClass
 -- =========================================================
 
@@ -101,8 +104,11 @@ Create PROCEDURE CodeClass_Update
     @CodeFileId int,
     @Description nvarchar(255),
     @Id int,
+    @IsPartial bit,
     @Name nvarchar(50),
-    @Status int
+    @Status int,
+    @Tags nvarchar(255),
+    @Visible bit
 
 AS
 BEGIN
@@ -117,8 +123,11 @@ BEGIN
     -- Update Each field
     Set [CodeFileId] = @CodeFileId,
     [Description] = @Description,
+    [IsPartial] = @IsPartial,
     [Name] = @Name,
-    [Status] = @Status
+    [Status] = @Status,
+    [Tags] = @Tags,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -131,7 +140,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeClass
 -- =========================================================
 
@@ -172,7 +181,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[Description],[Id],[Name],[Status]
+    Select [CodeFileId],[Description],[Id],[IsPartial],[Name],[Status],[Tags],[Visible]
 
     -- From tableName
     From [CodeClass]
@@ -188,7 +197,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeClass
 -- =========================================================
 
@@ -242,7 +251,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeClass objects
 -- =========================================================
 
@@ -280,7 +289,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[Description],[Id],[Name],[Status]
+    Select [CodeFileId],[Description],[Id],[IsPartial],[Name],[Status],[Tags],[Visible]
 
     -- From tableName
     From [CodeClass]
@@ -293,7 +302,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeConstructor
 -- =========================================================
 
@@ -329,10 +338,10 @@ Create PROCEDURE CodeConstructor_Insert
     @Description nvarchar(255),
     @EndLineNumber int,
     @Name nvarchar(50),
-    @ReferencedByPath nvarchar(255),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -343,10 +352,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeConstructor]
-    ([CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status])
+    ([CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Name],[ReturnType],[StartLineNumber],[Status],[Visible])
 
     -- Begin Values List
-    Values(@CodeClassId, @CodeFileId, @Description, @EndLineNumber, @Name, @ReferencedByPath, @ReturnType, @StartLineNumber, @Status)
+    Values(@CodeClassId, @CodeFileId, @Description, @EndLineNumber, @Name, @ReturnType, @StartLineNumber, @Status, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -359,7 +368,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeConstructor
 -- =========================================================
 
@@ -396,10 +405,10 @@ Create PROCEDURE CodeConstructor_Update
     @EndLineNumber int,
     @Id int,
     @Name nvarchar(50),
-    @ReferencedByPath nvarchar(255),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -417,10 +426,10 @@ BEGIN
     [Description] = @Description,
     [EndLineNumber] = @EndLineNumber,
     [Name] = @Name,
-    [ReferencedByPath] = @ReferencedByPath,
     [ReturnType] = @ReturnType,
     [StartLineNumber] = @StartLineNumber,
-    [Status] = @Status
+    [Status] = @Status,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -433,7 +442,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeConstructor
 -- =========================================================
 
@@ -474,7 +483,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status],[Visible]
 
     -- From tableName
     From [CodeConstructor]
@@ -490,7 +499,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeConstructor
 -- =========================================================
 
@@ -544,7 +553,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeConstructor objects
 -- =========================================================
 
@@ -582,7 +591,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status],[Visible]
 
     -- From tableName
     From [CodeConstructor]
@@ -593,302 +602,9 @@ set ANSI_NULLS ON
 set QUOTED_IDENTIFIER ON
 Go
 -- =========================================================
--- Procure Name: CodeEvent_Insert
--- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
--- Description:    Insert a new CodeEvent
--- =========================================================
-
--- Check if the procedure already exists
-IF EXISTS (select * from syscomments where id = object_id ('CodeEvent_Insert'))
-
-    -- Procedure Does Exist, Drop First
-    BEGIN
-
-        -- Execute Drop
-        Drop Procedure CodeEvent_Insert
-
-        -- Test if procedure was dropped
-        IF OBJECT_ID('dbo.CodeEvent_Insert') IS NOT NULL
-
-            -- Print Line Drop Failed
-            PRINT '<<< Drop Failed On Procedure CodeEvent_Insert >>>'
-
-        Else
-
-            -- Print Line Procedure Dropped
-            PRINT '<<< Drop Suceeded On Procedure CodeEvent_Insert >>>'
-
-    End
-
-GO
-
-Create PROCEDURE CodeEvent_Insert
-
-    -- Add the parameters for the stored procedure here
-    @CodeFileId int,
-    @Description nvarchar(255),
-    @EndLineNumber int,
-    @Name nvarchar(50),
-    @StartLineNumber int,
-    @Status int
-
-AS
-BEGIN
-
-    -- SET NOCOUNT ON added to prevent extra result sets from
-    -- interfering with SELECT statements.
-    SET NOCOUNT ON
-
-    -- Begin Insert Statement
-    Insert Into [CodeEvent]
-    ([CodeFileId],[Description],[EndLineNumber],[Name],[StartLineNumber],[Status])
-
-    -- Begin Values List
-    Values(@CodeFileId, @Description, @EndLineNumber, @Name, @StartLineNumber, @Status)
-
-    -- Return ID of new record
-    SELECT SCOPE_IDENTITY()
-
-END
-
-set ANSI_NULLS ON
-set QUOTED_IDENTIFIER ON
-Go
--- =========================================================
--- Procure Name: CodeEvent_Update
--- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
--- Description:    Update an existing CodeEvent
--- =========================================================
-
--- Check if the procedure already exists
-IF EXISTS (select * from syscomments where id = object_id ('CodeEvent_Update'))
-
-    -- Procedure Does Exist, Drop First
-    BEGIN
-
-        -- Execute Drop
-        Drop Procedure CodeEvent_Update
-
-        -- Test if procedure was dropped
-        IF OBJECT_ID('dbo.CodeEvent_Update') IS NOT NULL
-
-            -- Print Line Drop Failed
-            PRINT '<<< Drop Failed On Procedure CodeEvent_Update >>>'
-
-        Else
-
-            -- Print Line Procedure Dropped
-            PRINT '<<< Drop Suceeded On Procedure CodeEvent_Update >>>'
-
-    End
-
-GO
-
-Create PROCEDURE CodeEvent_Update
-
-    -- Add the parameters for the stored procedure here
-    @CodeFileId int,
-    @Description nvarchar(255),
-    @EndLineNumber int,
-    @Id int,
-    @Name nvarchar(50),
-    @StartLineNumber int,
-    @Status int
-
-AS
-BEGIN
-
-    -- SET NOCOUNT ON added to prevent extra result sets from
-    -- interfering with SELECT statements.
-    SET NOCOUNT ON
-
-    -- Begin Update Statement
-    Update [CodeEvent]
-
-    -- Update Each field
-    Set [CodeFileId] = @CodeFileId,
-    [Description] = @Description,
-    [EndLineNumber] = @EndLineNumber,
-    [Name] = @Name,
-    [StartLineNumber] = @StartLineNumber,
-    [Status] = @Status
-
-    -- Update Matching Record
-    Where [Id] = @Id
-
-END
-
-set ANSI_NULLS ON
-set QUOTED_IDENTIFIER ON
-Go
--- =========================================================
--- Procure Name: CodeEvent_Find
--- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
--- Description:    Find an existing CodeEvent
--- =========================================================
-
--- Check if the procedure already exists
-IF EXISTS (select * from syscomments where id = object_id ('CodeEvent_Find'))
-
-    -- Procedure Does Exist, Drop First
-    BEGIN
-
-        -- Execute Drop
-        Drop Procedure CodeEvent_Find
-
-        -- Test if procedure was dropped
-        IF OBJECT_ID('dbo.CodeEvent_Find') IS NOT NULL
-
-            -- Print Line Drop Failed
-            PRINT '<<< Drop Failed On Procedure CodeEvent_Find >>>'
-
-        Else
-
-            -- Print Line Procedure Dropped
-            PRINT '<<< Drop Suceeded On Procedure CodeEvent_Find >>>'
-
-    End
-
-GO
-
-Create PROCEDURE CodeEvent_Find
-
-    -- Primary Key Paramater
-    @Id int
-
-AS
-BEGIN
-
-    -- SET NOCOUNT ON added to prevent extra result sets from
-    -- interfering with SELECT statements.
-    SET NOCOUNT ON
-
-    -- Begin Select Statement
-    Select [CodeFileId],[Description],[EndLineNumber],[Id],[Name],[StartLineNumber],[Status]
-
-    -- From tableName
-    From [CodeEvent]
-
-    -- Find Matching Record
-    Where [Id] = @Id
-
-END
-
-set ANSI_NULLS ON
-set QUOTED_IDENTIFIER ON
-Go
--- =========================================================
--- Procure Name: CodeEvent_Delete
--- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
--- Description:    Delete an existing CodeEvent
--- =========================================================
-
--- Check if the procedure already exists
-IF EXISTS (select * from syscomments where id = object_id ('CodeEvent_Delete'))
-
-    -- Procedure Does Exist, Drop First
-    BEGIN
-
-        -- Execute Drop
-        Drop Procedure CodeEvent_Delete
-
-        -- Test if procedure was dropped
-        IF OBJECT_ID('dbo.CodeEvent_Delete') IS NOT NULL
-
-            -- Print Line Drop Failed
-            PRINT '<<< Drop Failed On Procedure CodeEvent_Delete >>>'
-
-        Else
-
-            -- Print Line Procedure Dropped
-            PRINT '<<< Drop Suceeded On Procedure CodeEvent_Delete >>>'
-
-    End
-
-GO
-
-Create PROCEDURE CodeEvent_Delete
-
-    -- Primary Key Paramater
-    @Id int
-
-AS
-BEGIN
-
-    -- SET NOCOUNT ON added to prevent extra result sets from
-    -- interfering with SELECT statements.
-    SET NOCOUNT ON
-
-    -- Begin Delete Statement
-    Delete From [CodeEvent]
-
-    -- Delete Matching Record
-    Where [Id] = @Id
-
-END
-
-set ANSI_NULLS ON
-set QUOTED_IDENTIFIER ON
-Go
--- =========================================================
--- Procure Name: CodeEvent_FetchAll
--- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
--- Description:    Returns all CodeEvent objects
--- =========================================================
-
--- Check if the procedure already exists
-IF EXISTS (select * from syscomments where id = object_id ('CodeEvent_FetchAll'))
-
-    -- Procedure Does Exist, Drop First
-    BEGIN
-
-        -- Execute Drop
-        Drop Procedure CodeEvent_FetchAll
-
-        -- Test if procedure was dropped
-        IF OBJECT_ID('dbo.CodeEvent_FetchAll') IS NOT NULL
-
-            -- Print Line Drop Failed
-            PRINT '<<< Drop Failed On Procedure CodeEvent_FetchAll >>>'
-
-        Else
-
-            -- Print Line Procedure Dropped
-            PRINT '<<< Drop Suceeded On Procedure CodeEvent_FetchAll >>>'
-
-    End
-
-GO
-
-Create PROCEDURE CodeEvent_FetchAll
-
-AS
-BEGIN
-
-    -- SET NOCOUNT ON added to prevent extra result sets from
-    -- interfering with SELECT statements.
-    SET NOCOUNT ON
-
-    -- Begin Select Statement
-    Select [CodeFileId],[Description],[EndLineNumber],[Id],[Name],[StartLineNumber],[Status]
-
-    -- From tableName
-    From [CodeEvent]
-
-END
-
-set ANSI_NULLS ON
-set QUOTED_IDENTIFIER ON
-Go
--- =========================================================
 -- Procure Name: CodeFile_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeFile
 -- =========================================================
 
@@ -924,9 +640,11 @@ Create PROCEDURE CodeFile_Insert
     @FullPath nvarchar(255),
     @MethodsCount int,
     @Name nvarchar(50),
+    @ParentId int,
     @ProjectId int,
     @PropertiesCount int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -937,10 +655,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeFile]
-    ([Description],[EventsCount],[FullPath],[MethodsCount],[Name],[ProjectId],[PropertiesCount],[Status])
+    ([Description],[EventsCount],[FullPath],[MethodsCount],[Name],[ParentId],[ProjectId],[PropertiesCount],[Status],[Visible])
 
     -- Begin Values List
-    Values(@Description, @EventsCount, @FullPath, @MethodsCount, @Name, @ProjectId, @PropertiesCount, @Status)
+    Values(@Description, @EventsCount, @FullPath, @MethodsCount, @Name, @ParentId, @ProjectId, @PropertiesCount, @Status, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -953,7 +671,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeFile
 -- =========================================================
 
@@ -990,9 +708,11 @@ Create PROCEDURE CodeFile_Update
     @Id int,
     @MethodsCount int,
     @Name nvarchar(50),
+    @ParentId int,
     @ProjectId int,
     @PropertiesCount int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -1010,9 +730,11 @@ BEGIN
     [FullPath] = @FullPath,
     [MethodsCount] = @MethodsCount,
     [Name] = @Name,
+    [ParentId] = @ParentId,
     [ProjectId] = @ProjectId,
     [PropertiesCount] = @PropertiesCount,
-    [Status] = @Status
+    [Status] = @Status,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -1025,7 +747,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeFile
 -- =========================================================
 
@@ -1066,7 +788,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [Description],[EventsCount],[FullPath],[Id],[MethodsCount],[Name],[ProjectId],[PropertiesCount],[Status]
+    Select [Description],[EventsCount],[FullPath],[Id],[MethodsCount],[Name],[ParentId],[ProjectId],[PropertiesCount],[Status],[Visible]
 
     -- From tableName
     From [CodeFile]
@@ -1082,7 +804,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeFile
 -- =========================================================
 
@@ -1136,7 +858,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeFile objects
 -- =========================================================
 
@@ -1174,7 +896,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [Description],[EventsCount],[FullPath],[Id],[MethodsCount],[Name],[ProjectId],[PropertiesCount],[Status]
+    Select [Description],[EventsCount],[FullPath],[Id],[MethodsCount],[Name],[ParentId],[ProjectId],[PropertiesCount],[Status],[Visible]
 
     -- From tableName
     From [CodeFile]
@@ -1187,7 +909,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeMethod
 -- =========================================================
 
@@ -1222,11 +944,14 @@ Create PROCEDURE CodeMethod_Insert
     @CodeFileId int,
     @Description nvarchar(255),
     @EndLineNumber int,
+    @IsAsync bit,
+    @IsEventHandler bit,
     @Name nvarchar(50),
     @ReferencedByPath nvarchar(255),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -1237,10 +962,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeMethod]
-    ([CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status])
+    ([CodeClassId],[CodeFileId],[Description],[EndLineNumber],[IsAsync],[IsEventHandler],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status],[Visible])
 
     -- Begin Values List
-    Values(@CodeClassId, @CodeFileId, @Description, @EndLineNumber, @Name, @ReferencedByPath, @ReturnType, @StartLineNumber, @Status)
+    Values(@CodeClassId, @CodeFileId, @Description, @EndLineNumber, @IsAsync, @IsEventHandler, @Name, @ReferencedByPath, @ReturnType, @StartLineNumber, @Status, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -1253,7 +978,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeMethod
 -- =========================================================
 
@@ -1289,11 +1014,14 @@ Create PROCEDURE CodeMethod_Update
     @Description nvarchar(255),
     @EndLineNumber int,
     @Id int,
+    @IsAsync bit,
+    @IsEventHandler bit,
     @Name nvarchar(50),
     @ReferencedByPath nvarchar(255),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -1310,11 +1038,14 @@ BEGIN
     [CodeFileId] = @CodeFileId,
     [Description] = @Description,
     [EndLineNumber] = @EndLineNumber,
+    [IsAsync] = @IsAsync,
+    [IsEventHandler] = @IsEventHandler,
     [Name] = @Name,
     [ReferencedByPath] = @ReferencedByPath,
     [ReturnType] = @ReturnType,
     [StartLineNumber] = @StartLineNumber,
-    [Status] = @Status
+    [Status] = @Status,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -1327,7 +1058,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeMethod
 -- =========================================================
 
@@ -1368,7 +1099,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[IsAsync],[IsEventHandler],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status],[Visible]
 
     -- From tableName
     From [CodeMethod]
@@ -1384,7 +1115,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeMethod
 -- =========================================================
 
@@ -1438,7 +1169,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeMethod objects
 -- =========================================================
 
@@ -1476,7 +1207,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[IsAsync],[IsEventHandler],[Name],[ReferencedByPath],[ReturnType],[StartLineNumber],[Status],[Visible]
 
     -- From tableName
     From [CodeMethod]
@@ -1489,7 +1220,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeParameter
 -- =========================================================
 
@@ -1520,12 +1251,12 @@ GO
 Create PROCEDURE CodeParameter_Insert
 
     -- Add the parameters for the stored procedure here
-    @CodeEventId int,
-    @CodeMethodId int,
     @Description nvarchar(255),
     @IsOptional bit,
     @Name nvarchar(50),
-    @ParameterType nvarchar(50)
+    @ParameterType nvarchar(50),
+    @ParentId int,
+    @ParentType int
 
 AS
 BEGIN
@@ -1536,10 +1267,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeParameter]
-    ([CodeEventId],[CodeMethodId],[Description],[IsOptional],[Name],[ParameterType])
+    ([Description],[IsOptional],[Name],[ParameterType],[ParentId],[ParentType])
 
     -- Begin Values List
-    Values(@CodeEventId, @CodeMethodId, @Description, @IsOptional, @Name, @ParameterType)
+    Values(@Description, @IsOptional, @Name, @ParameterType, @ParentId, @ParentType)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -1552,7 +1283,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeParameter
 -- =========================================================
 
@@ -1583,13 +1314,13 @@ GO
 Create PROCEDURE CodeParameter_Update
 
     -- Add the parameters for the stored procedure here
-    @CodeEventId int,
-    @CodeMethodId int,
     @Description nvarchar(255),
     @Id int,
     @IsOptional bit,
     @Name nvarchar(50),
-    @ParameterType nvarchar(50)
+    @ParameterType nvarchar(50),
+    @ParentId int,
+    @ParentType int
 
 AS
 BEGIN
@@ -1602,12 +1333,12 @@ BEGIN
     Update [CodeParameter]
 
     -- Update Each field
-    Set [CodeEventId] = @CodeEventId,
-    [CodeMethodId] = @CodeMethodId,
-    [Description] = @Description,
+    Set [Description] = @Description,
     [IsOptional] = @IsOptional,
     [Name] = @Name,
-    [ParameterType] = @ParameterType
+    [ParameterType] = @ParameterType,
+    [ParentId] = @ParentId,
+    [ParentType] = @ParentType
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -1620,7 +1351,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeParameter
 -- =========================================================
 
@@ -1661,7 +1392,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeEventId],[CodeMethodId],[Description],[Id],[IsOptional],[Name],[ParameterType]
+    Select [Description],[Id],[IsOptional],[Name],[ParameterType],[ParentId],[ParentType]
 
     -- From tableName
     From [CodeParameter]
@@ -1677,7 +1408,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeParameter
 -- =========================================================
 
@@ -1731,7 +1462,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeParameter objects
 -- =========================================================
 
@@ -1769,7 +1500,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeEventId],[CodeMethodId],[Description],[Id],[IsOptional],[Name],[ParameterType]
+    Select [Description],[Id],[IsOptional],[Name],[ParameterType],[ParentId],[ParentType]
 
     -- From tableName
     From [CodeParameter]
@@ -1782,7 +1513,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new CodeProperty
 -- =========================================================
 
@@ -1813,13 +1544,16 @@ GO
 Create PROCEDURE CodeProperty_Insert
 
     -- Add the parameters for the stored procedure here
+    @CodeClassId int,
     @CodeFileId int,
     @Description nvarchar(255),
     @EndLineNumber int,
     @Name nvarchar(50),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Tags nvarchar(255),
+    @Visible bit
 
 AS
 BEGIN
@@ -1830,10 +1564,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [CodeProperty]
-    ([CodeFileId],[Description],[EndLineNumber],[Name],[ReturnType],[StartLineNumber],[Status])
+    ([CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Name],[ReturnType],[StartLineNumber],[Status],[Tags],[Visible])
 
     -- Begin Values List
-    Values(@CodeFileId, @Description, @EndLineNumber, @Name, @ReturnType, @StartLineNumber, @Status)
+    Values(@CodeClassId, @CodeFileId, @Description, @EndLineNumber, @Name, @ReturnType, @StartLineNumber, @Status, @Tags, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -1846,7 +1580,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing CodeProperty
 -- =========================================================
 
@@ -1877,6 +1611,7 @@ GO
 Create PROCEDURE CodeProperty_Update
 
     -- Add the parameters for the stored procedure here
+    @CodeClassId int,
     @CodeFileId int,
     @Description nvarchar(255),
     @EndLineNumber int,
@@ -1884,7 +1619,9 @@ Create PROCEDURE CodeProperty_Update
     @Name nvarchar(50),
     @ReturnType nvarchar(50),
     @StartLineNumber int,
-    @Status int
+    @Status int,
+    @Tags nvarchar(255),
+    @Visible bit
 
 AS
 BEGIN
@@ -1897,13 +1634,16 @@ BEGIN
     Update [CodeProperty]
 
     -- Update Each field
-    Set [CodeFileId] = @CodeFileId,
+    Set [CodeClassId] = @CodeClassId,
+    [CodeFileId] = @CodeFileId,
     [Description] = @Description,
     [EndLineNumber] = @EndLineNumber,
     [Name] = @Name,
     [ReturnType] = @ReturnType,
     [StartLineNumber] = @StartLineNumber,
-    [Status] = @Status
+    [Status] = @Status,
+    [Tags] = @Tags,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -1916,7 +1656,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing CodeProperty
 -- =========================================================
 
@@ -1957,7 +1697,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status],[Tags],[Visible]
 
     -- From tableName
     From [CodeProperty]
@@ -1973,7 +1713,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing CodeProperty
 -- =========================================================
 
@@ -2027,7 +1767,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all CodeProperty objects
 -- =========================================================
 
@@ -2065,7 +1805,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status]
+    Select [CodeClassId],[CodeFileId],[Description],[EndLineNumber],[Id],[Name],[ReturnType],[StartLineNumber],[Status],[Tags],[Visible]
 
     -- From tableName
     From [CodeProperty]
@@ -2076,9 +1816,302 @@ set ANSI_NULLS ON
 set QUOTED_IDENTIFIER ON
 Go
 -- =========================================================
+-- Procure Name: CodeSample_Insert
+-- Author:           Data Juggler - Data Tier.Net Procedure Generator
+-- Create Date:   10/15/2024
+-- Description:    Insert a new CodeSample
+-- =========================================================
+
+-- Check if the procedure already exists
+IF EXISTS (select * from syscomments where id = object_id ('CodeSample_Insert'))
+
+    -- Procedure Does Exist, Drop First
+    BEGIN
+
+        -- Execute Drop
+        Drop Procedure CodeSample_Insert
+
+        -- Test if procedure was dropped
+        IF OBJECT_ID('dbo.CodeSample_Insert') IS NOT NULL
+
+            -- Print Line Drop Failed
+            PRINT '<<< Drop Failed On Procedure CodeSample_Insert >>>'
+
+        Else
+
+            -- Print Line Procedure Dropped
+            PRINT '<<< Drop Suceeded On Procedure CodeSample_Insert >>>'
+
+    End
+
+GO
+
+Create PROCEDURE CodeSample_Insert
+
+    -- Add the parameters for the stored procedure here
+    @CodeType int,
+    @ParentId int,
+    @ParentType int,
+    @Status int,
+    @Text nvarchar(2000),
+    @Visible bit
+
+AS
+BEGIN
+
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+    -- Begin Insert Statement
+    Insert Into [CodeSample]
+    ([CodeType],[ParentId],[ParentType],[Status],[Text],[Visible])
+
+    -- Begin Values List
+    Values(@CodeType, @ParentId, @ParentType, @Status, @Text, @Visible)
+
+    -- Return ID of new record
+    SELECT SCOPE_IDENTITY()
+
+END
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+Go
+-- =========================================================
+-- Procure Name: CodeSample_Update
+-- Author:           Data Juggler - Data Tier.Net Procedure Generator
+-- Create Date:   10/15/2024
+-- Description:    Update an existing CodeSample
+-- =========================================================
+
+-- Check if the procedure already exists
+IF EXISTS (select * from syscomments where id = object_id ('CodeSample_Update'))
+
+    -- Procedure Does Exist, Drop First
+    BEGIN
+
+        -- Execute Drop
+        Drop Procedure CodeSample_Update
+
+        -- Test if procedure was dropped
+        IF OBJECT_ID('dbo.CodeSample_Update') IS NOT NULL
+
+            -- Print Line Drop Failed
+            PRINT '<<< Drop Failed On Procedure CodeSample_Update >>>'
+
+        Else
+
+            -- Print Line Procedure Dropped
+            PRINT '<<< Drop Suceeded On Procedure CodeSample_Update >>>'
+
+    End
+
+GO
+
+Create PROCEDURE CodeSample_Update
+
+    -- Add the parameters for the stored procedure here
+    @CodeType int,
+    @Id int,
+    @ParentId int,
+    @ParentType int,
+    @Status int,
+    @Text nvarchar(2000),
+    @Visible bit
+
+AS
+BEGIN
+
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+    -- Begin Update Statement
+    Update [CodeSample]
+
+    -- Update Each field
+    Set [CodeType] = @CodeType,
+    [ParentId] = @ParentId,
+    [ParentType] = @ParentType,
+    [Status] = @Status,
+    [Text] = @Text,
+    [Visible] = @Visible
+
+    -- Update Matching Record
+    Where [Id] = @Id
+
+END
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+Go
+-- =========================================================
+-- Procure Name: CodeSample_Find
+-- Author:           Data Juggler - Data Tier.Net Procedure Generator
+-- Create Date:   10/15/2024
+-- Description:    Find an existing CodeSample
+-- =========================================================
+
+-- Check if the procedure already exists
+IF EXISTS (select * from syscomments where id = object_id ('CodeSample_Find'))
+
+    -- Procedure Does Exist, Drop First
+    BEGIN
+
+        -- Execute Drop
+        Drop Procedure CodeSample_Find
+
+        -- Test if procedure was dropped
+        IF OBJECT_ID('dbo.CodeSample_Find') IS NOT NULL
+
+            -- Print Line Drop Failed
+            PRINT '<<< Drop Failed On Procedure CodeSample_Find >>>'
+
+        Else
+
+            -- Print Line Procedure Dropped
+            PRINT '<<< Drop Suceeded On Procedure CodeSample_Find >>>'
+
+    End
+
+GO
+
+Create PROCEDURE CodeSample_Find
+
+    -- Primary Key Paramater
+    @Id int
+
+AS
+BEGIN
+
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+    -- Begin Select Statement
+    Select [CodeType],[Id],[ParentId],[ParentType],[Status],[Text],[Visible]
+
+    -- From tableName
+    From [CodeSample]
+
+    -- Find Matching Record
+    Where [Id] = @Id
+
+END
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+Go
+-- =========================================================
+-- Procure Name: CodeSample_Delete
+-- Author:           Data Juggler - Data Tier.Net Procedure Generator
+-- Create Date:   10/15/2024
+-- Description:    Delete an existing CodeSample
+-- =========================================================
+
+-- Check if the procedure already exists
+IF EXISTS (select * from syscomments where id = object_id ('CodeSample_Delete'))
+
+    -- Procedure Does Exist, Drop First
+    BEGIN
+
+        -- Execute Drop
+        Drop Procedure CodeSample_Delete
+
+        -- Test if procedure was dropped
+        IF OBJECT_ID('dbo.CodeSample_Delete') IS NOT NULL
+
+            -- Print Line Drop Failed
+            PRINT '<<< Drop Failed On Procedure CodeSample_Delete >>>'
+
+        Else
+
+            -- Print Line Procedure Dropped
+            PRINT '<<< Drop Suceeded On Procedure CodeSample_Delete >>>'
+
+    End
+
+GO
+
+Create PROCEDURE CodeSample_Delete
+
+    -- Primary Key Paramater
+    @Id int
+
+AS
+BEGIN
+
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+    -- Begin Delete Statement
+    Delete From [CodeSample]
+
+    -- Delete Matching Record
+    Where [Id] = @Id
+
+END
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+Go
+-- =========================================================
+-- Procure Name: CodeSample_FetchAll
+-- Author:           Data Juggler - Data Tier.Net Procedure Generator
+-- Create Date:   10/15/2024
+-- Description:    Returns all CodeSample objects
+-- =========================================================
+
+-- Check if the procedure already exists
+IF EXISTS (select * from syscomments where id = object_id ('CodeSample_FetchAll'))
+
+    -- Procedure Does Exist, Drop First
+    BEGIN
+
+        -- Execute Drop
+        Drop Procedure CodeSample_FetchAll
+
+        -- Test if procedure was dropped
+        IF OBJECT_ID('dbo.CodeSample_FetchAll') IS NOT NULL
+
+            -- Print Line Drop Failed
+            PRINT '<<< Drop Failed On Procedure CodeSample_FetchAll >>>'
+
+        Else
+
+            -- Print Line Procedure Dropped
+            PRINT '<<< Drop Suceeded On Procedure CodeSample_FetchAll >>>'
+
+    End
+
+GO
+
+Create PROCEDURE CodeSample_FetchAll
+
+AS
+BEGIN
+
+    -- SET NOCOUNT ON added to prevent extra result sets from
+    -- interfering with SELECT statements.
+    SET NOCOUNT ON
+
+    -- Begin Select Statement
+    Select [CodeType],[Id],[ParentId],[ParentType],[Status],[Text],[Visible]
+
+    -- From tableName
+    From [CodeSample]
+
+END
+
+set ANSI_NULLS ON
+set QUOTED_IDENTIFIER ON
+Go
+-- =========================================================
 -- Procure Name: ReferencedBy_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new ReferencedBy
 -- =========================================================
 
@@ -2115,8 +2148,10 @@ Create PROCEDURE ReferencedBy_Insert
     @ProjectId int,
     @SourceId int,
     @SourceType int,
+    @Status int,
     @TargetId int,
-    @TargetType int
+    @TargetType int,
+    @Visible bit
 
 AS
 BEGIN
@@ -2127,10 +2162,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [ReferencedBy]
-    ([CodeFileId],[FilePath],[LineNumber],[ProjectId],[SourceId],[SourceType],[TargetId],[TargetType])
+    ([CodeFileId],[FilePath],[LineNumber],[ProjectId],[SourceId],[SourceType],[Status],[TargetId],[TargetType],[Visible])
 
     -- Begin Values List
-    Values(@CodeFileId, @FilePath, @LineNumber, @ProjectId, @SourceId, @SourceType, @TargetId, @TargetType)
+    Values(@CodeFileId, @FilePath, @LineNumber, @ProjectId, @SourceId, @SourceType, @Status, @TargetId, @TargetType, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -2143,7 +2178,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing ReferencedBy
 -- =========================================================
 
@@ -2181,8 +2216,10 @@ Create PROCEDURE ReferencedBy_Update
     @ProjectId int,
     @SourceId int,
     @SourceType int,
+    @Status int,
     @TargetId int,
-    @TargetType int
+    @TargetType int,
+    @Visible bit
 
 AS
 BEGIN
@@ -2201,8 +2238,10 @@ BEGIN
     [ProjectId] = @ProjectId,
     [SourceId] = @SourceId,
     [SourceType] = @SourceType,
+    [Status] = @Status,
     [TargetId] = @TargetId,
-    [TargetType] = @TargetType
+    [TargetType] = @TargetType,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -2215,7 +2254,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing ReferencedBy
 -- =========================================================
 
@@ -2256,7 +2295,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[FilePath],[Id],[LineNumber],[ProjectId],[SourceId],[SourceType],[TargetId],[TargetType]
+    Select [CodeFileId],[FilePath],[Id],[LineNumber],[ProjectId],[SourceId],[SourceType],[Status],[TargetId],[TargetType],[Visible]
 
     -- From tableName
     From [ReferencedBy]
@@ -2272,7 +2311,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing ReferencedBy
 -- =========================================================
 
@@ -2326,7 +2365,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all ReferencedBy objects
 -- =========================================================
 
@@ -2364,7 +2403,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CodeFileId],[FilePath],[Id],[LineNumber],[ProjectId],[SourceId],[SourceType],[TargetId],[TargetType]
+    Select [CodeFileId],[FilePath],[Id],[LineNumber],[ProjectId],[SourceId],[SourceType],[Status],[TargetId],[TargetType],[Visible]
 
     -- From tableName
     From [ReferencedBy]
@@ -2377,7 +2416,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new VSProject
 -- =========================================================
 
@@ -2410,8 +2449,14 @@ Create PROCEDURE VSProject_Insert
     -- Add the parameters for the stored procedure here
     @Description nvarchar(255),
     @FullPath nvarchar(255),
+    @IsPreview bit,
     @Name nvarchar(50),
-    @SolutionId int
+    @PreviewDescription nvarchar(255),
+    @ProjectType nvarchar(30),
+    @SolutionId int,
+    @Status int,
+    @TargetFramework nvarchar(30),
+    @Visible bit
 
 AS
 BEGIN
@@ -2422,10 +2467,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [VSProject]
-    ([Description],[FullPath],[Name],[SolutionId])
+    ([Description],[FullPath],[IsPreview],[Name],[PreviewDescription],[ProjectType],[SolutionId],[Status],[TargetFramework],[Visible])
 
     -- Begin Values List
-    Values(@Description, @FullPath, @Name, @SolutionId)
+    Values(@Description, @FullPath, @IsPreview, @Name, @PreviewDescription, @ProjectType, @SolutionId, @Status, @TargetFramework, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -2438,7 +2483,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing VSProject
 -- =========================================================
 
@@ -2472,8 +2517,14 @@ Create PROCEDURE VSProject_Update
     @Description nvarchar(255),
     @FullPath nvarchar(255),
     @Id int,
+    @IsPreview bit,
     @Name nvarchar(50),
-    @SolutionId int
+    @PreviewDescription nvarchar(255),
+    @ProjectType nvarchar(30),
+    @SolutionId int,
+    @Status int,
+    @TargetFramework nvarchar(30),
+    @Visible bit
 
 AS
 BEGIN
@@ -2488,8 +2539,14 @@ BEGIN
     -- Update Each field
     Set [Description] = @Description,
     [FullPath] = @FullPath,
+    [IsPreview] = @IsPreview,
     [Name] = @Name,
-    [SolutionId] = @SolutionId
+    [PreviewDescription] = @PreviewDescription,
+    [ProjectType] = @ProjectType,
+    [SolutionId] = @SolutionId,
+    [Status] = @Status,
+    [TargetFramework] = @TargetFramework,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -2502,7 +2559,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing VSProject
 -- =========================================================
 
@@ -2543,7 +2600,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [Description],[FullPath],[Id],[Name],[SolutionId]
+    Select [Description],[FullPath],[Id],[IsPreview],[Name],[PreviewDescription],[ProjectType],[SolutionId],[Status],[TargetFramework],[Visible]
 
     -- From tableName
     From [VSProject]
@@ -2559,7 +2616,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing VSProject
 -- =========================================================
 
@@ -2613,7 +2670,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all VSProject objects
 -- =========================================================
 
@@ -2651,7 +2708,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [Description],[FullPath],[Id],[Name],[SolutionId]
+    Select [Description],[FullPath],[Id],[IsPreview],[Name],[PreviewDescription],[ProjectType],[SolutionId],[Status],[TargetFramework],[Visible]
 
     -- From tableName
     From [VSProject]
@@ -2664,7 +2721,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Insert a new VSSolution
 -- =========================================================
 
@@ -2698,7 +2755,9 @@ Create PROCEDURE VSSolution_Insert
     @CreatedDate datetime,
     @Description nvarchar(255),
     @FullPath nvarchar(255),
-    @Name nvarchar(50)
+    @Name nvarchar(50),
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -2709,10 +2768,10 @@ BEGIN
 
     -- Begin Insert Statement
     Insert Into [VSSolution]
-    ([CreatedDate],[Description],[FullPath],[Name])
+    ([CreatedDate],[Description],[FullPath],[Name],[Status],[Visible])
 
     -- Begin Values List
-    Values(@CreatedDate, @Description, @FullPath, @Name)
+    Values(@CreatedDate, @Description, @FullPath, @Name, @Status, @Visible)
 
     -- Return ID of new record
     SELECT SCOPE_IDENTITY()
@@ -2725,7 +2784,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Update an existing VSSolution
 -- =========================================================
 
@@ -2760,7 +2819,9 @@ Create PROCEDURE VSSolution_Update
     @Description nvarchar(255),
     @FullPath nvarchar(255),
     @Id int,
-    @Name nvarchar(50)
+    @Name nvarchar(50),
+    @Status int,
+    @Visible bit
 
 AS
 BEGIN
@@ -2776,7 +2837,9 @@ BEGIN
     Set [CreatedDate] = @CreatedDate,
     [Description] = @Description,
     [FullPath] = @FullPath,
-    [Name] = @Name
+    [Name] = @Name,
+    [Status] = @Status,
+    [Visible] = @Visible
 
     -- Update Matching Record
     Where [Id] = @Id
@@ -2789,7 +2852,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Find an existing VSSolution
 -- =========================================================
 
@@ -2830,7 +2893,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CreatedDate],[Description],[FullPath],[Id],[Name]
+    Select [CreatedDate],[Description],[FullPath],[Id],[Name],[Status],[Visible]
 
     -- From tableName
     From [VSSolution]
@@ -2846,7 +2909,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Delete an existing VSSolution
 -- =========================================================
 
@@ -2900,7 +2963,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/11/2024
+-- Create Date:   10/15/2024
 -- Description:    Returns all VSSolution objects
 -- =========================================================
 
@@ -2938,7 +3001,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Begin Select Statement
-    Select [CreatedDate],[Description],[FullPath],[Id],[Name]
+    Select [CreatedDate],[Description],[FullPath],[Id],[Name],[Status],[Visible]
 
     -- From tableName
     From [VSSolution]

@@ -16,6 +16,7 @@ namespace ObjectLibrary.BusinessObjects
     {
 
         #region Private Variables
+        private int codeClassId;
         private int codeFileId;
         private string description;
         private int endLineNumber;
@@ -24,6 +25,8 @@ namespace ObjectLibrary.BusinessObjects
         private string returnType;
         private int startLineNumber;
         private int status;
+        private string tags;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -43,6 +46,20 @@ namespace ObjectLibrary.BusinessObjects
         #endregion
 
         #region Properties
+
+            #region int CodeClassId
+            public int CodeClassId
+            {
+                get
+                {
+                    return codeClassId;
+                }
+                set
+                {
+                    codeClassId = value;
+                }
+            }
+            #endregion
 
             #region int CodeFileId
             public int CodeFileId
@@ -148,6 +165,34 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region string Tags
+            public string Tags
+            {
+                get
+                {
+                    return tags;
+                }
+                set
+                {
+                    tags = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

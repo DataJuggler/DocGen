@@ -69,6 +69,16 @@ namespace ObjectLibrary.BusinessObjects
                 }
             }
             #endregion
+
+            #region ToString()
+            /// <summary>
+            /// method returns the String
+            /// </summary>
+            public override string ToString()
+            {
+                return Name;
+            }
+            #endregion
             
         #endregion
 

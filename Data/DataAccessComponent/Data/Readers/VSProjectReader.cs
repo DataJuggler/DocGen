@@ -39,8 +39,14 @@ namespace DataAccessComponent.Data.Readers
                 int descriptionfield = 0;
                 int fullPathfield = 1;
                 int idfield = 2;
-                int namefield = 3;
-                int solutionIdfield = 4;
+                int isPreviewfield = 3;
+                int namefield = 4;
+                int previewDescriptionfield = 5;
+                int projectTypefield = 6;
+                int solutionIdfield = 7;
+                int statusfield = 8;
+                int targetFrameworkfield = 9;
+                int visiblefield = 10;
 
                 try
                 {
@@ -48,8 +54,14 @@ namespace DataAccessComponent.Data.Readers
                     vSProject.Description = DataHelper.ParseString(dataRow.ItemArray[descriptionfield]);
                     vSProject.FullPath = DataHelper.ParseString(dataRow.ItemArray[fullPathfield]);
                     vSProject.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
+                    vSProject.IsPreview = DataHelper.ParseBoolean(dataRow.ItemArray[isPreviewfield], false);
                     vSProject.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
+                    vSProject.PreviewDescription = DataHelper.ParseString(dataRow.ItemArray[previewDescriptionfield]);
+                    vSProject.ProjectType = DataHelper.ParseString(dataRow.ItemArray[projectTypefield]);
                     vSProject.SolutionId = DataHelper.ParseInteger(dataRow.ItemArray[solutionIdfield], 0);
+                    vSProject.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    vSProject.TargetFramework = DataHelper.ParseString(dataRow.ItemArray[targetFrameworkfield]);
+                    vSProject.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

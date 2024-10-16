@@ -36,18 +36,22 @@ namespace DataAccessComponent.Data.Readers
                 CodeProperty codeProperty = new CodeProperty();
 
                 // Create field Integers
-                int codeFileIdfield = 0;
-                int descriptionfield = 1;
-                int endLineNumberfield = 2;
-                int idfield = 3;
-                int namefield = 4;
-                int returnTypefield = 5;
-                int startLineNumberfield = 6;
-                int statusfield = 7;
+                int codeClassIdfield = 0;
+                int codeFileIdfield = 1;
+                int descriptionfield = 2;
+                int endLineNumberfield = 3;
+                int idfield = 4;
+                int namefield = 5;
+                int returnTypefield = 6;
+                int startLineNumberfield = 7;
+                int statusfield = 8;
+                int tagsfield = 9;
+                int visiblefield = 10;
 
                 try
                 {
                     // Load Each field
+                    codeProperty.CodeClassId = DataHelper.ParseInteger(dataRow.ItemArray[codeClassIdfield], 0);
                     codeProperty.CodeFileId = DataHelper.ParseInteger(dataRow.ItemArray[codeFileIdfield], 0);
                     codeProperty.Description = DataHelper.ParseString(dataRow.ItemArray[descriptionfield]);
                     codeProperty.EndLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[endLineNumberfield], 0);
@@ -56,6 +60,8 @@ namespace DataAccessComponent.Data.Readers
                     codeProperty.ReturnType = DataHelper.ParseString(dataRow.ItemArray[returnTypefield]);
                     codeProperty.StartLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[startLineNumberfield], 0);
                     codeProperty.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    codeProperty.Tags = DataHelper.ParseString(dataRow.ItemArray[tagsfield]);
+                    codeProperty.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

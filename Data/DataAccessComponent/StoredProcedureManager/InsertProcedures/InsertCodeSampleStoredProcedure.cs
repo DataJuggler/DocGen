@@ -3,11 +3,11 @@
 namespace DataAccessComponent.StoredProcedureManager.InsertProcedures
 {
 
-    #region class InsertCodeEventStoredProcedure
+    #region class InsertCodeSampleStoredProcedure
     /// <summary>
-    /// This class is used to Insert a 'CodeEvent' object.
+    /// This class is used to Insert a 'CodeSample' object.
     /// </summary>
-    public class InsertCodeEventStoredProcedure : StoredProcedure
+    public class InsertCodeSampleStoredProcedure : StoredProcedure
     {
 
         #region Private Variables
@@ -15,9 +15,9 @@ namespace DataAccessComponent.StoredProcedureManager.InsertProcedures
 
         #region Constructor
         /// <summary>
-        /// Create a new instance of a 'InsertCodeEventStoredProcedure' object.
+        /// Create a new instance of a 'InsertCodeSampleStoredProcedure' object.
         /// </summary>
-        public InsertCodeEventStoredProcedure()
+        public InsertCodeSampleStoredProcedure()
         {
             // Perform Initialization
             Init();
@@ -35,10 +35,10 @@ namespace DataAccessComponent.StoredProcedureManager.InsertProcedures
                 // Set Properties For This Proc
 
                 // Set ProcedureName
-                this.ProcedureName = "CodeEvent_Insert";
+                this.ProcedureName = "CodeSample_Insert";
 
                 // Set tableName
-                this.TableName = "CodeEvent";
+                this.TableName = "CodeSample";
             }
             #endregion
 

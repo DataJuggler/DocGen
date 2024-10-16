@@ -16,13 +16,13 @@ namespace ObjectLibrary.BusinessObjects
     {
 
         #region Private Variables
-        private int codeEventId;
-        private int codeMethodId;
         private string description;
         private int id;
         private bool isOptional;
         private string name;
         private string parameterType;
+        private int parentId;
+        private ObjectTypeEnum parentType;
         #endregion
 
         #region Methods
@@ -42,34 +42,6 @@ namespace ObjectLibrary.BusinessObjects
         #endregion
 
         #region Properties
-
-            #region int CodeEventId
-            public int CodeEventId
-            {
-                get
-                {
-                    return codeEventId;
-                }
-                set
-                {
-                    codeEventId = value;
-                }
-            }
-            #endregion
-
-            #region int CodeMethodId
-            public int CodeMethodId
-            {
-                get
-                {
-                    return codeMethodId;
-                }
-                set
-                {
-                    codeMethodId = value;
-                }
-            }
-            #endregion
 
             #region string Description
             public string Description
@@ -133,6 +105,34 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     parameterType = value;
+                }
+            }
+            #endregion
+
+            #region int ParentId
+            public int ParentId
+            {
+                get
+                {
+                    return parentId;
+                }
+                set
+                {
+                    parentId = value;
+                }
+            }
+            #endregion
+
+            #region ObjectTypeEnum ParentType
+            public ObjectTypeEnum ParentType
+            {
+                get
+                {
+                    return parentType;
+                }
+                set
+                {
+                    parentType = value;
                 }
             }
             #endregion

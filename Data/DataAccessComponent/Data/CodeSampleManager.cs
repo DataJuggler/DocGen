@@ -18,11 +18,11 @@ using System.Data;
 namespace DataAccessComponent.Data
 {
 
-    #region class CodeEventManager
+    #region class CodeSampleManager
     /// <summary>
-    /// This class is used to manage a 'CodeEvent' object.
+    /// This class is used to manage a 'CodeSample' object.
     /// </summary>
-    public class CodeEventManager
+    public class CodeSampleManager
     {
 
         #region Private Variables
@@ -32,9 +32,9 @@ namespace DataAccessComponent.Data
 
         #region Constructor
         /// <summary>
-        /// Create a new instance of a 'CodeEventManager' object.
+        /// Create a new instance of a 'CodeSampleManager' object.
         /// </summary>
-        public CodeEventManager(DataManager dataManagerArg)
+        public CodeSampleManager(DataManager dataManagerArg)
         {
             // Set DataManager
             this.DataManager = dataManagerArg;
@@ -46,13 +46,13 @@ namespace DataAccessComponent.Data
 
         #region Methods
 
-            #region DeleteCodeEvent()
+            #region DeleteCodeSample()
             /// <summary>
-            /// This method deletes a 'CodeEvent' object.
+            /// This method deletes a 'CodeSample' object.
             /// </summary>
             /// <returns>True if successful false if not.</returns>
             /// </summary>
-            public bool DeleteCodeEvent(DeleteCodeEventStoredProcedure deleteCodeEventProc, DataConnector databaseConnector)
+            public bool DeleteCodeSample(DeleteCodeSampleStoredProcedure deleteCodeSampleProc, DataConnector databaseConnector)
             {
                 // Initial Value
                 bool deleted = false;
@@ -61,7 +61,7 @@ namespace DataAccessComponent.Data
                 if ((databaseConnector != null) && (databaseConnector.Connected))
                 {
                     // Execute Non Query
-                    deleted = this.DataHelper.DeleteRecord(deleteCodeEventProc, databaseConnector);
+                    deleted = this.DataHelper.DeleteRecord(deleteCodeSampleProc, databaseConnector);
                 }
 
                 // return value
@@ -69,79 +69,79 @@ namespace DataAccessComponent.Data
             }
             #endregion
 
-            #region FetchAllCodeEvents()
+            #region FetchAllCodeSamples()
             /// <summary>
-            /// This method fetches a  'List<CodeEvent>' object.
-            /// This method uses the 'CodeEvents_FetchAll' procedure.
+            /// This method fetches a  'List<CodeSample>' object.
+            /// This method uses the 'CodeSamples_FetchAll' procedure.
             /// </summary>
-            /// <returns>A 'List<CodeEvent>'</returns>
+            /// <returns>A 'List<CodeSample>'</returns>
             /// </summary>
-            public List<CodeEvent> FetchAllCodeEvents(FetchAllCodeEventsStoredProcedure fetchAllCodeEventsProc, DataConnector databaseConnector)
+            public List<CodeSample> FetchAllCodeSamples(FetchAllCodeSamplesStoredProcedure fetchAllCodeSamplesProc, DataConnector databaseConnector)
             {
                 // Initial Value
-                List<CodeEvent> codeEventCollection = null;
+                List<CodeSample> codeSampleCollection = null;
 
                 // Verify database connection is connected
                 if ((databaseConnector != null) && (databaseConnector.Connected))
                 {
                     // First Get Dataset
-                    DataSet allCodeEventsDataSet = this.DataHelper.LoadDataSet(fetchAllCodeEventsProc, databaseConnector);
+                    DataSet allCodeSamplesDataSet = this.DataHelper.LoadDataSet(fetchAllCodeSamplesProc, databaseConnector);
 
                     // Verify DataSet Exists
-                    if(allCodeEventsDataSet != null)
+                    if(allCodeSamplesDataSet != null)
                     {
                         // Get DataTable From DataSet
-                        DataTable table = this.DataHelper.ReturnFirstTable(allCodeEventsDataSet);
+                        DataTable table = this.DataHelper.ReturnFirstTable(allCodeSamplesDataSet);
 
                         // if table exists
                         if(table != null)
                         {
                             // Load Collection
-                            codeEventCollection = CodeEventReader.LoadCollection(table);
+                            codeSampleCollection = CodeSampleReader.LoadCollection(table);
                         }
                     }
                 }
 
                 // return value
-                return codeEventCollection;
+                return codeSampleCollection;
             }
             #endregion
 
-            #region FindCodeEvent()
+            #region FindCodeSample()
             /// <summary>
-            /// This method finds a  'CodeEvent' object.
-            /// This method uses the 'CodeEvent_Find' procedure.
+            /// This method finds a  'CodeSample' object.
+            /// This method uses the 'CodeSample_Find' procedure.
             /// </summary>
-            /// <returns>A 'CodeEvent' object.</returns>
+            /// <returns>A 'CodeSample' object.</returns>
             /// </summary>
-            public CodeEvent FindCodeEvent(FindCodeEventStoredProcedure findCodeEventProc, DataConnector databaseConnector)
+            public CodeSample FindCodeSample(FindCodeSampleStoredProcedure findCodeSampleProc, DataConnector databaseConnector)
             {
                 // Initial Value
-                CodeEvent codeEvent = null;
+                CodeSample codeSample = null;
 
                 // Verify database connection is connected
                 if ((databaseConnector != null) && (databaseConnector.Connected))
                 {
                     // First Get Dataset
-                    DataSet codeEventDataSet = this.DataHelper.LoadDataSet(findCodeEventProc, databaseConnector);
+                    DataSet codeSampleDataSet = this.DataHelper.LoadDataSet(findCodeSampleProc, databaseConnector);
 
                     // Verify DataSet Exists
-                    if(codeEventDataSet != null)
+                    if(codeSampleDataSet != null)
                     {
                         // Get DataTable From DataSet
-                        DataRow row = this.DataHelper.ReturnFirstRow(codeEventDataSet);
+                        DataRow row = this.DataHelper.ReturnFirstRow(codeSampleDataSet);
 
                         // if row exists
                         if(row != null)
                         {
-                            // Load CodeEvent
-                            codeEvent = CodeEventReader.Load(row);
+                            // Load CodeSample
+                            codeSample = CodeSampleReader.Load(row);
                         }
                     }
                 }
 
                 // return value
-                return codeEvent;
+                return codeSample;
             }
             #endregion
 
@@ -156,14 +156,14 @@ namespace DataAccessComponent.Data
             }
             #endregion
 
-            #region InsertCodeEvent()
+            #region InsertCodeSample()
             /// <summary>
-            /// This method inserts a 'CodeEvent' object.
-            /// This method uses the 'CodeEvent_Insert' procedure.
+            /// This method inserts a 'CodeSample' object.
+            /// This method uses the 'CodeSample_Insert' procedure.
             /// </summary>
             /// <returns>The identity value of the new record.</returns>
             /// </summary>
-            public int InsertCodeEvent(InsertCodeEventStoredProcedure insertCodeEventProc, DataConnector databaseConnector)
+            public int InsertCodeSample(InsertCodeSampleStoredProcedure insertCodeSampleProc, DataConnector databaseConnector)
             {
                 // Initial Value
                 int newIdentity = -1;
@@ -172,7 +172,7 @@ namespace DataAccessComponent.Data
                 if ((databaseConnector != null) && (databaseConnector.Connected))
                 {
                     // Execute Non Query
-                    newIdentity = this.DataHelper.InsertRecord(insertCodeEventProc, databaseConnector);
+                    newIdentity = this.DataHelper.InsertRecord(insertCodeSampleProc, databaseConnector);
                 }
 
                 // return value
@@ -180,14 +180,14 @@ namespace DataAccessComponent.Data
             }
             #endregion
 
-            #region UpdateCodeEvent()
+            #region UpdateCodeSample()
             /// <summary>
-            /// This method updates a 'CodeEvent'.
-            /// This method uses the 'CodeEvent_Update' procedure.
+            /// This method updates a 'CodeSample'.
+            /// This method uses the 'CodeSample_Update' procedure.
             /// </summary>
             /// <returns>True if successful false if not.</returns>
             /// </summary>
-            public bool UpdateCodeEvent(UpdateCodeEventStoredProcedure updateCodeEventProc, DataConnector databaseConnector)
+            public bool UpdateCodeSample(UpdateCodeSampleStoredProcedure updateCodeSampleProc, DataConnector databaseConnector)
             {
                 // Initial Value
                 bool saved = false;
@@ -196,7 +196,7 @@ namespace DataAccessComponent.Data
                 if ((databaseConnector != null) && (databaseConnector.Connected))
                 {
                     // Execute Update.
-                    saved = this.DataHelper.UpdateRecord(updateCodeEventProc, databaseConnector);
+                    saved = this.DataHelper.UpdateRecord(updateCodeSampleProc, databaseConnector);
                 }
 
                 // return value

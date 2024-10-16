@@ -19,8 +19,14 @@ namespace ObjectLibrary.BusinessObjects
         private string description;
         private string fullPath;
         private int id;
+        private bool isPreview;
         private string name;
+        private string previewDescription;
+        private string projectType;
         private int solutionId;
+        private int status;
+        private string targetFramework;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -79,6 +85,20 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region bool IsPreview
+            public bool IsPreview
+            {
+                get
+                {
+                    return isPreview;
+                }
+                set
+                {
+                    isPreview = value;
+                }
+            }
+            #endregion
+
             #region string Name
             public string Name
             {
@@ -93,6 +113,34 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region string PreviewDescription
+            public string PreviewDescription
+            {
+                get
+                {
+                    return previewDescription;
+                }
+                set
+                {
+                    previewDescription = value;
+                }
+            }
+            #endregion
+
+            #region string ProjectType
+            public string ProjectType
+            {
+                get
+                {
+                    return projectType;
+                }
+                set
+                {
+                    projectType = value;
+                }
+            }
+            #endregion
+
             #region int SolutionId
             public int SolutionId
             {
@@ -103,6 +151,48 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     solutionId = value;
+                }
+            }
+            #endregion
+
+            #region int Status
+            public int Status
+            {
+                get
+                {
+                    return status;
+                }
+                set
+                {
+                    status = value;
+                }
+            }
+            #endregion
+
+            #region string TargetFramework
+            public string TargetFramework
+            {
+                get
+                {
+                    return targetFramework;
+                }
+                set
+                {
+                    targetFramework = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

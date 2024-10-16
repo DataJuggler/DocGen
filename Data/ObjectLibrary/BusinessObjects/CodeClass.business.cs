@@ -21,9 +21,10 @@ namespace ObjectLibrary.BusinessObjects
         #region Private Variables
         private List<CodeMethod> methods;
         private List<CodeProperty> properties;
-        private List<CodeEvent> events;
         private List<ReferencedBy> references;
         private List<CodeConstructor> constructors;
+        private Guid internalParentId;
+        private CodeFile parentCodeFile;
         #endregion
 
         #region Constructor
@@ -53,8 +54,7 @@ namespace ObjectLibrary.BusinessObjects
             /// </summary>
             public void Init()
             {
-                // Create child lists
-                Events = new List<CodeEvent>();
+                // Create child lists                
                 Methods = new List<CodeMethod>();
                 Properties = new List<CodeProperty>();
                 References = new List<ReferencedBy>();
@@ -96,34 +96,6 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
             
-            #region Events
-            /// <summary>
-            /// This property gets or sets the value for 'Events'.
-            /// </summary>
-            public List<CodeEvent> Events
-            {
-                get { return events; }
-                set { events = value; }
-            }
-            #endregion
-            
-            #region HasEvents
-            /// <summary>
-            /// This property returns true if this object has an 'Events'.
-            /// </summary>
-            public bool HasEvents
-            {
-                get
-                {
-                    // initial value
-                    bool hasEvents = (this.Events != null);
-                    
-                    // return value
-                    return hasEvents;
-                }
-            }
-            #endregion
-            
             #region HasMethods
             /// <summary>
             /// This property returns true if this object has a 'Methods'.
@@ -137,6 +109,23 @@ namespace ObjectLibrary.BusinessObjects
                     
                     // return value
                     return hasMethods;
+                }
+            }
+            #endregion
+            
+            #region HasParentCodeFile
+            /// <summary>
+            /// This property returns true if this object has a 'ParentCodeFile'.
+            /// </summary>
+            public bool HasParentCodeFile
+            {
+                get
+                {
+                    // initial value
+                    bool hasParentCodeFile = (this.ParentCodeFile != null);
+                    
+                    // return value
+                    return hasParentCodeFile;
                 }
             }
             #endregion
@@ -158,6 +147,17 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
             
+            #region InternalParentId
+            /// <summary>
+            /// This property gets or sets the value for 'InternalParentId'.
+            /// </summary>
+            public Guid InternalParentId
+            {
+                get { return internalParentId; }
+                set { internalParentId = value; }
+            }
+            #endregion
+            
             #region Methods
             /// <summary>
             /// This property gets or sets the value for 'Methods'.
@@ -166,6 +166,17 @@ namespace ObjectLibrary.BusinessObjects
             {
                 get { return methods; }
                 set { methods = value; }
+            }
+            #endregion
+            
+            #region ParentCodeFile
+            /// <summary>
+            /// This property gets or sets the value for 'ParentCodeFile'.
+            /// </summary>
+            public CodeFile ParentCodeFile
+            {
+                get { return parentCodeFile; }
+                set { parentCodeFile = value; }
             }
             #endregion
             

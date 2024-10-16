@@ -19,8 +19,11 @@ namespace ObjectLibrary.BusinessObjects
         private int codeFileId;
         private string description;
         private int id;
+        private bool isPartial;
         private string name;
         private int status;
+        private string tags;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -79,6 +82,20 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region bool IsPartial
+            public bool IsPartial
+            {
+                get
+                {
+                    return isPartial;
+                }
+                set
+                {
+                    isPartial = value;
+                }
+            }
+            #endregion
+
             #region string Name
             public string Name
             {
@@ -103,6 +120,34 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region string Tags
+            public string Tags
+            {
+                get
+                {
+                    return tags;
+                }
+                set
+                {
+                    tags = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

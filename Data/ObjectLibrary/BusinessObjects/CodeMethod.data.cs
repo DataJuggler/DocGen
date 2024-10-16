@@ -21,11 +21,14 @@ namespace ObjectLibrary.BusinessObjects
         private string description;
         private int endLineNumber;
         private int id;
+        private bool isAsync;
+        private bool isEventHandler;
         private string name;
         private string referencedByPath;
         private string returnType;
         private int startLineNumber;
         private int status;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -112,6 +115,34 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
+            #region bool IsAsync
+            public bool IsAsync
+            {
+                get
+                {
+                    return isAsync;
+                }
+                set
+                {
+                    isAsync = value;
+                }
+            }
+            #endregion
+
+            #region bool IsEventHandler
+            public bool IsEventHandler
+            {
+                get
+                {
+                    return isEventHandler;
+                }
+                set
+                {
+                    isEventHandler = value;
+                }
+            }
+            #endregion
+
             #region string Name
             public string Name
             {
@@ -178,6 +209,20 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

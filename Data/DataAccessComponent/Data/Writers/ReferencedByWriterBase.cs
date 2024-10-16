@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(ReferencedBy referencedBy)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[8];
+                SqlParameter[] parameters = new SqlParameter[10];
                 SqlParameter param = null;
 
                 // verify referencedByexists
@@ -159,17 +159,29 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create [TargetId] parameter
-                    param = new SqlParameter("@TargetId", referencedBy.TargetId);
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", referencedBy.Status);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create [TargetType] parameter
-                    param = new SqlParameter("@TargetType", referencedBy.TargetType);
+                    // Create [TargetId] parameter
+                    param = new SqlParameter("@TargetId", referencedBy.TargetId);
 
                     // set parameters[7]
                     parameters[7] = param;
+
+                    // Create [TargetType] parameter
+                    param = new SqlParameter("@TargetType", referencedBy.TargetType);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", referencedBy.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
                 }
 
                 // return value
@@ -216,7 +228,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(ReferencedBy referencedBy)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[9];
+                SqlParameter[] parameters = new SqlParameter[11];
                 SqlParameter param = null;
 
                 // verify referencedByexists
@@ -258,21 +270,33 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create parameter for [TargetId]
-                    param = new SqlParameter("@TargetId", referencedBy.TargetId);
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", referencedBy.Status);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create parameter for [TargetType]
-                    param = new SqlParameter("@TargetType", referencedBy.TargetType);
+                    // Create parameter for [TargetId]
+                    param = new SqlParameter("@TargetId", referencedBy.TargetId);
 
                     // set parameters[7]
                     parameters[7] = param;
 
+                    // Create parameter for [TargetType]
+                    param = new SqlParameter("@TargetType", referencedBy.TargetType);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", referencedBy.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", referencedBy.Id);
-                    parameters[8] = param;
+                    parameters[10] = param;
                 }
 
                 // return value

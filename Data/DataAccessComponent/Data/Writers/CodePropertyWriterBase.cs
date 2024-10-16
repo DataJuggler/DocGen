@@ -117,53 +117,71 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(CodeProperty codeProperty)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[7];
+                SqlParameter[] parameters = new SqlParameter[10];
                 SqlParameter param = null;
 
                 // verify codePropertyexists
                 if(codeProperty != null)
                 {
-                    // Create [CodeFileId] parameter
-                    param = new SqlParameter("@CodeFileId", codeProperty.CodeFileId);
+                    // Create [CodeClassId] parameter
+                    param = new SqlParameter("@CodeClassId", codeProperty.CodeClassId);
 
                     // set parameters[0]
                     parameters[0] = param;
 
-                    // Create [Description] parameter
-                    param = new SqlParameter("@Description", codeProperty.Description);
+                    // Create [CodeFileId] parameter
+                    param = new SqlParameter("@CodeFileId", codeProperty.CodeFileId);
 
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create [EndLineNumber] parameter
-                    param = new SqlParameter("@EndLineNumber", codeProperty.EndLineNumber);
+                    // Create [Description] parameter
+                    param = new SqlParameter("@Description", codeProperty.Description);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create [Name] parameter
-                    param = new SqlParameter("@Name", codeProperty.Name);
+                    // Create [EndLineNumber] parameter
+                    param = new SqlParameter("@EndLineNumber", codeProperty.EndLineNumber);
 
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create [ReturnType] parameter
-                    param = new SqlParameter("@ReturnType", codeProperty.ReturnType);
+                    // Create [Name] parameter
+                    param = new SqlParameter("@Name", codeProperty.Name);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create [StartLineNumber] parameter
-                    param = new SqlParameter("@StartLineNumber", codeProperty.StartLineNumber);
+                    // Create [ReturnType] parameter
+                    param = new SqlParameter("@ReturnType", codeProperty.ReturnType);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create [Status] parameter
-                    param = new SqlParameter("@Status", codeProperty.Status);
+                    // Create [StartLineNumber] parameter
+                    param = new SqlParameter("@StartLineNumber", codeProperty.StartLineNumber);
 
                     // set parameters[6]
                     parameters[6] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", codeProperty.Status);
+
+                    // set parameters[7]
+                    parameters[7] = param;
+
+                    // Create [Tags] parameter
+                    param = new SqlParameter("@Tags", codeProperty.Tags);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", codeProperty.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
                 }
 
                 // return value
@@ -210,57 +228,75 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(CodeProperty codeProperty)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[8];
+                SqlParameter[] parameters = new SqlParameter[11];
                 SqlParameter param = null;
 
                 // verify codePropertyexists
                 if(codeProperty != null)
                 {
-                    // Create parameter for [CodeFileId]
-                    param = new SqlParameter("@CodeFileId", codeProperty.CodeFileId);
+                    // Create parameter for [CodeClassId]
+                    param = new SqlParameter("@CodeClassId", codeProperty.CodeClassId);
 
                     // set parameters[0]
                     parameters[0] = param;
 
-                    // Create parameter for [Description]
-                    param = new SqlParameter("@Description", codeProperty.Description);
+                    // Create parameter for [CodeFileId]
+                    param = new SqlParameter("@CodeFileId", codeProperty.CodeFileId);
 
                     // set parameters[1]
                     parameters[1] = param;
 
-                    // Create parameter for [EndLineNumber]
-                    param = new SqlParameter("@EndLineNumber", codeProperty.EndLineNumber);
+                    // Create parameter for [Description]
+                    param = new SqlParameter("@Description", codeProperty.Description);
 
                     // set parameters[2]
                     parameters[2] = param;
 
-                    // Create parameter for [Name]
-                    param = new SqlParameter("@Name", codeProperty.Name);
+                    // Create parameter for [EndLineNumber]
+                    param = new SqlParameter("@EndLineNumber", codeProperty.EndLineNumber);
 
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create parameter for [ReturnType]
-                    param = new SqlParameter("@ReturnType", codeProperty.ReturnType);
+                    // Create parameter for [Name]
+                    param = new SqlParameter("@Name", codeProperty.Name);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create parameter for [StartLineNumber]
-                    param = new SqlParameter("@StartLineNumber", codeProperty.StartLineNumber);
+                    // Create parameter for [ReturnType]
+                    param = new SqlParameter("@ReturnType", codeProperty.ReturnType);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create parameter for [Status]
-                    param = new SqlParameter("@Status", codeProperty.Status);
+                    // Create parameter for [StartLineNumber]
+                    param = new SqlParameter("@StartLineNumber", codeProperty.StartLineNumber);
 
                     // set parameters[6]
                     parameters[6] = param;
 
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", codeProperty.Status);
+
+                    // set parameters[7]
+                    parameters[7] = param;
+
+                    // Create parameter for [Tags]
+                    param = new SqlParameter("@Tags", codeProperty.Tags);
+
+                    // set parameters[8]
+                    parameters[8] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", codeProperty.Visible);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", codeProperty.Id);
-                    parameters[7] = param;
+                    parameters[10] = param;
                 }
 
                 // return value

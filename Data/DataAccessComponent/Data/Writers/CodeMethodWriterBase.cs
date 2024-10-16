@@ -117,7 +117,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateInsertParameters(CodeMethod codeMethod)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[9];
+                SqlParameter[] parameters = new SqlParameter[12];
                 SqlParameter param = null;
 
                 // verify codeMethodexists
@@ -147,35 +147,53 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create [Name] parameter
-                    param = new SqlParameter("@Name", codeMethod.Name);
+                    // Create [IsAsync] parameter
+                    param = new SqlParameter("@IsAsync", codeMethod.IsAsync);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create [ReferencedByPath] parameter
-                    param = new SqlParameter("@ReferencedByPath", codeMethod.ReferencedByPath);
+                    // Create [IsEventHandler] parameter
+                    param = new SqlParameter("@IsEventHandler", codeMethod.IsEventHandler);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create [ReturnType] parameter
-                    param = new SqlParameter("@ReturnType", codeMethod.ReturnType);
+                    // Create [Name] parameter
+                    param = new SqlParameter("@Name", codeMethod.Name);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create [StartLineNumber] parameter
-                    param = new SqlParameter("@StartLineNumber", codeMethod.StartLineNumber);
+                    // Create [ReferencedByPath] parameter
+                    param = new SqlParameter("@ReferencedByPath", codeMethod.ReferencedByPath);
 
                     // set parameters[7]
                     parameters[7] = param;
 
-                    // Create [Status] parameter
-                    param = new SqlParameter("@Status", codeMethod.Status);
+                    // Create [ReturnType] parameter
+                    param = new SqlParameter("@ReturnType", codeMethod.ReturnType);
 
                     // set parameters[8]
                     parameters[8] = param;
+
+                    // Create [StartLineNumber] parameter
+                    param = new SqlParameter("@StartLineNumber", codeMethod.StartLineNumber);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", codeMethod.Status);
+
+                    // set parameters[10]
+                    parameters[10] = param;
+
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", codeMethod.Visible);
+
+                    // set parameters[11]
+                    parameters[11] = param;
                 }
 
                 // return value
@@ -222,7 +240,7 @@ namespace DataAccessComponent.Data.Writers
             internal static SqlParameter[] CreateUpdateParameters(CodeMethod codeMethod)
             {
                 // Initial Values
-                SqlParameter[] parameters = new SqlParameter[10];
+                SqlParameter[] parameters = new SqlParameter[13];
                 SqlParameter param = null;
 
                 // verify codeMethodexists
@@ -252,39 +270,57 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[3]
                     parameters[3] = param;
 
-                    // Create parameter for [Name]
-                    param = new SqlParameter("@Name", codeMethod.Name);
+                    // Create parameter for [IsAsync]
+                    param = new SqlParameter("@IsAsync", codeMethod.IsAsync);
 
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create parameter for [ReferencedByPath]
-                    param = new SqlParameter("@ReferencedByPath", codeMethod.ReferencedByPath);
+                    // Create parameter for [IsEventHandler]
+                    param = new SqlParameter("@IsEventHandler", codeMethod.IsEventHandler);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create parameter for [ReturnType]
-                    param = new SqlParameter("@ReturnType", codeMethod.ReturnType);
+                    // Create parameter for [Name]
+                    param = new SqlParameter("@Name", codeMethod.Name);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create parameter for [StartLineNumber]
-                    param = new SqlParameter("@StartLineNumber", codeMethod.StartLineNumber);
+                    // Create parameter for [ReferencedByPath]
+                    param = new SqlParameter("@ReferencedByPath", codeMethod.ReferencedByPath);
 
                     // set parameters[7]
                     parameters[7] = param;
 
-                    // Create parameter for [Status]
-                    param = new SqlParameter("@Status", codeMethod.Status);
+                    // Create parameter for [ReturnType]
+                    param = new SqlParameter("@ReturnType", codeMethod.ReturnType);
 
                     // set parameters[8]
                     parameters[8] = param;
 
+                    // Create parameter for [StartLineNumber]
+                    param = new SqlParameter("@StartLineNumber", codeMethod.StartLineNumber);
+
+                    // set parameters[9]
+                    parameters[9] = param;
+
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", codeMethod.Status);
+
+                    // set parameters[10]
+                    parameters[10] = param;
+
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", codeMethod.Visible);
+
+                    // set parameters[11]
+                    parameters[11] = param;
+
                     // Create parameter for [Id]
                     param = new SqlParameter("@Id", codeMethod.Id);
-                    parameters[9] = param;
+                    parameters[12] = param;
                 }
 
                 // return value

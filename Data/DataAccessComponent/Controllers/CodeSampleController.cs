@@ -15,11 +15,11 @@ using System.Collections.Generic;
 namespace DataAccessComponent.Controllers
 {
 
-    #region class CodeEventController
+    #region class CodeSampleController
     /// <summary>
-    /// This class controls a(n) 'CodeEvent' object.
+    /// This class controls a(n) 'CodeSample' object.
     /// </summary>
-    public class CodeEventController
+    public class CodeSampleController
     {
 
         #region Private Variables
@@ -29,9 +29,9 @@ namespace DataAccessComponent.Controllers
 
         #region Constructor
         /// <summary>
-        /// Creates a new 'CodeEventController' object.
+        /// Creates a new 'CodeSampleController' object.
         /// </summary>
-        public CodeEventController(ErrorHandler errorProcessorArg, ApplicationController appControllerArg)
+        public CodeSampleController(ErrorHandler errorProcessorArg, ApplicationController appControllerArg)
         {
             // Save Arguments
             this.ErrorProcessor = errorProcessorArg;
@@ -41,14 +41,14 @@ namespace DataAccessComponent.Controllers
 
         #region Methods
 
-            #region CreateCodeEventParameter
+            #region CreateCodeSampleParameter
             /// <summary>
-            /// This method creates the parameter for a 'CodeEvent' data operation.
+            /// This method creates the parameter for a 'CodeSample' data operation.
             /// </summary>
-            /// <param name='codeevent'>The 'CodeEvent' to use as the first
+            /// <param name='codesample'>The 'CodeSample' to use as the first
             /// parameter (parameters[0]).</param>
             /// <returns>A List<PolymorphicObject> collection.</returns>
-            private static List<PolymorphicObject> CreateCodeEventParameter(CodeEvent codeEvent)
+            private static List<PolymorphicObject> CreateCodeSampleParameter(CodeSample codeSample)
             {
                 // Initial Value
                 List<PolymorphicObject> parameters = new List<PolymorphicObject>();
@@ -57,7 +57,7 @@ namespace DataAccessComponent.Controllers
                 PolymorphicObject parameter = new PolymorphicObject();
 
                 // Set parameter.ObjectValue
-                parameter.ObjectValue = codeEvent;
+                parameter.ObjectValue = codeSample;
 
                 // Add userParameter to parameters
                 parameters.Add(parameter);
@@ -67,36 +67,36 @@ namespace DataAccessComponent.Controllers
             }
             #endregion
 
-            #region Delete(CodeEvent tempCodeEvent)
+            #region Delete(CodeSample tempCodeSample)
             /// <summary>
-            /// Deletes a 'CodeEvent' from the database
+            /// Deletes a 'CodeSample' from the database
             /// This method calls the DataBridgeManager to execute the delete using the
-            /// procedure 'CodeEvent_Delete'.
+            /// procedure 'CodeSample_Delete'.
             /// </summary>
-            /// <param name='codeevent'>The 'CodeEvent' to delete.</param>
+            /// <param name='codesample'>The 'CodeSample' to delete.</param>
             /// <returns>True if the delete is successful or false if not.</returns>
-            public bool Delete(CodeEvent tempCodeEvent)
+            public bool Delete(CodeSample tempCodeSample)
             {
                 // locals
                 bool deleted = false;
 
                 // Get information for calling 'DataBridgeManager.PerformDataOperation' method.
-                string methodName = "DeleteCodeEvent";
+                string methodName = "DeleteCodeSample";
                 string objectName = "ApplicationLogicComponent.Controllers";
 
                 try
                 {
-                    // verify tempcodeEvent exists before attemptintg to delete
-                    if(tempCodeEvent != null)
+                    // verify tempcodeSample exists before attemptintg to delete
+                    if(tempCodeSample != null)
                     {
                         // Create Delegate For DataOperation
-                        ApplicationController.DataOperationMethod deleteCodeEventMethod = this.AppController.DataBridge.DataOperations.CodeEventMethods.DeleteCodeEvent;
+                        ApplicationController.DataOperationMethod deleteCodeSampleMethod = this.AppController.DataBridge.DataOperations.CodeSampleMethods.DeleteCodeSample;
 
                         // Create parameters for this method
-                        List<PolymorphicObject> parameters = CreateCodeEventParameter(tempCodeEvent);
+                        List<PolymorphicObject> parameters = CreateCodeSampleParameter(tempCodeSample);
 
                         // Perform DataOperation
-                        PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, deleteCodeEventMethod, parameters);
+                        PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, deleteCodeSampleMethod, parameters);
 
                         // If return object exists
                         if (returnObject != null)
@@ -125,17 +125,17 @@ namespace DataAccessComponent.Controllers
             }
             #endregion
 
-            #region FetchAll(CodeEvent tempCodeEvent)
+            #region FetchAll(CodeSample tempCodeSample)
             /// <summary>
-            /// This method fetches a collection of 'CodeEvent' objects.
+            /// This method fetches a collection of 'CodeSample' objects.
             /// This method used the DataBridgeManager to execute the fetch all using the
-            /// procedure 'CodeEvent_FetchAll'.</summary>
-            /// <param name='tempCodeEvent'>A temporary CodeEvent for passing values.</param>
-            /// <returns>A collection of 'CodeEvent' objects.</returns>
-            public List<CodeEvent> FetchAll(CodeEvent tempCodeEvent)
+            /// procedure 'CodeSample_FetchAll'.</summary>
+            /// <param name='tempCodeSample'>A temporary CodeSample for passing values.</param>
+            /// <returns>A collection of 'CodeSample' objects.</returns>
+            public List<CodeSample> FetchAll(CodeSample tempCodeSample)
             {
                 // Initial value
-                List<CodeEvent> codeEventList = null;
+                List<CodeSample> codeSampleList = null;
 
                 // Get information for calling 'DataBridgeManager.PerformDataOperation' method.
                 string methodName = "FetchAll";
@@ -144,19 +144,19 @@ namespace DataAccessComponent.Controllers
                 try
                 {
                     // Create DataOperation Method
-                    ApplicationController.DataOperationMethod fetchAllMethod = this.AppController.DataBridge.DataOperations.CodeEventMethods.FetchAll;
+                    ApplicationController.DataOperationMethod fetchAllMethod = this.AppController.DataBridge.DataOperations.CodeSampleMethods.FetchAll;
 
                     // Create parameters for this method
-                    List<PolymorphicObject> parameters = CreateCodeEventParameter(tempCodeEvent);
+                    List<PolymorphicObject> parameters = CreateCodeSampleParameter(tempCodeSample);
 
                     // Perform DataOperation
                     PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, fetchAllMethod , parameters);
 
                     // If return object exists
-                    if ((returnObject != null) && (returnObject.ObjectValue as List<CodeEvent> != null))
+                    if ((returnObject != null) && (returnObject.ObjectValue as List<CodeSample> != null))
                     {
                         // Create Collection From ReturnObject.ObjectValue
-                        codeEventList = (List<CodeEvent>) returnObject.ObjectValue;
+                        codeSampleList = (List<CodeSample>) returnObject.ObjectValue;
                     }
                 }
                 catch (Exception error)
@@ -170,22 +170,22 @@ namespace DataAccessComponent.Controllers
                 }
 
                 // return value
-                return codeEventList;
+                return codeSampleList;
             }
             #endregion
 
-            #region Find(CodeEvent tempCodeEvent)
+            #region Find(CodeSample tempCodeSample)
             /// <summary>
-            /// Finds a 'CodeEvent' object by the primary key.
+            /// Finds a 'CodeSample' object by the primary key.
             /// This method used the DataBridgeManager to execute the 'Find' using the
-            /// procedure 'CodeEvent_Find'</param>
+            /// procedure 'CodeSample_Find'</param>
             /// </summary>
-            /// <param name='tempCodeEvent'>A temporary CodeEvent for passing values.</param>
-            /// <returns>A 'CodeEvent' object if found else a null 'CodeEvent'.</returns>
-            public CodeEvent Find(CodeEvent tempCodeEvent)
+            /// <param name='tempCodeSample'>A temporary CodeSample for passing values.</param>
+            /// <returns>A 'CodeSample' object if found else a null 'CodeSample'.</returns>
+            public CodeSample Find(CodeSample tempCodeSample)
             {
                 // Initial values
-                CodeEvent codeEvent = null;
+                CodeSample codeSample = null;
 
                 // Get information for calling 'DataBridgeManager.PerformDataOperation' method.
                 string methodName = "Find";
@@ -194,22 +194,22 @@ namespace DataAccessComponent.Controllers
                 try
                 {
                     // If object exists
-                    if(tempCodeEvent != null)
+                    if(tempCodeSample != null)
                     {
                         // Create DataOperation
-                        ApplicationController.DataOperationMethod findMethod = this.AppController.DataBridge.DataOperations.CodeEventMethods.FindCodeEvent;
+                        ApplicationController.DataOperationMethod findMethod = this.AppController.DataBridge.DataOperations.CodeSampleMethods.FindCodeSample;
 
                         // Create parameters for this method
-                        List<PolymorphicObject> parameters = CreateCodeEventParameter(tempCodeEvent);
+                        List<PolymorphicObject> parameters = CreateCodeSampleParameter(tempCodeSample);
 
                         // Perform DataOperation
                         PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, findMethod , parameters);
 
                         // If return object exists
-                        if ((returnObject != null) && (returnObject.ObjectValue as CodeEvent != null))
+                        if ((returnObject != null) && (returnObject.ObjectValue as CodeSample != null))
                         {
                             // Get ReturnObject
-                            codeEvent = (CodeEvent) returnObject.ObjectValue;
+                            codeSample = (CodeSample) returnObject.ObjectValue;
                         }
                     }
                 }
@@ -224,19 +224,19 @@ namespace DataAccessComponent.Controllers
                 }
 
                 // return value
-                return codeEvent;
+                return codeSample;
             }
             #endregion
 
-            #region Insert(CodeEvent codeEvent)
+            #region Insert(CodeSample codeSample)
             /// <summary>
-            /// Insert a 'CodeEvent' object into the database.
+            /// Insert a 'CodeSample' object into the database.
             /// This method uses the DataBridgeManager to execute the 'Insert' using the
-            /// procedure 'CodeEvent_Insert'.</param>
+            /// procedure 'CodeSample_Insert'.</param>
             /// </summary>
-            /// <param name='codeEvent'>The 'CodeEvent' object to insert.</param>
-            /// <returns>The id (int) of the new  'CodeEvent' object that was inserted.</returns>
-            public int Insert(CodeEvent codeEvent)
+            /// <param name='codeSample'>The 'CodeSample' object to insert.</param>
+            /// <returns>The id (int) of the new  'CodeSample' object that was inserted.</returns>
+            public int Insert(CodeSample codeSample)
             {
                 // Initial values
                 int newIdentity = -1;
@@ -247,13 +247,13 @@ namespace DataAccessComponent.Controllers
 
                 try
                 {
-                    // If CodeEventexists
-                    if(codeEvent != null)
+                    // If CodeSampleexists
+                    if(codeSample != null)
                     {
-                        ApplicationController.DataOperationMethod insertMethod = this.AppController.DataBridge.DataOperations.CodeEventMethods.InsertCodeEvent;
+                        ApplicationController.DataOperationMethod insertMethod = this.AppController.DataBridge.DataOperations.CodeSampleMethods.InsertCodeSample;
 
                         // Create parameters for this method
-                        List<PolymorphicObject> parameters = CreateCodeEventParameter(codeEvent);
+                        List<PolymorphicObject> parameters = CreateCodeSampleParameter(codeSample);
 
                         // Perform DataOperation
                         PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, insertMethod , parameters);
@@ -281,32 +281,32 @@ namespace DataAccessComponent.Controllers
             }
             #endregion
 
-            #region Save(ref CodeEvent codeEvent)
+            #region Save(ref CodeSample codeSample)
             /// <summary>
-            /// Saves a 'CodeEvent' object into the database.
+            /// Saves a 'CodeSample' object into the database.
             /// This method calls the 'Insert' or 'Update' method.
             /// </summary>
-            /// <param name='codeEvent'>The 'CodeEvent' object to save.</param>
+            /// <param name='codeSample'>The 'CodeSample' object to save.</param>
             /// <returns>True if successful or false if not.</returns>
-            public bool Save(ref CodeEvent codeEvent)
+            public bool Save(ref CodeSample codeSample)
             {
                 // Initial value
                 bool saved = false;
 
-                // If the codeEvent exists.
-                if(codeEvent != null)
+                // If the codeSample exists.
+                if(codeSample != null)
                 {
-                    // Is this a new CodeEvent
-                    if(codeEvent.IsNew)
+                    // Is this a new CodeSample
+                    if(codeSample.IsNew)
                     {
-                        // Insert new CodeEvent
-                        int newIdentity = this.Insert(codeEvent);
+                        // Insert new CodeSample
+                        int newIdentity = this.Insert(codeSample);
 
                         // if insert was successful
                         if(newIdentity > 0)
                         {
                             // Update Identity
-                            codeEvent.UpdateIdentity(newIdentity);
+                            codeSample.UpdateIdentity(newIdentity);
 
                             // Set return value
                             saved = true;
@@ -314,8 +314,8 @@ namespace DataAccessComponent.Controllers
                     }
                     else
                     {
-                        // Update CodeEvent
-                        saved = this.Update(codeEvent);
+                        // Update CodeSample
+                        saved = this.Update(codeSample);
                     }
                 }
 
@@ -324,15 +324,15 @@ namespace DataAccessComponent.Controllers
             }
             #endregion
 
-            #region Update(CodeEvent codeEvent)
+            #region Update(CodeSample codeSample)
             /// <summary>
-            /// This method Updates a 'CodeEvent' object in the database.
+            /// This method Updates a 'CodeSample' object in the database.
             /// This method used the DataBridgeManager to execute the 'Update' using the
-            /// procedure 'CodeEvent_Update'.</param>
+            /// procedure 'CodeSample_Update'.</param>
             /// </summary>
-            /// <param name='codeEvent'>The 'CodeEvent' object to update.</param>
+            /// <param name='codeSample'>The 'CodeSample' object to update.</param>
             /// <returns>True if successful else false if not.</returns>
-            public bool Update(CodeEvent codeEvent)
+            public bool Update(CodeSample codeSample)
             {
                 // Initial value
                 bool saved = false;
@@ -343,13 +343,13 @@ namespace DataAccessComponent.Controllers
 
                 try
                 {
-                    if(codeEvent != null)
+                    if(codeSample != null)
                     {
                         // Create Delegate
-                        ApplicationController.DataOperationMethod updateMethod = this.AppController.DataBridge.DataOperations.CodeEventMethods.UpdateCodeEvent;
+                        ApplicationController.DataOperationMethod updateMethod = this.AppController.DataBridge.DataOperations.CodeSampleMethods.UpdateCodeSample;
 
                         // Create parameters for this method
-                        List<PolymorphicObject> parameters = CreateCodeEventParameter(codeEvent);
+                        List<PolymorphicObject> parameters = CreateCodeSampleParameter(codeSample);
                         // Perform DataOperation
                         PolymorphicObject returnObject = this.AppController.DataBridge.PerformDataOperation(methodName, objectName, updateMethod , parameters);
 

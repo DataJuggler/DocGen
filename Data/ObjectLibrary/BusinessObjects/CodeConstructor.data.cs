@@ -22,10 +22,10 @@ namespace ObjectLibrary.BusinessObjects
         private int endLineNumber;
         private int id;
         private string name;
-        private string referencedByPath;
         private string returnType;
         private int startLineNumber;
         private int status;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -126,20 +126,6 @@ namespace ObjectLibrary.BusinessObjects
             }
             #endregion
 
-            #region string ReferencedByPath
-            public string ReferencedByPath
-            {
-                get
-                {
-                    return referencedByPath;
-                }
-                set
-                {
-                    referencedByPath = value;
-                }
-            }
-            #endregion
-
             #region string ReturnType
             public string ReturnType
             {
@@ -178,6 +164,20 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     status = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion

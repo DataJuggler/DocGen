@@ -41,11 +41,14 @@ namespace DataAccessComponent.Data.Readers
                 int descriptionfield = 2;
                 int endLineNumberfield = 3;
                 int idfield = 4;
-                int namefield = 5;
-                int referencedByPathfield = 6;
-                int returnTypefield = 7;
-                int startLineNumberfield = 8;
-                int statusfield = 9;
+                int isAsyncfield = 5;
+                int isEventHandlerfield = 6;
+                int namefield = 7;
+                int referencedByPathfield = 8;
+                int returnTypefield = 9;
+                int startLineNumberfield = 10;
+                int statusfield = 11;
+                int visiblefield = 12;
 
                 try
                 {
@@ -55,11 +58,14 @@ namespace DataAccessComponent.Data.Readers
                     codeMethod.Description = DataHelper.ParseString(dataRow.ItemArray[descriptionfield]);
                     codeMethod.EndLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[endLineNumberfield], 0);
                     codeMethod.UpdateIdentity(DataHelper.ParseInteger(dataRow.ItemArray[idfield], 0));
+                    codeMethod.IsAsync = DataHelper.ParseBoolean(dataRow.ItemArray[isAsyncfield], false);
+                    codeMethod.IsEventHandler = DataHelper.ParseBoolean(dataRow.ItemArray[isEventHandlerfield], false);
                     codeMethod.Name = DataHelper.ParseString(dataRow.ItemArray[namefield]);
                     codeMethod.ReferencedByPath = DataHelper.ParseString(dataRow.ItemArray[referencedByPathfield]);
                     codeMethod.ReturnType = DataHelper.ParseString(dataRow.ItemArray[returnTypefield]);
                     codeMethod.StartLineNumber = DataHelper.ParseInteger(dataRow.ItemArray[startLineNumberfield], 0);
                     codeMethod.Status = DataHelper.ParseInteger(dataRow.ItemArray[statusfield], 0);
+                    codeMethod.Visible = DataHelper.ParseBoolean(dataRow.ItemArray[visiblefield], false);
                 }
                 catch
                 {

@@ -153,26 +153,26 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create [ReferencedByPath] parameter
-                    param = new SqlParameter("@ReferencedByPath", codeConstructor.ReferencedByPath);
+                    // Create [ReturnType] parameter
+                    param = new SqlParameter("@ReturnType", codeConstructor.ReturnType);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create [ReturnType] parameter
-                    param = new SqlParameter("@ReturnType", codeConstructor.ReturnType);
+                    // Create [StartLineNumber] parameter
+                    param = new SqlParameter("@StartLineNumber", codeConstructor.StartLineNumber);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create [StartLineNumber] parameter
-                    param = new SqlParameter("@StartLineNumber", codeConstructor.StartLineNumber);
+                    // Create [Status] parameter
+                    param = new SqlParameter("@Status", codeConstructor.Status);
 
                     // set parameters[7]
                     parameters[7] = param;
 
-                    // Create [Status] parameter
-                    param = new SqlParameter("@Status", codeConstructor.Status);
+                    // Create [Visible] parameter
+                    param = new SqlParameter("@Visible", codeConstructor.Visible);
 
                     // set parameters[8]
                     parameters[8] = param;
@@ -258,26 +258,26 @@ namespace DataAccessComponent.Data.Writers
                     // set parameters[4]
                     parameters[4] = param;
 
-                    // Create parameter for [ReferencedByPath]
-                    param = new SqlParameter("@ReferencedByPath", codeConstructor.ReferencedByPath);
+                    // Create parameter for [ReturnType]
+                    param = new SqlParameter("@ReturnType", codeConstructor.ReturnType);
 
                     // set parameters[5]
                     parameters[5] = param;
 
-                    // Create parameter for [ReturnType]
-                    param = new SqlParameter("@ReturnType", codeConstructor.ReturnType);
+                    // Create parameter for [StartLineNumber]
+                    param = new SqlParameter("@StartLineNumber", codeConstructor.StartLineNumber);
 
                     // set parameters[6]
                     parameters[6] = param;
 
-                    // Create parameter for [StartLineNumber]
-                    param = new SqlParameter("@StartLineNumber", codeConstructor.StartLineNumber);
+                    // Create parameter for [Status]
+                    param = new SqlParameter("@Status", codeConstructor.Status);
 
                     // set parameters[7]
                     parameters[7] = param;
 
-                    // Create parameter for [Status]
-                    param = new SqlParameter("@Status", codeConstructor.Status);
+                    // Create parameter for [Visible]
+                    param = new SqlParameter("@Visible", codeConstructor.Visible);
 
                     // set parameters[8]
                     parameters[8] = param;

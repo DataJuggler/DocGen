@@ -21,6 +21,8 @@ namespace ObjectLibrary.BusinessObjects
         private string fullPath;
         private int id;
         private string name;
+        private int status;
+        private bool visible;
         #endregion
 
         #region Methods
@@ -103,6 +105,34 @@ namespace ObjectLibrary.BusinessObjects
                 set
                 {
                     name = value;
+                }
+            }
+            #endregion
+
+            #region int Status
+            public int Status
+            {
+                get
+                {
+                    return status;
+                }
+                set
+                {
+                    status = value;
+                }
+            }
+            #endregion
+
+            #region bool Visible
+            public bool Visible
+            {
+                get
+                {
+                    return visible;
+                }
+                set
+                {
+                    visible = value;
                 }
             }
             #endregion
