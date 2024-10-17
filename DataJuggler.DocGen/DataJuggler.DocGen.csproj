@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.2</Version>
+    <Version>1.0.5</Version>
     <Authors>DataJuggler</Authors>
     <Description>DocGen uses Microsoft.CodeAnalysis to analyze a Visual Studio C# Solution and helps to automate generating documentation.
 A Blazor website is coming soon that will allow admin owners of a solution to edit and approve or hide generated descriptions.</Description>
@@ -28,14 +28,10 @@ A Blazor website is coming soon that will allow admin owners of a solution to ed
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0-2.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0-2.final" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.12.0-2.final" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Data\DataAccessComponent\DataAccessComponent.csproj" />
-    <ProjectReference Include="..\Data\ObjectLibrary\ObjectLibrary.csproj" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="8.1.3" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.11.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +39,23 @@ A Blazor website is coming soon that will allow admin owners of a solution to ed
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DataAccessComponent">
+      <HintPath>Lib\DataAccessComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectLibrary">
+      <HintPath>Lib\ObjectLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

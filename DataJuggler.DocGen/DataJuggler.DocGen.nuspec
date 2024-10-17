@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<package>
+  <metadata>
+    <!-- Metadata elements like id, version, authors, etc. -->
+  </metadata>
+  <files>
+    <file src="SQL\**" target="SQL" />
+    <file src="DataJuggler.DocGen.sql" target="SQL" />
+  </files>
+</package>
