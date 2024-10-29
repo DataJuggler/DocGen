@@ -7,7 +7,7 @@ using System;
 #endregion
 
 
-namespace DataAccessComponent.StoredProcedureManager.FetchProcedures
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.FetchProcedures
 {
 
     #region class TemporaryFetchProcedure

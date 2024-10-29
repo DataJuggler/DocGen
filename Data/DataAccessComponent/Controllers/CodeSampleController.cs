@@ -2,17 +2,17 @@
 
 #region using statements
 
-using DataAccessComponent.DataBridge;
-using DataAccessComponent.DataOperations;
-using DataAccessComponent.Logging;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.DataBridge;
+using DataJuggler.DocGen.DataAccessComponent.DataOperations;
+using DataJuggler.DocGen.DataAccessComponent.Logging;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using System;
 using System.Collections.Generic;
 
 #endregion
 
 
-namespace DataAccessComponent.Controllers
+namespace DataJuggler.DocGen.DataAccessComponent.Controllers
 {
 
     #region class CodeSampleController

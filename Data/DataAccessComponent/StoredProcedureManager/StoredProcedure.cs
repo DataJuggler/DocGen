@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Data.SqlClient;
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 using DataJuggler.NET8.Enumerations;
 
 #endregion
 
-namespace DataAccessComponent.StoredProcedureManager
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager
 {
 
     #region class StoredProcedure

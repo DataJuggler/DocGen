@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using DataAccessComponent.Exceptions;
+using DataJuggler.DocGen.DataAccessComponent.Exceptions;
 
 #endregion
 
 
-namespace DataAccessComponent.Logging
+namespace DataJuggler.DocGen.DataAccessComponent.Logging
 {
 
     #region ErrorHandler

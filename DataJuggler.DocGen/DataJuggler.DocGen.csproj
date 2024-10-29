@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
+    <Version>1.0.7</Version>
     <Authors>DataJuggler</Authors>
     <Description>DocGen uses Microsoft.CodeAnalysis to analyze a Visual Studio C# Solution and helps to automate generating documentation.
 A Blazor website is coming soon that will allow admin owners of a solution to edit and approve or hide generated descriptions.</Description>
@@ -14,48 +14,57 @@ A Blazor website is coming soon that will allow admin owners of a solution to ed
     <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
   </PropertyGroup>
-
+	
   <ItemGroup>
     <Compile Remove="DocGen.Delegates.cs" />
   </ItemGroup>
 
+  
   <ItemGroup>
-    <None Include="..\Images\DocGenIcon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="Delegates\DocGen.Delegates.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="DataJuggler.DocGen.DataAccessComponent" Version="1.0.8" />
     <PackageReference Include="DataJuggler.UltimateHelper" Version="8.1.3" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.11.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.11.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0-2.final" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0-2.final" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.12.0-2.final" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="ReadMe.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Lib\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="DataAccessComponent">
-      <HintPath>Lib\DataAccessComponent.dll</HintPath>
-    </Reference>
-    <Reference Include="ObjectLibrary">
-      <HintPath>Lib\ObjectLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="DocGenIcon.png">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
+		<None Update="Lib\net8.0\DataAccessComponent.dll">
+			<Pack>true</Pack>
+			<PackagePath>lib\net8.0\</PackagePath>
+		</None>
+		<None Update="Lib\net8.0\ObjectLibrary.dll">
+			<Pack>true</Pack>
+			<PackagePath>lib\net8.0\</PackagePath>
+		</None>
+		<None Update="Lib\net8.0\DataAccessComponent.pdb">
+			<Pack>true</Pack>
+			<PackagePath>lib\net8.0\</PackagePath>
+		</None>
+		<None Update="Lib\net8.0\ObjectLibrary.pdb">
+			<Pack>true</Pack>
+			<PackagePath>lib\net8.0\</PackagePath>
+		</None>
+		<None Update="DocGenIcon.png">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Update="DocGenDatabaseSchema.sql">
+			<Pack>true</Pack>
+			<PackagePath>\SQL</PackagePath>
+		</None>
+		<None Update="ReadMe.md">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>

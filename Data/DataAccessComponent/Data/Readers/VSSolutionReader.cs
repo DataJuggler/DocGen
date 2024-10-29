@@ -2,8 +2,8 @@
 
 #region using statements
 
-using ObjectLibrary.BusinessObjects;
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,7 +11,7 @@ using System.Data;
 #endregion
 
 
-namespace DataAccessComponent.Data.Readers
+namespace DataJuggler.DocGen.DataAccessComponent.Data.Readers
 {
 
     #region class VSSolutionReader

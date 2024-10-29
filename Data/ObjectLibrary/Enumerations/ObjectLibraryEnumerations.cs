@@ -4,7 +4,7 @@
 
 #endregion
 
-namespace ObjectLibrary.Enumerations
+namespace DataJuggler.DocGen.ObjectLibrary.Enumerations
 {
 
     #region ObjectTypeEnum : int

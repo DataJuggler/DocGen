@@ -1,6 +1,6 @@
 ﻿
 
-namespace DataAccessComponent.Connection
+namespace DataJuggler.DocGen.DataAccessComponent.Connection
 {
 
     #region class Connection

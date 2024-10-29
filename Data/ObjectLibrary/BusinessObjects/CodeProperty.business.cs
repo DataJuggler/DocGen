@@ -3,14 +3,14 @@
 #region using statements
 
 using DataJuggler.UltimateHelper;
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 using System;
 using System.Collections.Generic;
 
 #endregion
 
 
-namespace ObjectLibrary.BusinessObjects
+namespace DataJuggler.DocGen.ObjectLibrary.BusinessObjects
 {
 
     #region class CodeProperty

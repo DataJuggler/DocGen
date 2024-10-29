@@ -5,8 +5,6 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessComponent", "DataAccessComponent\DataAccessComponent.csproj", "{02F80059-161F-40F2-A7AC-AA12A880B511}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectLibrary", "ObjectLibrary\ObjectLibrary.csproj", "{5A919BBD-EF63-467A-8ACE-DDB4EE7A8E5B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{02F80059-161F-40F2-A7AC-AA12A880B511}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F80059-161F-40F2-A7AC-AA12A880B511}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F80059-161F-40F2-A7AC-AA12A880B511}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A919BBD-EF63-467A-8ACE-DDB4EE7A8E5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A919BBD-EF63-467A-8ACE-DDB4EE7A8E5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A919BBD-EF63-467A-8ACE-DDB4EE7A8E5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A919BBD-EF63-467A-8ACE-DDB4EE7A8E5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

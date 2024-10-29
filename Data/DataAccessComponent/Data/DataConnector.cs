@@ -8,7 +8,7 @@ using System.Text;
 
 #endregion
 
-namespace DataAccessComponent.Data
+namespace DataJuggler.DocGen.DataAccessComponent.Data
 {
 
     #region class DataConnector

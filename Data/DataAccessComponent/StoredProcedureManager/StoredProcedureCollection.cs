@@ -9,7 +9,7 @@ using System.Text;
 #endregion
 
 
-namespace DataAccessComponent.StoredProcedureManager
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager
 {
     public class StoredProcedureCollection : CollectionBase
     {

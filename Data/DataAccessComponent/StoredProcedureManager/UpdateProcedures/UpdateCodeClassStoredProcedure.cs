@@ -1,6 +1,6 @@
 
 
-namespace DataAccessComponent.StoredProcedureManager.UpdateProcedures
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.UpdateProcedures
 {
 
     #region class UpdateCodeClassStoredProcedure

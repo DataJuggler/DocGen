@@ -1,6 +1,6 @@
 
 
-namespace DataAccessComponent.StoredProcedureManager.DeleteProcedures
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.DeleteProcedures
 {
 
     #region class DeleteVSProjectStoredProcedure

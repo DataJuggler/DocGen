@@ -7,7 +7,7 @@ using System;
 #endregion
 
 
-namespace DataAccessComponent.StoredProcedureManager.InsertProcedures
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.InsertProcedures
 {
 
     #region class TemporaryInsertProcedure

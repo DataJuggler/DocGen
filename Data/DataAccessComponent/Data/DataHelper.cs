@@ -3,12 +3,12 @@
 
 using System;
 using System.Data;
-using DataAccessComponent.StoredProcedureManager;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager;
 using DataJuggler.NET8.Sql;
 
 #endregion
 
-namespace DataAccessComponent.Data
+namespace DataJuggler.DocGen.DataAccessComponent.Data
 {
 
     #region class DataHelper

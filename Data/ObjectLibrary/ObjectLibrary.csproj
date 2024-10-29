@@ -4,11 +4,22 @@
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageId>DataJuggler.DataTier.Net8.ObjectLibrary</PackageId>
-    <Version>8.0.0</Version>
+    <PackageId>DataJuggler.DocGen.ObjectLibrary</PackageId>
+    <Version>1.0.10</Version>
     <Authors>DataJuggler</Authors>
     <Company>DataJuggler</Company>
-    <Description>This is one of four projects that make up a DataTier.Net8 DataTier</Description>
+    <Description>This is one of two projects that make up a the DataTier for DataJuggler.DocGen.
+The other is DataJuggler.DocGen.DataAccessComponent.</Description>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Product>DataJuggler.DocGen.ObjectLibrary</Product>
+    <PackageIcon>DocGenIcon.png</PackageIcon>
+    <PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/DataJuggler/DocGen</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Visual Studio Documentation Generator</PackageTags>
+    <PackageReleaseNotes>This is the first release of this project as a NuGet package.</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <ApplicationIcon>DocGenIcon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,6 +32,17 @@
 
   <ItemGroup>
     <PackageReference Include="DataJuggler.Net8" Version="8.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DocGenIcon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="ReadMe.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   
 </Project>

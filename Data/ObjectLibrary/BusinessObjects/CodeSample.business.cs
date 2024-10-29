@@ -2,13 +2,13 @@
 
 #region using statements
 
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 using System;
 
 #endregion
 
 
-namespace ObjectLibrary.BusinessObjects
+namespace DataJuggler.DocGen.ObjectLibrary.BusinessObjects
 {
 
     #region class CodeSample

@@ -3,7 +3,7 @@
 #region using statements
 
 using System;
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 
 #endregion
 

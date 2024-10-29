@@ -6,17 +6,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data;
-using DataAccessComponent.Connection;
-using DataAccessComponent.Logging;
-using DataAccessComponent.Exceptions;
-using DataAccessComponent.DataOperations;
-using DataAccessComponent.Controllers;
-using DataAccessComponent.Data;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.Connection;
+using DataJuggler.DocGen.DataAccessComponent.Logging;
+using DataJuggler.DocGen.DataAccessComponent.Exceptions;
+using DataJuggler.DocGen.DataAccessComponent.DataOperations;
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
+using DataJuggler.DocGen.DataAccessComponent.Data;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 
 #endregion
 
-namespace DataAccessComponent.DataBridge
+namespace DataJuggler.DocGen.DataAccessComponent.DataBridge
 {
 
     #region DataBridgeManager

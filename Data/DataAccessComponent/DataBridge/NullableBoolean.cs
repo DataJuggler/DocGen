@@ -9,7 +9,7 @@ using System.Text;
 #endregion
 
 
-namespace DataAccessComponent.DataBridge
+namespace DataJuggler.DocGen.DataAccessComponent.DataBridge
 {
 
     #region NullableBoolean

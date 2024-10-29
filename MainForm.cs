@@ -2,22 +2,13 @@
 
 #region using statements
 
-using System;
+using DataJuggler.DocGen;
+using DataJuggler.DocGen.Delegates;
 using DataJuggler.UltimateHelper;
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.MSBuild;
-using System.Linq;
-using Microsoft.CodeAnalysis.FindSymbols;
 using ObjectLibrary.BusinessObjects;
 using DataAccessComponent.DataGateway;
 using DataAccessComponent.Connection;
-using Microsoft.Build.Evaluation;
-using Project = Microsoft.CodeAnalysis.Project;
-using MSProject = Microsoft.Build.Evaluation.Project;
-using DataJuggler.DocGen;
-using Microsoft.CodeAnalysis.Options;
-using DataJuggler.DocGen.Delegates;
+using Microsoft.CodeAnalysis;
 
 #endregion
 
@@ -147,6 +138,11 @@ namespace DocGen
                     // Show                    
                     ResultsLabel.Text = "Save Results";
                     ResultsPanel.Visible = true;
+
+                    if (savedResults.Exceptions.Count > 0)
+                    {
+                        string temp = savedResults.Exceptions[0].Message;
+                    }
                 }
             }
         }

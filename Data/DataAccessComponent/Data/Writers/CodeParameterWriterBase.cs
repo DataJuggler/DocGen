@@ -2,19 +2,19 @@
 
 #region using statements
 
-using DataAccessComponent.StoredProcedureManager.DeleteProcedures;
-using DataAccessComponent.StoredProcedureManager.FetchProcedures;
-using DataAccessComponent.StoredProcedureManager.InsertProcedures;
-using DataAccessComponent.StoredProcedureManager.UpdateProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.DeleteProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.FetchProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.InsertProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.UpdateProcedures;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using Microsoft.Data.SqlClient;
-using ObjectLibrary.BusinessObjects;
 using System;
 using System.Data;
 
 #endregion
 
 
-namespace DataAccessComponent.Data.Writers
+namespace DataJuggler.DocGen.DataAccessComponent.Data.Writers
 {
 
     #region class CodeParameterWriterBase

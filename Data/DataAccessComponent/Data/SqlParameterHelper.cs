@@ -10,7 +10,7 @@ using Microsoft.Data.SqlClient;
 
 #endregion
 
-namespace DataAccessComponent.Data
+namespace DataJuggler.DocGen.DataAccessComponent.Data
 {
 
     #region SqlParameterHelper

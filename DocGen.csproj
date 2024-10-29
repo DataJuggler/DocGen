@@ -19,14 +19,13 @@
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="Win\DataJuggler.DocGen\**" />
     <EmbeddedResource Remove="Win\Data\**" />
-	  <None Remove="DataJuggler.DocGen\**" />
+    <None Remove="DataJuggler.DocGen\**" />
     <None Remove="Data\**" />
     <None Remove="Win\DataJuggler.DocGen\**" />
     <None Remove="Win\Data\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.DocGen" Version="1.0.5" />
     <PackageReference Include="DataJuggler.Win.Controls" Version="8.1.6" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0-2.final" />
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0-2.final" />
@@ -34,8 +33,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="Data\DataAccessComponent\DataAccessComponent.csproj" />
-    <ProjectReference Include="Data\ObjectLibrary\ObjectLibrary.csproj" />
+    <ProjectReference Include="DataJuggler.DocGen\DataJuggler.DocGen.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DataAccessComponent">
+      <HintPath>DataJuggler.DocGen\Lib\8.0\DataAccessComponent.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectLibrary">
+      <HintPath>DataJuggler.DocGen\Lib\8.0\ObjectLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

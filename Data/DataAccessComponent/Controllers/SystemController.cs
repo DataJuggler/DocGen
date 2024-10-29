@@ -5,16 +5,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DataAccessComponent.Controllers;
-using DataAccessComponent.DataBridge;
-using DataAccessComponent.DataOperations;
-using DataAccessComponent.Logging;
-using DataAccessComponent.Exceptions;
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
+using DataJuggler.DocGen.DataAccessComponent.DataBridge;
+using DataJuggler.DocGen.DataAccessComponent.DataOperations;
+using DataJuggler.DocGen.DataAccessComponent.Logging;
+using DataJuggler.DocGen.DataAccessComponent.Exceptions;
 
 #endregion
 
 
-namespace DataAccessComponent.Controllers
+namespace DataJuggler.DocGen.DataAccessComponent.Controllers
 {
 
     #region class SystemController
@@ -56,7 +56,7 @@ namespace DataAccessComponent.Controllers
 
             // locals
             string methodName = "TestDatabaseConnection";
-            string objectName = "DataAccessComponent.Controller.System.SystemController";
+            string objectName = "DataJuggler.DocGen.DataAccessComponent.Controller.System.SystemController";
 
             try
             {

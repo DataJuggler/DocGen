@@ -1,20 +1,20 @@
 
 #region using statements
 
-using DataAccessComponent.StoredProcedureManager.DeleteProcedures;
-using DataAccessComponent.StoredProcedureManager.FetchProcedures;
-using DataAccessComponent.StoredProcedureManager.InsertProcedures;
-using DataAccessComponent.StoredProcedureManager.UpdateProcedures;
-using DataAccessComponent.Data.Writers;
-using DataAccessComponent.Data;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.DeleteProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.FetchProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.InsertProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.UpdateProcedures;
+using DataJuggler.DocGen.DataAccessComponent.Data.Writers;
+using DataJuggler.DocGen.DataAccessComponent.Data;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using System;
 using System.Data;
-using DataAccessComponent.DataBridge;
+using DataJuggler.DocGen.DataAccessComponent.DataBridge;
 
 #endregion
 
-namespace DataAccessComponent.DataOperations
+namespace DataJuggler.DocGen.DataAccessComponent.DataOperations
 {
 
     #region class PolymorphicObject

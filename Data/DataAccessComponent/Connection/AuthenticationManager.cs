@@ -1,18 +1,15 @@
 
 #region using statements
 
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
+using DataJuggler.DocGen.DataAccessComponent.Data;
+using DataJuggler.DocGen.DataAccessComponent.Logging;
 using DataJuggler.UltimateHelper;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using DataAccessComponent.Data;
-using DataAccessComponent.Logging;
-using DataAccessComponent.Exceptions;
-using DataAccessComponent.Controllers;
 
 #endregion
 
-namespace DataAccessComponent.Connection
+namespace DataJuggler.DocGen.DataAccessComponent.Connection
 {
 
     #region AuthenticationManager

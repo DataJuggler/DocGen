@@ -7,12 +7,12 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.MSBuild;
-using ObjectLibrary.BusinessObjects;
-using ObjectLibrary.Enumerations;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.ObjectLibrary.Enumerations;
 using CodeConstructor = ObjectLibrary.BusinessObjects.CodeConstructor;
 using Project = Microsoft.CodeAnalysis.Project;
-using DataAccessComponent.Connection;
-using DataAccessComponent.DataGateway;
+using DataJuggler.DocGen.DataAccessComponent.Connection;
+using DataJuggler.DocGen.DataAccessComponent.DataGateway;
 using System.Xml.Linq;
 using DataJuggler.UltimateHelper.Objects;
 using Microsoft.CodeAnalysis.CSharp;
@@ -1397,6 +1397,18 @@ namespace DataJuggler.DocGen
                                     uICallback.OverallProgress(totalProjectsCount, currentProjectNumber, statusText);
                                 }
                             }
+                        }
+                    }
+                    else
+                    {
+                        // Get the last exception
+                        Exception exception = gateway.GetLastException();
+
+                        // If the exception object exists
+                        if (NullHelper.Exists(exception))
+                        {
+                            // Add this exception
+                            saveResults.Exceptions.Add(exception);
                         }
                     }
                 }

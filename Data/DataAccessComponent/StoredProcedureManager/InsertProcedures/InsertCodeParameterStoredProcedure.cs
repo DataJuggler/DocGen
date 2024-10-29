@@ -1,6 +1,6 @@
 
 
-namespace DataAccessComponent.StoredProcedureManager.InsertProcedures
+namespace DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.InsertProcedures
 {
 
     #region class InsertCodeParameterStoredProcedure

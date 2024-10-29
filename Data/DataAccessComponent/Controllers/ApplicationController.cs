@@ -5,19 +5,19 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DataAccessComponent.Data;
-using DataAccessComponent.Logging;
-using DataAccessComponent.Connection;
-using DataAccessComponent.Exceptions;
-using DataAccessComponent.DataBridge;
-using DataAccessComponent.DataOperations;
-using DataAccessComponent.Controllers;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.Data;
+using DataJuggler.DocGen.DataAccessComponent.Logging;
+using DataJuggler.DocGen.DataAccessComponent.Connection;
+using DataJuggler.DocGen.DataAccessComponent.Exceptions;
+using DataJuggler.DocGen.DataAccessComponent.DataBridge;
+using DataJuggler.DocGen.DataAccessComponent.DataOperations;
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 
 #endregion
 
 
-namespace DataAccessComponent.Controllers
+namespace DataJuggler.DocGen.DataAccessComponent.Controllers
 {
 
     #region class ApplicationController

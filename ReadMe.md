@@ -1,4 +1,5 @@
-﻿DataJuggler.DocGen analyzes and Saves a Visual Studio solution in SQL Server.
+﻿DataJuggler.DocGen analyzes and Saves the code objects found in a Visual Studio solution in SQL Server.
+The main purpose of this project is to create documentation, but there are other uses.
 
 Code For The NuGet package and this project
 https://github.com/DataJuggler/DocGen

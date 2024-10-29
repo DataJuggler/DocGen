@@ -5,12 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DataAccessComponent.Controllers;
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
 
 #endregion
 
 
-namespace DataAccessComponent.Exceptions
+namespace DataJuggler.DocGen.DataAccessComponent.Exceptions
 {
 
     #region class UnknownErrorException : CustomException

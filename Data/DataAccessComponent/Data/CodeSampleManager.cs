@@ -2,12 +2,12 @@
 
 #region using statements
 
-using DataAccessComponent.Data.Readers;
-using DataAccessComponent.StoredProcedureManager.DeleteProcedures;
-using DataAccessComponent.StoredProcedureManager.FetchProcedures;
-using DataAccessComponent.StoredProcedureManager.InsertProcedures;
-using DataAccessComponent.StoredProcedureManager.UpdateProcedures;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.Data.Readers;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.DeleteProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.FetchProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.InsertProcedures;
+using DataJuggler.DocGen.DataAccessComponent.StoredProcedureManager.UpdateProcedures;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,7 +15,7 @@ using System.Data;
 #endregion
 
 
-namespace DataAccessComponent.Data
+namespace DataJuggler.DocGen.DataAccessComponent.Data
 {
 
     #region class CodeSampleManager

@@ -1,23 +1,23 @@
 
 #region using statements
 
-using DataAccessComponent.Controllers;
-using DataAccessComponent.DataOperations;
-using DataAccessComponent.Data;
-using ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.Controllers;
+using DataJuggler.DocGen.DataAccessComponent.DataOperations;
+using DataJuggler.DocGen.DataAccessComponent.Data;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using System;
 using System.Collections.Generic;
 using Microsoft.Data.SqlClient;
 
 #endregion
 
-namespace DataAccessComponent.DataGateway
+namespace DataJuggler.DocGen.DataAccessComponent.DataGateway
 {
 
     #region class Gateway
     /// <summary>
     /// This class is used to manage DataOperations
-    /// between the client and the DataAccessComponent.
+    /// between the client and the DataJuggler.DocGen.DataAccessComponent.
     /// Do not change the method name or the parameters for the
     /// code generated methods or they will be recreated the next 
     /// time you code generate with DataTier.Net. If you need additional
@@ -453,7 +453,7 @@ namespace DataAccessComponent.DataGateway
                     parameters.Add(sqlParametersParameter);
 
                     // get the dataConnector
-                    DataAccessComponent.Data.DataConnector dataConnector = GetDataConnector();
+                    DataConnector dataConnector = GetDataConnector();
 
                     // Execute the query
                     returnValue = systemMethods.ExecuteNonQuery(parameters, dataConnector);
