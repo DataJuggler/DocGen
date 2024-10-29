@@ -5,9 +5,9 @@
 using DataJuggler.DocGen;
 using DataJuggler.DocGen.Delegates;
 using DataJuggler.UltimateHelper;
-using ObjectLibrary.BusinessObjects;
-using DataAccessComponent.DataGateway;
-using DataAccessComponent.Connection;
+using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
+using DataJuggler.DocGen.DataAccessComponent.DataGateway;
+using DataJuggler.DocGen.DataAccessComponent.Connection;
 using Microsoft.CodeAnalysis;
 
 #endregion
@@ -55,7 +55,7 @@ namespace DocGen
                 ShowProgressControls(true);
 
                 // Create a new instance of an 'UICallback' object.
-                UICallback uICallback = new UICallback(UpdateBatchProgress, UpdateOverallProgress);
+                UICallback uICallback = new (UpdateBatchProgress, UpdateOverallProgress);
 
                 // Retrieve the Solution
                 Solution = await DocGenerator.AnalyzeSolution(SolutionSelector.Text, uICallback);
@@ -111,7 +111,7 @@ namespace DocGen
                 Solution.CreatedDate = DateTime.Now;
 
                 // Create a new instance of an 'UICallback' object.
-                UICallback uICallback = new UICallback(UpdateBatchProgress, UpdateOverallProgress);
+                UICallback uICallback = new (UpdateBatchProgress, UpdateOverallProgress);
 
                 // if the project exists
                 if (ListHelper.HasOneOrMoreItems(Solution.Projects))
