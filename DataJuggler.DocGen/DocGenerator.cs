@@ -4,18 +4,18 @@
 
 using DataJuggler.UltimateHelper;
 using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.MSBuild;
 using DataJuggler.DocGen.ObjectLibrary.BusinessObjects;
 using DataJuggler.DocGen.ObjectLibrary.Enumerations;
-using CodeConstructor = ObjectLibrary.BusinessObjects.CodeConstructor;
+using CodeConstructor = DataJuggler.DocGen.ObjectLibrary.BusinessObjects.CodeConstructor;
 using Project = Microsoft.CodeAnalysis.Project;
 using DataJuggler.DocGen.DataAccessComponent.Connection;
 using DataJuggler.DocGen.DataAccessComponent.DataGateway;
 using System.Xml.Linq;
 using DataJuggler.UltimateHelper.Objects;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Build.Evaluation;
 using Microsoft.Build.Tasks.Deployment.ManifestUtilities;
 using System.CodeDom;
