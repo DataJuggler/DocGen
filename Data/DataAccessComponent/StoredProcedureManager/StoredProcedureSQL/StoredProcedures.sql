@@ -6,7 +6,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeClass
 -- =========================================================
 
@@ -70,7 +70,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeClass
 -- =========================================================
 
@@ -140,7 +140,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeClass
 -- =========================================================
 
@@ -197,7 +197,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeClass
 -- =========================================================
 
@@ -251,7 +251,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeClass_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeClass objects
 -- =========================================================
 
@@ -302,7 +302,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeConstructor
 -- =========================================================
 
@@ -368,7 +368,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeConstructor
 -- =========================================================
 
@@ -442,7 +442,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeConstructor
 -- =========================================================
 
@@ -499,7 +499,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeConstructor
 -- =========================================================
 
@@ -553,7 +553,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeConstructor_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeConstructor objects
 -- =========================================================
 
@@ -604,7 +604,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeFile
 -- =========================================================
 
@@ -671,7 +671,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeFile
 -- =========================================================
 
@@ -747,7 +747,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeFile
 -- =========================================================
 
@@ -804,7 +804,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeFile
 -- =========================================================
 
@@ -858,7 +858,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeFile_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeFile objects
 -- =========================================================
 
@@ -909,7 +909,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeMethod
 -- =========================================================
 
@@ -978,7 +978,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeMethod
 -- =========================================================
 
@@ -1058,7 +1058,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeMethod
 -- =========================================================
 
@@ -1115,7 +1115,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeMethod
 -- =========================================================
 
@@ -1169,7 +1169,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeMethod_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeMethod objects
 -- =========================================================
 
@@ -1220,7 +1220,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeParameter
 -- =========================================================
 
@@ -1283,7 +1283,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeParameter
 -- =========================================================
 
@@ -1351,7 +1351,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeParameter
 -- =========================================================
 
@@ -1408,7 +1408,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeParameter
 -- =========================================================
 
@@ -1462,7 +1462,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeParameter_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeParameter objects
 -- =========================================================
 
@@ -1513,7 +1513,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeProperty
 -- =========================================================
 
@@ -1580,7 +1580,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeProperty
 -- =========================================================
 
@@ -1656,7 +1656,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeProperty
 -- =========================================================
 
@@ -1713,7 +1713,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeProperty
 -- =========================================================
 
@@ -1767,7 +1767,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeProperty_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeProperty objects
 -- =========================================================
 
@@ -1818,7 +1818,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeSample_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new CodeSample
 -- =========================================================
 
@@ -1881,7 +1881,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeSample_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing CodeSample
 -- =========================================================
 
@@ -1949,7 +1949,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeSample_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing CodeSample
 -- =========================================================
 
@@ -2006,7 +2006,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeSample_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing CodeSample
 -- =========================================================
 
@@ -2060,7 +2060,7 @@ Go
 -- =========================================================
 -- Procure Name: CodeSample_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all CodeSample objects
 -- =========================================================
 
@@ -2111,7 +2111,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new ReferencedBy
 -- =========================================================
 
@@ -2178,7 +2178,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing ReferencedBy
 -- =========================================================
 
@@ -2254,7 +2254,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing ReferencedBy
 -- =========================================================
 
@@ -2311,7 +2311,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing ReferencedBy
 -- =========================================================
 
@@ -2365,7 +2365,7 @@ Go
 -- =========================================================
 -- Procure Name: ReferencedBy_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all ReferencedBy objects
 -- =========================================================
 
@@ -2416,7 +2416,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new VSProject
 -- =========================================================
 
@@ -2483,7 +2483,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing VSProject
 -- =========================================================
 
@@ -2559,7 +2559,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing VSProject
 -- =========================================================
 
@@ -2616,7 +2616,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing VSProject
 -- =========================================================
 
@@ -2670,7 +2670,7 @@ Go
 -- =========================================================
 -- Procure Name: VSProject_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all VSProject objects
 -- =========================================================
 
@@ -2721,7 +2721,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Insert
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Insert a new VSSolution
 -- =========================================================
 
@@ -2784,7 +2784,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Update
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Update an existing VSSolution
 -- =========================================================
 
@@ -2852,7 +2852,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Find
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Find an existing VSSolution
 -- =========================================================
 
@@ -2909,7 +2909,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_Delete
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Delete an existing VSSolution
 -- =========================================================
 
@@ -2963,7 +2963,7 @@ Go
 -- =========================================================
 -- Procure Name: VSSolution_FetchAll
 -- Author:           Data Juggler - Data Tier.Net Procedure Generator
--- Create Date:   10/28/2024
+-- Create Date:   11/23/2024
 -- Description:    Returns all VSSolution objects
 -- =========================================================
 

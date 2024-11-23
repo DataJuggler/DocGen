@@ -3,9 +3,9 @@
   <PropertyGroup>
 	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageId>DataJuggler.DocGen.ObjectLibrary</PackageId>
-    <Version>1.0.10</Version>
+    <Version>1.0.11</Version>
     <Authors>DataJuggler</Authors>
     <Company>DataJuggler</Company>
     <Description>This is one of two projects that make up a the DataTier for DataJuggler.DocGen.
@@ -31,7 +31,7 @@ The other is DataJuggler.DocGen.DataAccessComponent.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DataJuggler.Net8" Version="8.0.8" />
+    <PackageReference Include="DataJuggler.UltimateHelper" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
